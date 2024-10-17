@@ -1,3 +1,5 @@
+import { NavLink } from "react-router-dom";
+
 interface LinkProps {
   name: string;
   href: string;
@@ -6,9 +8,13 @@ interface LinkProps {
 const Link = ({ name, href }: LinkProps) => {
   return (
     <li className="nav-item">
-      <a className="nav-link font-link" aria-current="page" data-bs-toggle="pill" href={`/${href}`}>
+      <NavLink
+        className="nav-link font-link"
+        to={`/${href}`}
+        style={{ fontWeight: "600" }}
+      >
         {name}
-      </a>
+      </NavLink>
     </li>
   );
 };

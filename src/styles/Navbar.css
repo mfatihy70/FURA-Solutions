@@ -1,6 +1,6 @@
 @font-face {
   font-family: "Bankgothic";
-  src: url("src/assets/fonts/bankgothic-md-bt/bank\ gothic\ medium\ bt.ttf")
+  src: url("../assets/fonts/bankgothic-md-bt/BankGothicMediumBT.ttf")
     format("truetype");
 }
 
@@ -12,7 +12,6 @@
 
 .font-link {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  font-weight: 500;
   border-radius: 10px;
   margin: 0.5em;
 }
