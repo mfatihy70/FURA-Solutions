@@ -1,6 +1,6 @@
-<img src="https://github.com/user-attachments/assets/7040af8c-8f85-4520-9378-1e4705eebccf)" alt="image" height="300"/>
----
+<img src="https://github.com/user-attachments/assets/e33ad1a4-9138-4344-98a5-2b8c4c9fcd76" alt="image" height="300"/>
 
+---
 
 # FURA Solutions Website
 
