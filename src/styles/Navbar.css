@@ -1,0 +1,22 @@
+@font-face {
+  font-family: "Bankgothic";
+  src: url("src/assets/fonts/bankgothic-md-bt/bank\ gothic\ medium\ bt.ttf")
+    format("truetype");
+}
+
+.font-logo {
+  font-family: "Bankgothic", sans-serif;
+  color: #07416b;
+  font-weight: 500;
+}
+
+.font-link {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-weight: 500;
+  border-radius: 10px;
+  margin: 0.5em;
+}
+
+.font-link:hover {
+  background-color: #00a5e9;
+}
