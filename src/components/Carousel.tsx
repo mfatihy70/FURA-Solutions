@@ -8,7 +8,6 @@ import "../styles/Carousel.css";
 const CarouselExample = () => {
   return (
     <Carousel>
-      <br />
       <Carousel.Item interval={3000}>
         <div className="carousel-image-container">
           <img src={kablokanal} className="carousel-image" alt="kablokanal" />
