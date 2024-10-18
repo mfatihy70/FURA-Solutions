@@ -1,5 +1,16 @@
 # Changelog
 
+## [v0.0.3] - 2024-10-18
+### Added
+- Content to about page.
+- All contents of contact page including cards, form and map.
+- New folder for contact files.
+- `TODO.md` file.
+
+### Changed
+- Function names for pages corrected.
+- Moved images to according folders.
+
 ## [v0.0.2] - 2024-10-17
 
 ### Added

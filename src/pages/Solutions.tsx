@@ -1,4 +1,4 @@
-const About = () => {
+const Solutions = () => {
   return (
     <div>
       <h1>Çözümlerimiz</h1>
@@ -6,4 +6,4 @@ const About = () => {
   );
 };
 
-export default About;
+export default Solutions;

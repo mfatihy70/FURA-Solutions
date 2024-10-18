@@ -1,6 +1,6 @@
 import Carousel from "../components/Carousel";
 
-const About = () => {
+const Home = () => {
   return (
     <div>
       <Carousel />
@@ -8,4 +8,4 @@ const About = () => {
   );
 };
 
-export default About;
+export default Home;

@@ -1,4 +1,4 @@
-const About = () => {
+const Partners = () => {
   return (
     <div>
       <h1>Partnerlerimiz</h1>
@@ -6,4 +6,4 @@ const About = () => {
   );
 };
 
-export default About;
+export default Partners;
