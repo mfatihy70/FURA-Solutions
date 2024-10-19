@@ -1,21 +1,39 @@
 @font-face {
   font-family: "Bankgothic";
-  src: url("../assets/fonts/bankgothic-md-bt/BankGothicMediumBT.ttf")
+  src: url("/src/assets/fonts/bankgothic-md-bt/BankGothicMediumBT.ttf")
     format("truetype");
 }
-
 .font-logo {
   font-family: "Bankgothic", sans-serif;
   color: #07416b;
   font-weight: 500;
+  transition: color 0.3s ease;
 }
 
-.font-link {
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+.navbar-brand {
+  display: inline-block;
+  position: relative;
+}
+.navbar-brand:hover .font-logo {
+  color: #00a5e9;
+}
+.logo-wrapper {
+  position: relative;
+  display: inline-block;
+  transition: box-shadow 0.3s ease;
+}
+.navbar-brand:hover .logo-wrapper {
+  box-shadow: 0 0 15px rgba(0, 165, 233, 0.7);
+}
+
+.nav-link {
   border-radius: 10px;
   margin: 0.5em;
 }
+.nav-link:hover {
+  background-color: #94dfff;
+}
 
-.font-link:hover {
-  background-color: #00a5e9;
+.nav-link.active {
+  background-color: #94dfff; /* Active background color */
 }

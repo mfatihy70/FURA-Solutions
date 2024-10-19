@@ -1,22 +1,23 @@
 import { Container, Row } from "react-bootstrap";
-import ContactImage from "./image";
-import Cards from "./cards";
-import ContactForm from "./form";
-import Map from "./map";
+import Footer from "../../components/Footer";
+import ContactImage from "./Image";
+import Cards from "./Cards";
+import ContactForm from "./Form";
+import Map from "./Map";
 
 const ContactPage = () => {
   return (
-    <Container fluid className="p-0">
-      <ContactImage />
-
-      <Container className="py-5">
+    <>
+      <Container>
+        <ContactImage />
         <Cards />
         <Row>
           <ContactForm />
           <Map />
         </Row>
       </Container>
-    </Container>
+      <Footer />
+    </>
   );
 };
 

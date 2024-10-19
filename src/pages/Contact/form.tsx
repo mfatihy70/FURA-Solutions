@@ -2,7 +2,7 @@ import { Col, Form, Button } from "react-bootstrap";
 
 const ContactForm = () => {
   return (
-    <Col md={6}>
+    <Col md={6} className="mb-5 mb-md-0">
       <h2 className="mb-4">Bize Ulaşın</h2>
       <Form>
         <Form.Group className="mb-3">

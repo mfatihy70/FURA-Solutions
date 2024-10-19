@@ -3,9 +3,9 @@ import { GeoAltFill, TelephoneFill, EnvelopeFill } from "react-bootstrap-icons";
 
 const Cards = () => {
   return (
-    <Row className="mb-5">
-      <Col md={4}>
-        <Card className="text-center h-100">
+    <Row className="mb-5 mt-3 d-flex align-items-stretch">
+      <Col md={4} className="d-flex">
+        <Card className="text-center h-100 w-100">
           <Card.Body>
             <GeoAltFill className="text-primary mb-3" size={40} />
             <Card.Title>Ofisimiz</Card.Title>
@@ -16,23 +16,19 @@ const Cards = () => {
           </Card.Body>
         </Card>
       </Col>
-      <Col md={4}>
-        <Card className="text-center h-100">
+      <Col md={4} className="d-flex">
+        <Card className="text-center h-100 w-100">
           <Card.Body>
             <TelephoneFill className="text-primary mb-3" size={40} />
-            <Card.Body>
-              <Card.Title>Mobil</Card.Title>
-              <Card.Text>+90 (542) 194 14 13</Card.Text>
-            </Card.Body>
-            <Card.Body>
-              <Card.Title>Telefon</Card.Title>
-              <Card.Text>+90 (212) 936 19 61</Card.Text>
-            </Card.Body>
+            <Card.Title>Mobil</Card.Title>
+            <Card.Text>+90 (542) 194 14 13</Card.Text>
+            <Card.Title>Telefon</Card.Title>
+            <Card.Text>+90 (212) 936 19 61</Card.Text>
           </Card.Body>
         </Card>
       </Col>
-      <Col md={4}>
-        <Card className="text-center h-100">
+      <Col md={4} className="d-flex">
+        <Card className="text-center h-100 w-100">
           <Card.Body>
             <EnvelopeFill className="text-primary mb-3" size={40} />
             <Card.Title>E-Posta</Card.Title>

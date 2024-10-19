@@ -1,6 +1,5 @@
 # TODOs
 
-1. Send an e-mail when contact form is submitted.
-2. contents for missing pages
-3. footer   
-4. make selected link color distuingishable
+1. Send an e-mail when contact form is submitted
+2. dark mode
+3. language options

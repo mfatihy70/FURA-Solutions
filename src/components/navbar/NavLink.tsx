@@ -9,7 +9,9 @@ const Link = ({ name, href }: LinkProps) => {
   return (
     <li className="nav-item">
       <NavLink
-        className="nav-link font-link"
+        className={({ isActive }) =>
+          isActive ? "nav-link active" : "nav-link"
+        }
         to={`/${href}`}
         style={{ fontWeight: "600" }}
       >

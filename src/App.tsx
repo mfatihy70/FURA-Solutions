@@ -8,20 +8,17 @@ import {
 } from "react-router-dom";
 import Home from "./pages/Home";
 import About from "./pages/About";
-import Solutions from "./pages/Solutions";
-import Partners from "./pages/Partners";
-import Contact from "./pages/Contact/Contact";
+import Partners from "./pages/partners/Partners";
+import Contact from "./pages/contact/Contact";
 
 function App() {
   return (
     <Router>
       <Navbar />
-      <br />
       <Routes>
         <Route path="/" element={<Navigate to="/home" />} />
         <Route path="/home" element={<Home />} />
         <Route path="/about" element={<About />} />
-        <Route path="/solutions" element={<Solutions />} />
         <Route path="/partners" element={<Partners />} />
         <Route path="/contact" element={<Contact />} />
       </Routes>
