@@ -1,4 +1,4 @@
-import Footer from "/src/components/Footer";
+import Footer from "../../components/Footer";
 import PartnersChild from "./PartnersChild";
 import "/src/styles/Partners.css";
 
