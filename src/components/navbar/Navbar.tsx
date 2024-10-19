@@ -1,8 +1,8 @@
 import { useState } from "react";
 import Logo from "./Logo";
-import Link from "./Link";
+import Link from "./NavLink";
 import "bootstrap/dist/css/bootstrap.min.css";
-import "../../styles/Navbar.css";
+import "/src/styles/Navbar.css";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -10,7 +10,7 @@ const Navbar = () => {
   const toggle = () => setIsOpen(!isOpen);
 
   return (
-    <nav className="navbar navbar-expand-md navbar-light bg-light">
+    <nav className="navbar navbar-expand-md navbar-light bg-light mb-5">
       <div className="container">
         <Logo />
         <button
@@ -22,12 +22,13 @@ const Navbar = () => {
         >
           <span className="navbar-toggler-icon"></span>
         </button>
+
         <div className={`collapse navbar-collapse ${isOpen ? "show" : ""}`}>
           <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
-            <Link name="HAKKIMIZDA" href="hakkimizda" />
-            <Link name="ÇÖZÜMLERİMİZ" href="cozumlerimiz" />
-            <Link name="PARTNERLERİMİZ" href="partnerlerimiz" />
-            <Link name="İLETİŞİM" href="iletisim" />
+            <Link name="ANA SAYFA" href="home" />
+            <Link name="HAKKIMIZDA" href="about" />
+            <Link name="PARTNERLERİMİZ" href="partners" />
+            <Link name="İLETİŞİM" href="contact" />
           </ul>
         </div>
       </div>
