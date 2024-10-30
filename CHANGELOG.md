@@ -1,5 +1,9 @@
 # Changelog
 
+## [v0.0.5] - 2024-10-30
+### Added
+- Functionality to the contact form via `EmailJS`
+
 ## [v0.0.4] - 2024-10-19
 
 ### Added
