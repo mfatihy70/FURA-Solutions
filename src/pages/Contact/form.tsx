@@ -21,14 +21,15 @@ const ContactForm = () => {
 
     // Define the parameters for the email template
     const templateParams = {
-      name: formData.name,
-      email: formData.email,
-      message: formData.message
-    };
+      name: formData.name,    
+      email: formData.email,  
+      message: formData.message    
+  };
+  
 
     // Send the email using EmailJS
     emailjs
-      .send("service_ikms96m", "template_cttbgcc", templateParams)
+      .send("service_ikms96m", "template_gjbgd32", templateParams)
       .then((response) => {
         alert("Email sent successfully!");
         console.log("SUCCESS!", response.status, response.text);
