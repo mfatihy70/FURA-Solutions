@@ -1,5 +1,13 @@
 # Changelog
 
+## [v0.0.6] - 2024-11-1
+### Added
+- Localization
+
+### Deleted
+- Unnecessary links from `footer.tsx`
+
+
 ## [v0.0.5] - 2024-10-30
 ### Added
 - Functionality to the contact form via `EmailJS`

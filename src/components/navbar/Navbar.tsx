@@ -1,13 +1,23 @@
 import { useState } from "react";
+import { useTranslation } from "react-i18next";
 import Logo from "./Logo";
 import Link from "./NavLink";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "/src/styles/Navbar.css";
+import LanguageSwitch from "../locales/LanguageSwitch";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const { t } = useTranslation();
 
   const toggle = () => setIsOpen(!isOpen);
+
+  const navItems = [
+    { name: "ANA SAYFA", href: "home" },
+    { name: "HAKKIMIZDA", href: "about" },
+    { name: "PARTNERLERİMİZ", href: "partners" },
+    { name: "İLETİŞİM", href: "contact" }
+  ];
 
   return (
     <nav className="navbar navbar-expand-md navbar-light bg-light mb-5">
@@ -25,10 +35,10 @@ const Navbar = () => {
 
         <div className={`collapse navbar-collapse ${isOpen ? "show" : ""}`}>
           <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
-            <Link name="ANA SAYFA" href="home" />
-            <Link name="HAKKIMIZDA" href="about" />
-            <Link name="PARTNERLERİMİZ" href="partners" />
-            <Link name="İLETİŞİM" href="contact" />
+            {navItems.map((item) => (
+              <Link key={item.href} name={t(item.name)} href={item.href} />
+            ))}
+            <LanguageSwitch />
           </ul>
         </div>
       </div>
