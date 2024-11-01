@@ -1,20 +1,27 @@
 # Changelog
 
 ## [v0.0.6] - 2024-11-1
+
 ### Added
-- Localization
+
+- `LanguageSwitch.tsx` and `i18n.js` under `locales`
+- Localization toggle to navbar with functionality to translate links and icons
+- href to remaining footer links
 
 ### Deleted
+
 - Unnecessary links from `footer.tsx`
 
-
 ## [v0.0.5] - 2024-10-30
+
 ### Added
+
 - Functionality to the contact form via `EmailJS`
 - New item to `Carousel.tsx`
 - `.custom-width` for the last item
 
 ### Changed
+
 - `form.tsx` for email functionailty
 - `Carousel.css` for fitting images
 - Corrected the e-mail address

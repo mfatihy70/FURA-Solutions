@@ -10,23 +10,19 @@ const Footer = () => {
             <nav>
               <ul className="list-inline text-center text-md-end mb-0">
                 <li className="list-inline-item">
-                  <a href="" className="text-light text-decoration-none">
+                  <a
+                    href="FURA-Solutions/#/about"
+                    className="text-light text-decoration-none"
+                  >
                     About Us
                   </a>
                 </li>
                 <li className="list-inline-item ms-3">
-                  <a href="" className="text-light text-decoration-none">
-                    Services
-                  </a>
-                </li>
-                <li className="list-inline-item ms-3">
-                  <a href="" className="text-light text-decoration-none">
+                  <a
+                    href="FURA-Solutions/#/contact"
+                    className="text-light text-decoration-none"
+                  >
                     Contact
-                  </a>
-                </li>
-                <li className="list-inline-item ms-3">
-                  <a href="" className="text-light text-decoration-none">
-                    Privacy Policy
                   </a>
                 </li>
               </ul>

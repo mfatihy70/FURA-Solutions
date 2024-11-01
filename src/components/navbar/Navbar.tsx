@@ -13,10 +13,10 @@ const Navbar = () => {
   const toggle = () => setIsOpen(!isOpen);
 
   const navItems = [
-    { name: "ANA SAYFA", href: "home" },
-    { name: "HAKKIMIZDA", href: "about" },
-    { name: "PARTNERLERİMİZ", href: "partners" },
-    { name: "İLETİŞİM", href: "contact" }
+    { name: "home", href: "home" },
+    { name: "about", href: "about" },
+    { name: "partners", href: "partners" },
+    { name: "contact", href: "contact" },
   ];
 
   return (
