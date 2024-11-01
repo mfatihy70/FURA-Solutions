@@ -34,10 +34,10 @@ const Cards = () => {
             <Card.Title>E-Posta</Card.Title>
             <Card.Text>
               <a
-                href="mailto:kamuran-altay@fu-ra.com.tr"
+                href="mailto:kamuran.altay@fu-ra.com.tr"
                 style={{ textDecoration: "none" }}
               >
-                kamuran-altay@fu-ra.com.tr
+                kamuran.altay@fu-ra.com.tr
               </a>
             </Card.Text>
           </Card.Body>

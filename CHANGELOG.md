@@ -3,6 +3,13 @@
 ## [v0.0.5] - 2024-10-30
 ### Added
 - Functionality to the contact form via `EmailJS`
+- New item to `Carousel.tsx`
+- `.custom-width` for the last item
+
+### Changed
+- `form.tsx` for email functionailty
+- `Carousel.css` for fitting images
+- Corrected the e-mail address
 
 ## [v0.0.4] - 2024-10-19
 

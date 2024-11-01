@@ -9,23 +9,22 @@ const ContactForm = () => {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
-    message: ""
+    message: "",
   });
 
-  const handleChange = (e: { target: { name: any; value: any; }; }) => {
+  const handleChange = (e: { target: { name: any; value: any } }) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e: { preventDefault: () => void; }) => {
+  const handleSubmit = (e: { preventDefault: () => void }) => {
     e.preventDefault();
 
     // Define the parameters for the email template
     const templateParams = {
-      name: formData.name,    
-      email: formData.email,  
-      message: formData.message    
-  };
-  
+      name: formData.name,
+      email: formData.email,
+      message: formData.message,
+    };
 
     // Send the email using EmailJS
     emailjs
