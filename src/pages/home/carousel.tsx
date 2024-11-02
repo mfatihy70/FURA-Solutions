@@ -1,12 +1,15 @@
 import Carousel from "react-bootstrap/Carousel";
-import kablokanal from "../assets/images/slides/kablokanal.png";
-import kablolama from "../assets/images/slides/kablolama.png";
-import kablorekor from "../assets/images/slides/kablorekor.png";
-import trenkantar from "../assets/images/slides/trenkantar.png";
-import musterikablo from "../assets/images/slides/müsterikabloc.png";
-import "../styles/Carousel.css";
+import { useTranslation } from "react-i18next";
+import kablokanal from "../../assets/images/slides/kablokanal.png";
+import kablolama from "../../assets/images/slides/kablolama.png";
+import kablorekor from "../../assets/images/slides/kablorekor.png";
+import trenkantar from "../../assets/images/slides/trenkantar.png";
+import musterikablo from "../../assets/images/slides/müsterikabloc.png";
+import "../../styles/Carousel.css";
 
 const CarouselExample = () => {
+  const { t } = useTranslation();
+
   return (
     <Carousel>
       <Carousel.Item interval={3000}>
@@ -14,8 +17,8 @@ const CarouselExample = () => {
           <img src={kablokanal} className="carousel-image" alt="kablokanal" />
         </div>
         <Carousel.Caption>
-          <h3>Demiryolu standartlı kablo kanalları</h3>
-          <p>Conduits, Fittings, Accessoires</p>
+          <h3>{t("carousel.cable_channel.title")}</h3>
+          <p>{t("carousel.cable_channel.subtitle")}</p>
         </Carousel.Caption>
       </Carousel.Item>
 
@@ -24,7 +27,7 @@ const CarouselExample = () => {
           <img src={kablorekor} className="carousel-image" alt="kablorekor" />
         </div>
         <Carousel.Caption>
-          <h3>Demiryolu standartlı kablo rekorları</h3>
+          <h3>{t("carousel.cable_gland.title")}</h3>
         </Carousel.Caption>
       </Carousel.Item>
 
@@ -33,10 +36,8 @@ const CarouselExample = () => {
           <img src={trenkantar} className="carousel-image" alt="trenkantar" />
         </div>
         <Carousel.Caption>
-          <h3 className="bg-dark bg-opacity-50 p-2">
-            Portatif tren kantarları
-          </h3>
-          <p>EU standartlarına uygun</p>
+          <h3>{t("carousel.train_scale.title")}</h3>
+          <p>{t("carousel.train_scale.subtitle")}</p>
         </Carousel.Caption>
       </Carousel.Item>
 
@@ -45,11 +46,11 @@ const CarouselExample = () => {
           <img src={kablolama} className="carousel-image" alt="kablolama" />
         </div>
         <Carousel.Caption>
-          <h3>Endüstriyel markalama ve kablo bağları</h3>
+          <h3>{t("carousel.cable_marking.title")}</h3>
         </Carousel.Caption>
       </Carousel.Item>
 
-      <Carousel.Item interval={3000} >
+      <Carousel.Item interval={3000}>
         <div className="carousel-image-container">
           <img
             src={musterikablo}
@@ -58,10 +59,8 @@ const CarouselExample = () => {
           />
         </div>
         <Carousel.Caption>
-          <h3 className="bg-dark bg-opacity-50 p-2">
-            Müşteriye Özel Kablolu Çözümler
-          </h3>
-          <p>Fiber Cords, Patch Cords, Jumper Cables</p>
+          <h3>{t("carousel.custom_cable.title")}</h3>
+          <p>{t("carousel.custom_cable.subtitle")}</p>
         </Carousel.Caption>
       </Carousel.Item>
     </Carousel>

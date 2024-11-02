@@ -4,19 +4,19 @@ import Logo from "./Logo";
 import Link from "./NavLink";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "/src/styles/Navbar.css";
-import LanguageSwitch from "../locales/LanguageSwitch";
+import LanguageSwitch from "../../locales/LanguageSwitch";
 
 const Navbar = () => {
-  const [isOpen, setIsOpen] = useState(false);
   const { t } = useTranslation();
+  const [isOpen, setIsOpen] = useState(false);
 
   const toggle = () => setIsOpen(!isOpen);
 
   const navItems = [
-    { name: "home", href: "home" },
-    { name: "about", href: "about" },
-    { name: "partners", href: "partners" },
-    { name: "contact", href: "contact" },
+    { name: "navbar.home", href: "home" },
+    { name: "navbar.about", href: "about" },
+    { name: "navbar.partners", href: "partners" },
+    { name: "navbar.contact", href: "contact" },
   ];
 
   return (

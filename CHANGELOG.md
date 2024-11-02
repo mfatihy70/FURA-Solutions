@@ -4,13 +4,22 @@
 
 ### Added
 
-- `LanguageSwitch.tsx` and `i18n.js` under `locales`
-- Localization toggle to navbar with functionality to translate links and icons
+- Added localization for every text in the site
+- `LanguageSwitch.tsx` and `i18n.ts` under `locales` for localization
 - href to remaining footer links
 
-### Deleted
+### Changed
+
+- Moved home components into `home` folder
+- Transferred content of `social.tsx` into `Footer.tsx`
+- In-site links now direct to pages according to language
+- Translated Carousel captions into Turkish in tr
+
+### Removed
 
 - Unnecessary links from `footer.tsx`
+- Semi transparent bg from carousel captions
+- `social.tsx` file
 
 ## [v0.0.5] - 2024-10-30
 

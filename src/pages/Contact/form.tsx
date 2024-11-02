@@ -1,11 +1,14 @@
 import { useState } from "react";
 import { Col, Form, Button } from "react-bootstrap";
 import emailjs from "emailjs-com";
+import { useTranslation } from "react-i18next";
 
 // Initialize EmailJS with your user ID
 emailjs.init("w4_NTeotCfTVu7JH1");
 
 const ContactForm = () => {
+  const { t } = useTranslation();
+
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -30,53 +33,59 @@ const ContactForm = () => {
     emailjs
       .send("service_ikms96m", "template_gjbgd32", templateParams)
       .then((response) => {
-        alert("Email sent successfully!");
+        alert(t("email_success"));
         console.log("SUCCESS!", response.status, response.text);
         setFormData({ name: "", email: "", message: "" }); // Clear form after submission
       })
       .catch((error) => {
-        alert("Failed to send email. Please try again later.");
+        alert(t("email_error"));
         console.error("FAILED...", error);
       });
   };
 
   return (
     <Col md={6} className="mb-5 mb-md-0">
-      <h2 className="mb-4">Bize Ulaşın</h2>
+      <h2 className="mb-4">{t("form.title")}</h2>
       <Form onSubmit={handleSubmit}>
         <Form.Group className="mb-3">
-          <Form.Label className="text-start w-100 fs-5">İsim</Form.Label>
+          <Form.Label className="text-start w-100 fs-5">
+            {t("form.name")}
+          </Form.Label>
           <Form.Control
             type="text"
-            placeholder="İsminizi giriniz"
+            placeholder={t("form.placeholders.name")}
             name="name"
             value={formData.name}
             onChange={handleChange}
           />
         </Form.Group>
         <Form.Group className="mb-3">
-          <Form.Label className="text-start w-100 fs-5">E-Posta</Form.Label>
+          <Form.Label className="text-start w-100 fs-5">
+            {t("form.email")}
+          </Form.Label>
           <Form.Control
             type="email"
-            placeholder="E-Posta adresinizi giriniz"
+            placeholder={t("form.placeholders.email")}
             name="email"
             value={formData.email}
             onChange={handleChange}
           />
         </Form.Group>
         <Form.Group className="mb-3">
-          <Form.Label className="text-start w-100 fs-5">Mesajınız</Form.Label>
+          <Form.Label className="text-start w-100 fs-5">
+            {t("form.message")}
+          </Form.Label>
           <Form.Control
             as="textarea"
             rows={3}
-            placeholder="Mesajınız"
+            placeholder={t("form.placeholders.message")}
             name="message"
             value={formData.message}
             onChange={handleChange}
           />
         </Form.Group>
         <Button variant="primary" type="submit">
-          Gönder
+          {t("form.send")}
         </Button>
       </Form>
     </Col>

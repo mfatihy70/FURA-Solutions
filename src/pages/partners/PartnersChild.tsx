@@ -3,11 +3,13 @@ import agro from "/src/assets/images/partners/agro.png";
 import hellermanntyton from "/src/assets/images/partners/hellermanntyton.png";
 import ivmtech from "/src/assets/images/partners/ivm.png";
 import "/src/styles/Partners.css";
+import { useTranslation } from "react-i18next";
 
 const PartnersChild = () => {
+  const { t } = useTranslation();
   return (
     <div className="container my-4">
-      <h1 className="mb-5 mt-5">Demiryolu Partnerlerimiz</h1>
+      <h1 className="mb-5 mt-5">{t("partners")}</h1>
       <div className="row align-items-center">
         <div className="col-md-3 col-sm-6 mb-4">
           <a

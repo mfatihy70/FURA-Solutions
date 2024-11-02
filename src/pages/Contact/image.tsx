@@ -1,6 +1,8 @@
 import nefatakoy from "../../assets/images/nefatakoy.png";
+import { useTranslation } from "react-i18next";
 
 const ContactImage = () => {
+  const { t } = useTranslation();
   return (
     <div className="position-relative">
       <img
@@ -17,7 +19,7 @@ const ContactImage = () => {
           padding: "10px",
         }}
       >
-        İletişim
+        {t("contact")}
       </h1>
     </div>
   );
