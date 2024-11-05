@@ -10,7 +10,7 @@ const Cards = () => {
         <Card className="text-center h-100 w-100">
           <Card.Body>
             <GeoAltFill className="text-primary mb-3" size={40} />
-            <Card.Title>{t("office")}</Card.Title>
+            <Card.Title>{t("contact.office")}</Card.Title>
             <Card.Text>
               NEF 22 A Blok. Ataköy 7-8-9-10. Kısım Mh. Çobançeşme E-5 Yan Yol
               Cad. D:30 Bakırköy/İstanbul
@@ -22,9 +22,9 @@ const Cards = () => {
         <Card className="text-center h-100 w-100">
           <Card.Body>
             <TelephoneFill className="text-primary mb-3" size={40} />
-            <Card.Title>{t("mobile")}</Card.Title>
+            <Card.Title>{t("contact.mobile")}</Card.Title>
             <Card.Text>+90 (542) 194 14 13</Card.Text>
-            <Card.Title>{t("phone")}</Card.Title>
+            <Card.Title>{t("contact.phone")}</Card.Title>
             <Card.Text>+90 (212) 936 19 61</Card.Text>
           </Card.Body>
         </Card>
@@ -33,7 +33,7 @@ const Cards = () => {
         <Card className="text-center h-100 w-100">
           <Card.Body>
             <EnvelopeFill className="text-primary mb-3" size={40} />
-            <Card.Title>{t("email")}</Card.Title>
+            <Card.Title>{t("contact.email")}</Card.Title>
             <Card.Text>
               <a
                 href="mailto:kamuran.altay@fu-ra.com.tr"

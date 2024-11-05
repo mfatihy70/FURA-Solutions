@@ -1,5 +1,30 @@
 # Changelog
 
+## [v0.0.7] - 2024-11-3
+
+### Added
+
+- `Login.tsx` and `Register.tsx` (only the frontend)
+- 404 not found page
+- Custom css files for Logo, NavLink, ToggleButton, LangSwitch
+
+### Changed
+
+- Port on dev server to 3000
+- Set version in `package.json`
+- Seperated component css into own files
+- Default lang to Turkish
+
+### Fixed
+
+- Not centered copyright part in `Footer.tsx`
+- Stretched tab logo
+- Links refing to undefined path in url
+
+### Removed
+
+- `currentLang` check from links
+
 ## [v0.0.6] - 2024-11-1
 
 ### Added

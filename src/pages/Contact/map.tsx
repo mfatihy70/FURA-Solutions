@@ -5,7 +5,7 @@ const Map = () => {
   const { t } = useTranslation();
   return (
     <Col md={6}>
-      <h2 className="mb-4">{t("location")}</h2>
+      <h2 className="mb-4">{t("contact.location")}</h2>
       <div style={{ height: "300px", background: "#eee" }}>
         <iframe
           className="w-100 h-100"

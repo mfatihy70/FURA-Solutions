@@ -1,8 +1,9 @@
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-dom";
+import { LANGUAGES } from "../../locales/i18n.js";
 import "flag-icon-css/css/flag-icons.min.css";
-import { LANGUAGES } from "./i18n.js";
+import "/src/styles/LanguageSwitch.css";
 
 const LanguageSwitch = () => {
   const [isOpen, setIsOpen] = useState(false);

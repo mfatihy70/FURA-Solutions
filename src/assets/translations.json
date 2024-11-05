@@ -1,26 +1,53 @@
 {
-  "navbar": {
-    "home": ["ANA SAYFA", "HOME", "STARTSEITE"],
-    "about": ["HAKKIMIZDA", "ABOUT US", "ÜBER UNS"],
-    "contact": ["İLETİŞİM", "CONTACT", "KONTAKT"],
-    "partners": ["PARTNERLERİMİZ", "PARTNERS", "PARTNER"]
-  },
   "about": ["Hakkımızda", "About Us", "Über Uns"],
-  "contact": ["İletişim", "Contact", "Kontakt"],
-
   "partners": ["Partnerlerimiz", "Our Partners", "Unsere Partner"],
-
   "copy": [
     "Tüm hakları saklıdır.",
     "All rights reserved.",
     "Alle Rechte vorbehalten."
   ],
 
-  "office": ["Ofisimiz", "Our Office", "Unser Büro"],
-  "location": ["Konumumuz", "Location", "Unser Standort"],
-  "mobile": ["Mobil", "Mobile", "Mobil"],
-  "phone": ["Telefon", "Phone", "Telefon"],
-  "email": ["E-posta", "Email", "E-Mail"],
+  "navbar": {
+    "home": ["ANA SAYFA", "HOME", "STARTSEITE"],
+    "about": ["HAKKIMIZDA", "ABOUT US", "ÜBER UNS"],
+    "contact": ["İLETİŞİM", "CONTACT", "KONTAKT"],
+    "partners": ["PARTNERLERİMİZ", "PARTNERS", "PARTNER"],
+    "login": ["GİRİŞ YAP", "LOGIN", "ANMELDEN"]
+  },
+
+  "contact": {
+    "title": ["İletişim", "Contact", "Kontakt"],
+    "office": ["Ofisimiz", "Our Office", "Unser Büro"],
+    "location": ["Konumumuz", "Location", "Unser Standort"],
+    "mobile": ["Mobil", "Mobile", "Mobil"],
+    "phone": ["Telefon", "Phone", "Telefon"],
+    "email": ["E-posta", "Email", "E-Mail"]
+  },
+
+  "login": {
+    "login": ["Giriş Yap", "Login", "Anmelden"],
+    "register": ["Kayıt Ol", "Register", "Registrieren"],
+    "email": ["E-posta", "Email", "E-Mail"],
+    "password": ["Şifre", "Password", "Passwort"],
+    "remember_pw": ["Şifreyi hatırla", "Remember password", "Passwort merken"],
+    "placeholder": {
+      "email": ["E-posta adresiniz", "Email address", "E-Mail-Adresse"],
+      "password": ["Şifreniz", "Password", "Passwort"],
+      "password_confirm": [
+        "Şifrenizi tekrar girin",
+        "Confirm your password",
+        "Bestätigen Sie Ihr Passwort"
+      ],
+      "name": ["Adınız", "Name", "Name"],
+      "surname": ["Soyadınız", "Surname", "Nachname"]
+    },
+    "error": [
+      "Kullanıcı adı veya şifre hatalı. Lütfen tekrar deneyin.",
+      "Incorrect username or password. Please try again.",
+      "Falscher Benutzername oder falsches Passwort. Bitte versuchen Sie es erneut."
+    ],
+    "or": ["veya", "or", "oder"]
+  },
 
   "form": {
     "title": ["İletişim Formu", "Contact Form", "Kontaktformular"],
@@ -67,6 +94,7 @@
       "Unser Unternehmen bietet ein breites Produktspektrum und Systemlösungen für Bahnsysteme an. Jedes unserer Produkte wird mit technischer Präzision entwickelt und ist mit den neuesten technologischen Innovationen der Branche ausgestattet. Durch maßgeschneiderte Lösungen unterstützen wir unsere Kunden dabei, ihre Bedürfnisse zu erfüllen und ihre Projekte erfolgreich abzuschließen."
     ]
   },
+
   "carousel": {
     "cable_channel": {
       "title": [
@@ -118,5 +146,10 @@
         "Glasfaser-, Patch- und Verbindungskabel"
       ]
     }
+  },
+
+  "notFound": {
+    "message": ["Sayfa Bulunamadı", "Page Not Found", "Seite nicht gefunden"],
+    "goHome": ["Ana sayfaya dön", "Go to homepage", "Zur Startseite gehen"]
   }
 }

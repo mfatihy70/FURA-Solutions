@@ -9,8 +9,8 @@ const Footer = () => {
     <footer className="bg-dark text-light py-4" style={{ marginTop: "5em" }}>
       <div className="container">
         <div className="row align-items-center">
-          <div className="col-md-6 text-center text-md-start mb-3 mb-md-0">
-            <p>&copy; 2024 FURA Solutions. {t("copy")}</p>
+          <div className="col-md-6 d-flex justify-content-center justify-content-md-start mb-3 mb-md-0">
+            <p className="mb-0">&copy; 2024 FURA Solutions. {t("copy")}</p>
           </div>
           <div className="col-md-6">
             <nav>
@@ -37,7 +37,7 @@ const Footer = () => {
                     href={`#/${currentLanguage}/contact`}
                     className="text-light text-decoration-none"
                   >
-                    {t("contact")}
+                    {t("contact.title")}
                   </a>
                 </li>
               </ul>

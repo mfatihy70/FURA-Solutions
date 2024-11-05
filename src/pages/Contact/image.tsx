@@ -19,7 +19,7 @@ const ContactImage = () => {
           padding: "10px",
         }}
       >
-        {t("contact")}
+        {t("contact.title")}
       </h1>
     </div>
   );

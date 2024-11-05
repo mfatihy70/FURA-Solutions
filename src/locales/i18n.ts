@@ -3,9 +3,9 @@ import { initReactI18next } from "react-i18next";
 import translations from "../assets/translations.json";
 
 export const LANGUAGES = [
+  { code: "tr", name: "Türkçe", flag: "tr" },
   { code: "en", name: "English", flag: "gb" },
   { code: "de", name: "Deutsch", flag: "de" },
-  { code: "tr", name: "Türkçe", flag: "tr" },
 ] as const;
 
 export type LanguageCode = (typeof LANGUAGES)[number]["code"];
@@ -32,7 +32,7 @@ export const getLanguageFromRoute = (): LanguageCode => {
   if (langCode && LANGUAGES.some((lang) => lang.code === langCode)) {
     return langCode as LanguageCode;
   }
-  return "en";
+  return "tr";
 };
 
 const i18nConfig = {
@@ -42,7 +42,7 @@ const i18nConfig = {
     de: { translation: transformTranslations(translations, 2) },
   },
   lng: getLanguageFromRoute(),
-  fallbackLng: "en",
+  fallbackLng: "tr",
 };
 
 i18next.use(initReactI18next).init(i18nConfig);

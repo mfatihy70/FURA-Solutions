@@ -12,6 +12,9 @@ import Partners from "./pages/partners/Partners";
 import Contact from "./pages/contact/Contact";
 import { LANGUAGES } from "./locales/i18n";
 import "./locales/i18n";
+import Login from "./pages/Login/Login";
+import Register from "./pages/Login/Register";
+import NotFound from "./pages/NotFound";
 
 function App() {
   return (
@@ -35,6 +38,10 @@ function App() {
         <Route path="/:lang/about" element={<About />} />
         <Route path="/:lang/partners" element={<Partners />} />
         <Route path="/:lang/contact" element={<Contact />} />
+        <Route path="/:lang/login" element={<Login />} />
+        <Route path="/:lang/register" element={<Register />} />
+        <Route path="*" element={<NotFound />} />
+
 
         {/* Catch all redirect */}
         <Route path="*" element={<Navigate to="/tr/home" replace />} />
