@@ -1,0 +1,27 @@
+@font-face {
+    font-family: "Bankgothic";
+    src: url("/src/assets/fonts/bankgothic-md-bt/BankGothicMediumBT.ttf")
+      format("truetype");
+  }
+  .font-logo {
+    font-family: "Bankgothic", sans-serif;
+    color: #07416b;
+    font-weight: 500;
+    transition: color 0.3s ease;
+  }
+  
+  .navbar-brand {
+    display: inline-block;
+    position: relative;
+  }
+  .navbar-brand:hover .font-logo {
+    color: #00a5e9;
+  }
+  .logo-wrapper {
+    position: relative;
+    display: inline-block;
+    transition: box-shadow 0.3s ease;
+  }
+  .navbar-brand:hover .logo-wrapper {
+    box-shadow: 0 0 15px rgba(0, 165, 233, 0.7);
+  }

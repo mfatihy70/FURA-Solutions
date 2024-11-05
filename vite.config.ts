@@ -13,4 +13,10 @@ export default defineConfig({
       },
     },
   },
+  optimizeDeps: {
+    include: ['i18next', 'react-i18next']
+  },
+  server: {
+    port: 3000,
+  },
 });

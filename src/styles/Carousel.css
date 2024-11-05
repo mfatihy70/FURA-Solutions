@@ -30,8 +30,9 @@
 .carousel-control-next-icon {
   background-color: rgba(0, 0, 0, 0.4); /* Change this to your desired color */
 }
+
 .carousel-image-container {
-  height: 500px; /* Adjust this value to your desired height */
+  height: 450px; /* Adjust this value to your desired height */
   overflow: hidden;
   display: flex;
   justify-content: center;
@@ -39,8 +40,12 @@
 }
 
 .carousel-image {
-  width: 100%;
+  width: auto;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
   object-position: center;
+}
+
+.custom-width {
+  width: 100%;
 }

@@ -1,5 +1,65 @@
 # Changelog
 
+## [v0.0.7] - 2024-11-3
+
+### Added
+
+- `Login.tsx` and `Register.tsx` (only the frontend)
+- 404 not found page
+- Custom css files for Logo, NavLink, ToggleButton, LangSwitch
+
+### Changed
+
+- Port on dev server to 3000
+- Set version in `package.json`
+- Seperated component css into own files
+- Default lang to Turkish
+
+### Fixed
+
+- Not centered copyright part in `Footer.tsx`
+- Stretched tab logo
+- Links refing to undefined path in url
+
+### Removed
+
+- `currentLang` check from links
+
+## [v0.0.6] - 2024-11-1
+
+### Added
+
+- Added localization for every text in the site
+- `LanguageSwitch.tsx` and `i18n.ts` under `locales` for localization
+- href to remaining footer links
+
+### Changed
+
+- Moved home components into `home` folder
+- Transferred content of `social.tsx` into `Footer.tsx`
+- In-site links now direct to pages according to language
+- Translated Carousel captions into Turkish in tr
+
+### Removed
+
+- Unnecessary links from `footer.tsx`
+- Semi transparent bg from carousel captions
+- `social.tsx` file
+
+## [v0.0.5] - 2024-10-30
+
+### Added
+
+- Functionality to the contact form via `EmailJS`
+- New item to `Carousel.tsx`
+- `.custom-width` for the last item
+
+### Changed
+
+- `form.tsx` for email functionailty
+- `Carousel.css` for fitting images
+- Corrected the e-mail address
+
 ## [v0.0.4] - 2024-10-19
 
 ### Added
