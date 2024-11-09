@@ -1,5 +1,5 @@
-import nefatakoy from "../../assets/images/nefatakoy.png";
 import { useTranslation } from "react-i18next";
+import nefatakoy from "@/assets/images/nefatakoy.png";
 
 const ContactImage = () => {
   const { t } = useTranslation();

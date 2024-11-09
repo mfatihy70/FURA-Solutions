@@ -1,6 +1,6 @@
 import i18next from "i18next";
 import { initReactI18next } from "react-i18next";
-import translations from "../assets/translations.json";
+import translations from "@/assets/translations.json";
 
 export const LANGUAGES = [
   { code: "tr", name: "Türkçe", flag: "tr" },

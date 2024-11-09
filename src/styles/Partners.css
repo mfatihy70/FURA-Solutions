@@ -1,7 +1,12 @@
 .partner-img {
-  max-height: 100px; /* Adjust this value to make images smaller */
+  max-height: 100px; /* Maximum height for partner logos */
   width: 100%;
   object-fit: contain;
+  transition: transform 0.3s ease; /* Smooth transition for hover effect */
+}
+
+.partner-img:hover {
+  transform: scale(1.1); /* Slight zoom on hover */
 }
 
 .row {
@@ -29,6 +34,6 @@
   }
 
   .partner-img {
-    max-height: 100px; /* Slightly smaller on mobile devices */
+    max-height: 80px; /* Slightly smaller on mobile devices */
   }
 }

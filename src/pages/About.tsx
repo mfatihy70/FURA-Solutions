@@ -1,4 +1,4 @@
-import Footer from "../components/Footer";
+import Footer from "@/components/Footer";
 import { useTranslation } from "react-i18next";
 
 const About = () => {

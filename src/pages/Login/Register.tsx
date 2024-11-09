@@ -53,7 +53,7 @@ const Register = () => {
                 <Form.Group className="mb-4" controlId="formPasswordConfirm">
                   <Form.Control
                     type="password"
-                    placeholder={t("login.placeholder.password_confirm")}
+                    placeholder={t("login.placeholder.passwordConfirm")}
                     size="lg"
                   />
                 </Form.Group>

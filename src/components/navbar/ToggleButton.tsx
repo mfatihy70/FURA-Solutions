@@ -1,4 +1,4 @@
-import "/src/styles/ToggleButton.css";
+import "@/styles/navbar/ToggleButton.css";
 
 interface ToggleButtonProps {
   isOpen: boolean;

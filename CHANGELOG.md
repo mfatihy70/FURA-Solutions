@@ -1,5 +1,38 @@
 # Changelog
 
+## [v0.0.8] - 2024-11-6
+
+### Added
+
+- `@` alias for absolute imports in `tsconfig.app.json`
+- Footer component to `NotFound.tsx`
+- `Catalog.tsx` for products with the css file
+- `import.ts` files for simpler imports in `Catalog.tsx` and `Carousel.tsx`
+- On hover animations to carousel, products and partners
+- Links to carousel text
+- `Footer.css` for on hover on links
+
+### Changed
+
+- Optimized and commented `form.tsx`
+- Updated `README.md`
+- Imports paths to absolute
+- Smaller text in `section.tsx`
+- `Partners.tsx` to `PartnersParent.tsx` and `ParentsChild.tsx` to `Parents.tsx`
+
+### Renamed
+
+- Login folder
+- Carousel images to english
+- Slides folder into carousel
+- CarouselExample to CustomCarousel
+- `.tsx` files to start with capitals
+
+### Removed
+
+- `mdb-react-ui-kit` package
+- Unnecessary lines from `Carousel.css`
+
 ## [v0.0.7] - 2024-11-3
 
 ### Added

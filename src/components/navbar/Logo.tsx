@@ -1,6 +1,6 @@
 import { Link, useParams } from "react-router-dom";
-import logo from "/src/assets/images/icons/logo_ustr.png";
-import "/src/styles/Logo.css";
+import logo from "@/assets/icons/logo_ustr.png";
+import "@/styles/navbar/Logo.css";
 
 const Logo = () => {
   const { lang } = useParams();

@@ -12,6 +12,7 @@
     "about": ["HAKKIMIZDA", "ABOUT US", "ÜBER UNS"],
     "contact": ["İLETİŞİM", "CONTACT", "KONTAKT"],
     "partners": ["PARTNERLERİMİZ", "PARTNERS", "PARTNER"],
+    "products": ["ÜRÜNLER", "PRODUCTS", "PRODUKTE"],
     "login": ["GİRİŞ YAP", "LOGIN", "ANMELDEN"]
   },
 
@@ -33,7 +34,7 @@
     "placeholder": {
       "email": ["E-posta adresiniz", "Email address", "E-Mail-Adresse"],
       "password": ["Şifreniz", "Password", "Passwort"],
-      "password_confirm": [
+      "passwordConfirm": [
         "Şifrenizi tekrar girin",
         "Confirm your password",
         "Bestätigen Sie Ihr Passwort"
@@ -55,7 +56,7 @@
     "email": ["E-posta", "Email", "E-Mail"],
     "message": ["Mesajınız", "Your Message", "Ihre Nachricht"],
     "send": ["Gönder", "Send", "Senden"],
-    "placeholders": {
+    "placeholder": {
       "name": ["Adınızı girin", "Enter your name", "Geben Sie Ihren Namen ein"],
       "email": [
         "E-posta adresinizi girin",
@@ -67,20 +68,19 @@
         "Enter your message",
         "Geben Sie Ihre Nachricht ein"
       ]
-    }
+    },
+    "emailSuccess": [
+      "Mesajınız başarıyla gönderildi.",
+      "Your message has been sent successfully.",
+      "Ihre Nachricht wurde erfolgreich gesendet."
+    ],
+
+    "emailError": [
+      "Mesajınız gönderilirken bir hata oluştu.",
+      "An error occurred while sending your message.",
+      "Beim Senden Ihrer Nachricht ist ein Fehler aufgetreten."
+    ]
   },
-
-  "email_success": [
-    "Mesajınız başarıyla gönderildi.",
-    "Your message has been sent successfully.",
-    "Ihre Nachricht wurde erfolgreich gesendet."
-  ],
-
-  "email_error": [
-    "Mesajınız gönderilirken bir hata oluştu. Lütfen tekrar deneyin.",
-    "An error occurred while sending your message. Please try again.",
-    "Beim Senden Ihrer Nachricht ist ein Fehler aufgetreten. Bitte versuchen Sie es erneut."
-  ],
 
   "about_text": {
     "first": [
@@ -96,7 +96,7 @@
   },
 
   "carousel": {
-    "cable_channel": {
+    "cableChannel": {
       "title": [
         "Demiryolu standartlı kablo kanalları",
         "Railway standard cable channels",
@@ -108,14 +108,14 @@
         "Leitungen, Armaturen, Zubehör"
       ]
     },
-    "cable_gland": {
+    "cableGland": {
       "title": [
         "Demiryolu standartlı kablo rekorları",
         "Railway standard cable glands",
         "Bahnstandard-Kabelverschraubungen"
       ]
     },
-    "train_scale": {
+    "trainScale": {
       "title": [
         "Portatif tren kantarları",
         "Portable train scales",
@@ -127,14 +127,14 @@
         "Entspricht EU-Standards"
       ]
     },
-    "cable_marking": {
+    "cableMarking": {
       "title": [
         "Endüstriyel markalama ve kablo bağları",
         "Industrial marking and cable ties",
         "Industrielle Markierung und Kabelbinder"
       ]
     },
-    "custom_cable": {
+    "customCable": {
       "title": [
         "Müşteriye Özel Kablolu Çözümler",
         "Custom Cable Solutions",
@@ -151,5 +151,19 @@
   "notFound": {
     "message": ["Sayfa Bulunamadı", "Page Not Found", "Seite nicht gefunden"],
     "goHome": ["Ana sayfaya dön", "Go to homepage", "Zur Startseite gehen"]
+  },
+
+  "product": {
+    "title": ["Ürünler", "Products", "Produkte"],
+    "cableChannel": ["Kablo Kanalı", "Cable Channel", "Kabelkanal"],
+    "cableGland": ["Kablo Rekoru", "Cable Gland", "Kabelverschraubung"],
+    "trainScale": ["Tren Kantarı", "Train Scale", "Zugwaage"],
+    "cableMarking": ["Kablo Markalama", "Cable Marking", "Kabelmarkierung"],
+    "customCable": [
+      "Müşteriye Özel Kablolar",
+      "Custom Cables",
+      "Kundenspezifische Kabel"
+    ],
+    "addToCart": ["Sepete Ekle", "Add to Cart", "In den Warenkorb legen"]
   }
 }

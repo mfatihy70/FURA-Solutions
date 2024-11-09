@@ -1,70 +1,74 @@
-import Carousel from "react-bootstrap/Carousel";
+import React from "react";
+import { Carousel } from "react-bootstrap";
 import { useTranslation } from "react-i18next";
-import kablokanal from "../../assets/images/slides/kablokanal.png";
-import kablolama from "../../assets/images/slides/kablolama.png";
-import kablorekor from "../../assets/images/slides/kablorekor.png";
-import trenkantar from "../../assets/images/slides/trenkantar.png";
-import musterikablo from "../../assets/images/slides/müsterikabloc.png";
-import "../../styles/Carousel.css";
+import "@/styles/Carousel.css";
+import {
+  cableChannel,
+  cableGland,
+  cableMarking,
+  trainScale,
+  customCable,
+} from "@/assets/images/carousel/import";
 
-const CarouselExample = () => {
+const CustomCarousel: React.FC = () => {
   const { t } = useTranslation();
+
+  const carouselItems = [
+    {
+      image: cableChannel,
+      title: t("carousel.cableChannel.title"),
+      subtitle: t("carousel.cableChannel.subtitle"),
+      link: "https://www.flexa.de/home/EN_index_1000.html",
+    },
+    {
+      image: cableGland,
+      title: t("carousel.cableGland.title"),
+      link: "https://www.kaiser-elektro.de/en_DE/products/cable-glands-industrial-products/",
+    },
+    {
+      image: trainScale,
+      title: t("carousel.trainScale.title"),
+      subtitle: t("carousel.trainScale.subtitle"),
+      link: "https://ivmtech.it/en/prodotti/powerve/",
+    },
+    {
+      image: cableMarking,
+      title: t("carousel.cableMarking.title"),
+      link: "https://www.hellermanntyton.com/tr/urunler/tel-ve-kablo-i-saretleme-elemanlari/tlfx24wh/554-51000?query=554-51000&cat=554-51000",
+    },
+    {
+      image: customCable,
+      title: t("carousel.customCable.title"),
+      subtitle: t("carousel.customCable.subtitle"),
+    },
+  ];
 
   return (
     <Carousel>
-      <Carousel.Item interval={3000}>
-        <div className="carousel-image-container">
-          <img src={kablokanal} className="carousel-image" alt="kablokanal" />
-        </div>
-        <Carousel.Caption>
-          <h3>{t("carousel.cable_channel.title")}</h3>
-          <p>{t("carousel.cable_channel.subtitle")}</p>
-        </Carousel.Caption>
-      </Carousel.Item>
-
-      <Carousel.Item interval={3000}>
-        <div className="carousel-image-container">
-          <img src={kablorekor} className="carousel-image" alt="kablorekor" />
-        </div>
-        <Carousel.Caption>
-          <h3>{t("carousel.cable_gland.title")}</h3>
-        </Carousel.Caption>
-      </Carousel.Item>
-
-      <Carousel.Item interval={3000}>
-        <div className="carousel-image-container">
-          <img src={trenkantar} className="carousel-image" alt="trenkantar" />
-        </div>
-        <Carousel.Caption>
-          <h3>{t("carousel.train_scale.title")}</h3>
-          <p>{t("carousel.train_scale.subtitle")}</p>
-        </Carousel.Caption>
-      </Carousel.Item>
-
-      <Carousel.Item interval={3000}>
-        <div className="carousel-image-container">
-          <img src={kablolama} className="carousel-image" alt="kablolama" />
-        </div>
-        <Carousel.Caption>
-          <h3>{t("carousel.cable_marking.title")}</h3>
-        </Carousel.Caption>
-      </Carousel.Item>
-
-      <Carousel.Item interval={3000}>
-        <div className="carousel-image-container">
-          <img
-            src={musterikablo}
-            className="carousel-image custom-width"
-            alt="musterikablo"
-          />
-        </div>
-        <Carousel.Caption>
-          <h3>{t("carousel.custom_cable.title")}</h3>
-          <p>{t("carousel.custom_cable.subtitle")}</p>
-        </Carousel.Caption>
-      </Carousel.Item>
+      {carouselItems.map((item, index) => (
+        <Carousel.Item key={index} interval={3000}>
+          <a
+            href={item.link}
+            className="carousel-link"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <div className="carousel-image-container">
+              <img
+                src={item.image}
+                className="carousel-image"
+                alt={item.title}
+              />
+            </div>
+            <Carousel.Caption>
+              <h3>{item.title}</h3>
+              {item.subtitle && <p>{item.subtitle}</p>}
+            </Carousel.Caption>
+          </a>
+        </Carousel.Item>
+      ))}
     </Carousel>
   );
 };
 
-export default CarouselExample;
+export default CustomCarousel;

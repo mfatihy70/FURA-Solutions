@@ -1,6 +1,6 @@
 import { NavLink, useParams } from "react-router-dom";
 import { useTranslation } from "react-i18next";
-import "/src/styles/NavLink.css";
+import "@/styles/navbar/NavLink.css";
 
 interface LinkProps {
   name: string;

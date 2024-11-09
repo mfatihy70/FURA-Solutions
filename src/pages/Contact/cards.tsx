@@ -1,6 +1,6 @@
 import { Row, Col, Card } from "react-bootstrap";
-import { GeoAltFill, TelephoneFill, EnvelopeFill } from "react-bootstrap-icons";
 import { useTranslation } from "react-i18next";
+import { GeoAltFill, TelephoneFill, EnvelopeFill } from "react-bootstrap-icons";
 
 const Cards = () => {
   const { t } = useTranslation();

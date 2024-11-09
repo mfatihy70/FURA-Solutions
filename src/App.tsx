@@ -5,15 +5,16 @@ import {
   Route,
   Navigate,
 } from "react-router-dom";
+import { LANGUAGES } from "./locales/i18n";
 import Navbar from "./components/navbar/Navbar";
 import Home from "./pages/home/Home";
 import About from "./pages/About";
-import Partners from "./pages/partners/Partners";
+import Partners from "./pages/partners/PartnersParent";
 import Contact from "./pages/contact/Contact";
-import { LANGUAGES } from "./locales/i18n";
 import "./locales/i18n";
-import Login from "./pages/Login/Login";
-import Register from "./pages/Login/Register";
+import Login from "./pages/login/Login";
+import Register from "./pages/login/Register";
+import Catalog from "./pages/products/CatalogParent";
 import NotFound from "./pages/NotFound";
 
 function App() {
@@ -40,6 +41,9 @@ function App() {
         <Route path="/:lang/contact" element={<Contact />} />
         <Route path="/:lang/login" element={<Login />} />
         <Route path="/:lang/register" element={<Register />} />
+        <Route path="/:lang/products" element={<Catalog />} />
+
+        {/* 404 route */}
         <Route path="*" element={<NotFound />} />
 
 

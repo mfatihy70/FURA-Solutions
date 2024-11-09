@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
+import "bootstrap/dist/css/bootstrap.min.css";
 import Logo from "./Logo";
 import Link from "./NavLink";
-import "bootstrap/dist/css/bootstrap.min.css";
 import LanguageSwitch from "./LanguageSwitch";
 import ToggleButton from "./ToggleButton";
 
@@ -16,8 +16,9 @@ const Navbar = () => {
     { name: "navbar.home", href: "home" },
     { name: "navbar.about", href: "about" },
     { name: "navbar.partners", href: "partners" },
-    { name: "navbar.contact", href: "contact" },
+    { name: "navbar.products", href: "products" },
     { name: "navbar.login", href: "login" },
+    { name: "navbar.contact", href: "contact" },
   ];
 
   return (

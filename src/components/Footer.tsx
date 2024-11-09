@@ -1,5 +1,6 @@
 import { useTranslation } from "react-i18next";
-import { getLanguageFromRoute } from "../locales/i18n";
+import { getLanguageFromRoute } from "@/locales/i18n";
+import "@/styles/Footer.css";
 
 const Footer = () => {
   const { t } = useTranslation();
@@ -19,7 +20,7 @@ const Footer = () => {
                   <a
                     href="https://www.linkedin.com/company/fura-makina-end%C3%BCstriyel-%C3%A7%C3%B6z%C3%BCmler-ltd-%C5%9Fti/"
                     target="_blank"
-                    className="text-light text-decoration-none"
+                    className="footer-link text-decoration-none"
                   >
                     LinkedIn
                   </a>
@@ -27,7 +28,7 @@ const Footer = () => {
                 <li className="list-inline-item ms-3">
                   <a
                     href={`#/${currentLanguage}/about`}
-                    className="text-light text-decoration-none"
+                    className="footer-link text-decoration-none"
                   >
                     {t("about")}
                   </a>
@@ -35,7 +36,7 @@ const Footer = () => {
                 <li className="list-inline-item ms-3">
                   <a
                     href={`#/${currentLanguage}/contact`}
-                    className="text-light text-decoration-none"
+                    className="footer-link text-decoration-none"
                   >
                     {t("contact.title")}
                   </a>

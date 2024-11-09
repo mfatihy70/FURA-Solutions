@@ -1,14 +1,16 @@
-import Carousel from "./carousel";
-import Section from "./section";
-import Footer from "../../components/Footer";
-import PartnersChild from "../partners/PartnersChild";
+import Carousel from "./Carousel";
+import Section from "./Section";
+import Partners from "../partners/Partners";
+import Catalog from "../products/Catalog";
+import Footer from "@/components/Footer";
 
 const Home = () => {
   return (
     <>
       <Carousel />
       <Section />
-      <PartnersChild />
+      <Catalog />
+      <Partners />
       <Footer />
     </>
   );
