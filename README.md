@@ -44,4 +44,4 @@ This project is licensed under the GPL-3 License. See the LICENSE file for detai
 
 ---
 
-<img src="https://github.com/user-attachments/assets/8ee652cf-d526-4826-ba4e-c2c971c36211" alt="screenshot" size="700"/>
+<img src="https://github.com/user-attachments/assets/e4987d25-728e-4da0-8276-3e2cf7c18df8" alt="screenshot" size="700"/>
