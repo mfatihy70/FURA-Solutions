@@ -45,10 +45,6 @@ function App() {
 
         {/* 404 route */}
         <Route path="*" element={<NotFound />} />
-
-
-        {/* Catch all redirect */}
-        <Route path="*" element={<Navigate to="/tr/home" replace />} />
       </Routes>
     </Router>
   );

@@ -29,7 +29,8 @@
 
 .carousel-control-prev-icon,
 .carousel-control-next-icon {
-  background-color: rgba(0, 0, 0, 0.4); /* Change this to your desired color */
+  background-color: rgba(0, 0, 0, 0.4); 
+  border-radius: 10px;
 }
 
 .carousel-image-container {

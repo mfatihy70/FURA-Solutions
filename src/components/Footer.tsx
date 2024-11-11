@@ -1,5 +1,6 @@
 import { useTranslation } from "react-i18next";
 import { getLanguageFromRoute } from "@/locales/i18n";
+import { Container, Row, Col } from "react-bootstrap";
 import "@/styles/Footer.css";
 
 const Footer = () => {
@@ -7,13 +8,16 @@ const Footer = () => {
   const currentLanguage = getLanguageFromRoute();
 
   return (
-    <footer className="bg-dark text-light py-4" style={{ marginTop: "5em" }}>
-      <div className="container">
-        <div className="row align-items-center">
-          <div className="col-md-6 d-flex justify-content-center justify-content-md-start mb-3 mb-md-0">
+    <footer className="bg-dark text-light py-4 mt-5">
+      <Container>
+        <Row className="align-items-center">
+          <Col
+            md={6}
+            className="d-flex justify-content-center justify-content-md-start mb-3 mb-md-0"
+          >
             <p className="mb-0">&copy; 2024 FURA Solutions. {t("copy")}</p>
-          </div>
-          <div className="col-md-6">
+          </Col>
+          <Col md={6}>
             <nav>
               <ul className="list-inline text-center text-md-end mb-0">
                 <li className="list-inline-item ms-3">
@@ -43,9 +47,9 @@ const Footer = () => {
                 </li>
               </ul>
             </nav>
-          </div>
-        </div>
-      </div>
+          </Col>
+        </Row>
+      </Container>
     </footer>
   );
 };

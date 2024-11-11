@@ -6,6 +6,7 @@
     "All rights reserved.",
     "Alle Rechte vorbehalten."
   ],
+  "close": ["Kapat", "Close", "Schließen"],
 
   "navbar": {
     "home": ["ANA SAYFA", "HOME", "STARTSEITE"],
@@ -56,6 +57,7 @@
     "email": ["E-posta", "Email", "E-Mail"],
     "message": ["Mesajınız", "Your Message", "Ihre Nachricht"],
     "send": ["Gönder", "Send", "Senden"],
+    "receiver": ["Alıcı", "Receiver", "Empfänger"],
     "placeholder": {
       "name": ["Adınızı girin", "Enter your name", "Geben Sie Ihren Namen ein"],
       "email": [
@@ -67,22 +69,61 @@
         "Mesajınızı girin",
         "Enter your message",
         "Geben Sie Ihre Nachricht ein"
+      ],
+      "receiver": [
+        "Alıcıyı seçin",
+        "Select the receiver",
+        "Wählen Sie den Empfänger"
       ]
     },
-    "emailSuccess": [
-      "Mesajınız başarıyla gönderildi.",
-      "Your message has been sent successfully.",
-      "Ihre Nachricht wurde erfolgreich gesendet."
-    ],
+    "emailSuccess": {
+      "title": [
+        "Mesajınız başarıyla gönderildi.",
+        "Your message has been sent successfully.",
+        "Ihre Nachricht wurde erfolgreich gesendet."
+      ],
+      "content": [
+        "En kısa sürede size geri dönüş yapacağız.",
+        "We will get back to you as soon as possible.",
+        "Wir melden uns so schnell wie möglich bei Ihnen."
+      ]
+    },
 
-    "emailError": [
-      "Mesajınız gönderilirken bir hata oluştu.",
-      "An error occurred while sending your message.",
-      "Beim Senden Ihrer Nachricht ist ein Fehler aufgetreten."
+    "emailFailure": {
+      "title": [
+        "Mesajınız gönderilemedi.",
+        "Your message could not be sent.",
+        "Ihre Nachricht konnte nicht gesendet werden."
+      ],
+      "content": [
+        "Lütfen daha sonra tekrar deneyin.",
+        "Please try again later.",
+        "Bitte versuchen Sie es später erneut."
+      ],
+      "error": [
+        "Hata: ",
+        "Error: ",
+        "Fehler: "
+      ]
+    },
+    "nameTooShort": [
+      "Adınız en az 3 karakter olmalıdır.",
+      "Your name must be at least 3 characters long.",
+      "Ihr Name muss mindestens 3 Zeichen lang sein."
+    ],
+    "messageTooShort": [
+      "Mesajınız en az 10 karakter olmalıdır.",
+      "Your message must be at least 10 characters long.",
+      "Ihre Nachricht muss mindestens 10 Zeichen lang sein."
+    ],
+    "invalidEmail": [
+      "Geçerli bir e-posta adresi girin.",
+      "Enter a valid email address.",
+      "Geben Sie eine gültige E-Mail-Adresse ein."
     ]
   },
 
-  "about_text": {
+  "aboutText": {
     "first": [
       "FURA Makine Endüstriyel Çözümler Ltd. Şti., 15 yıllık sektör tecrübesinin birikimiyle raylı sistem teknolojileri alanında öncü bir firma olarak öne çıkmaktadır. Uluslararası iş ortaklarımızla birlikte, yüksek kaliteli ve güvenilir ürünler sunarak uzun vadeli müşteri memnuniyeti sağlamayı hedeflemekteyiz.",
       "FURA Machine Industrial Solutions Ltd. stands out as a leading company in the field of rail systems technology, backed by 15 years of industry experience. Together with our international partners, we aim to provide high-quality and reliable products to ensure long-term customer satisfaction.",

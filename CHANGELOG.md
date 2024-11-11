@@ -1,5 +1,23 @@
 # Changelog
 
+## [v0.0.9] - 2024-11-9
+
+### Added
+
+- Contact form validation in `Form.tsx`
+- `Modal.tsx` for showing pop up when the email is sent
+- `formUtils.ts` for emailjs related stuff
+- Show error message in modal when the email couldn't be sent
+- `import.ts` for simplifying partners imports
+
+### Changed
+
+- `Navbar.tsx` with better collapsing
+- Moved form related files into `contact/form`
+- `About.tsx` `Partners.tsx` `Section.tsx` `Footer.tsx` `NotFound.tsx` `LanguageSwitch.tsx` `Image.tsx` `Cards.tsx` are now react bootstrap based
+- Rounded the carousel icons
+- Language switch shows up on the right in toggled view
+
 ## [v0.0.8] - 2024-11-6
 
 ### Added
@@ -22,11 +40,11 @@
 
 ### Renamed
 
-- Login folder
-- Carousel images to english
-- Slides folder into carousel
-- CarouselExample to CustomCarousel
-- `.tsx` files to start with capitals
+- `Login` folder to `login`
+- Carousel images to english names
+- `slides` folder to `carousel`
+- `CarouselExample` to `CustomCarousel`
+- All `.tsx` files to start with capitals
 
 ### Removed
 

@@ -1,3 +1,4 @@
+import { Navbar } from "react-bootstrap";
 import "@/styles/navbar/ToggleButton.css";
 
 interface ToggleButtonProps {
@@ -6,15 +7,11 @@ interface ToggleButtonProps {
 }
 
 const ToggleButton = ({ isOpen, toggle }: ToggleButtonProps) => (
-  <button
-    className="navbar-toggler"
-    type="button"
+  <Navbar.Toggle
     onClick={toggle}
     aria-expanded={isOpen}
     aria-label="Toggle navigation"
-  >
-    <span className="navbar-toggler-icon"></span>
-  </button>
+  />
 );
 
 export default ToggleButton;

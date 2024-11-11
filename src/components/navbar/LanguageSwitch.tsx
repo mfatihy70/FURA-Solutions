@@ -4,12 +4,11 @@ import { useNavigate } from "react-router-dom";
 import { LANGUAGES } from "@/locales/i18n";
 import "flag-icon-css/css/flag-icons.min.css";
 import "@/styles/navbar/LanguageSwitch.css";
+import { Dropdown } from "react-bootstrap";
 
 const LanguageSwitch = () => {
   const [isOpen, setIsOpen] = useState(false);
   const { i18n } = useTranslation();
-
-  // Hook to navigate programmatically
   const navigate = useNavigate();
 
   // Function to get the current language's flag icon
@@ -28,39 +27,35 @@ const LanguageSwitch = () => {
   };
 
   return (
-    <li className={`nav-item dropdown ${isOpen ? "show" : ""}`}>
-      {/* Button to toggle the dropdown */}
-      <button
-        className="nav-link dropdown-toggle d-flex align-items-center"
-        onClick={() => setIsOpen(!isOpen)}
-        aria-expanded={isOpen}
+    <Dropdown show={isOpen} onToggle={() => setIsOpen(!isOpen)}>
+      <Dropdown.Toggle
+        as="button" // Render as a button to avoid nested <a> tags
+        variant="link"
+        id="dropdown-basic"
+        className="nav-link d-flex align-items-center"
       >
-        {/* Display the current language's flag */}
         <span
           className={`flag-icon flag-icon-${getCurrentFlag()}`}
           style={{ width: "1.5em", height: "1.5em" }}
         ></span>
-      </button>
-      {/* Dropdown menu */}
-      <ul className={`dropdown-menu dropdown-menu-end ${isOpen ? "show" : ""}`}>
+      </Dropdown.Toggle>
+
+      <Dropdown.Menu align="end">
         {LANGUAGES.map((lang) => (
-          <li key={lang.code}>
-            {/* Button to change the language */}
-            <button
-              className="dropdown-item d-flex align-items-center gap-2"
-              onClick={() => changeLang(lang.code)}
-            >
-              {/* Display the flag and name of the language */}
-              <span
-                className={`flag-icon flag-icon-${lang.flag}`}
-                style={{ width: "1.5em", height: "1.5em" }}
-              ></span>
-              {lang.name}
-            </button>
-          </li>
+          <Dropdown.Item
+            key={lang.code}
+            onClick={() => changeLang(lang.code)}
+            className="d-flex align-items-center gap-2"
+          >
+            <span
+              className={`flag-icon flag-icon-${lang.flag}`}
+              style={{ width: "1.5em", height: "1.5em" }}
+            ></span>
+            {lang.name}
+          </Dropdown.Item>
         ))}
-      </ul>
-    </li>
+      </Dropdown.Menu>
+    </Dropdown>
   );
 };
 

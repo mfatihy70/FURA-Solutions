@@ -2,7 +2,7 @@ import { Container, Row } from "react-bootstrap";
 import Footer from "@/components/Footer";
 import ContactImage from "./Image";
 import Cards from "./Cards";
-import ContactForm from "./Form";
+import ContactForm from "./form/Form";
 import Map from "./Map";
 
 const ContactPage = () => {
@@ -16,6 +16,7 @@ const ContactPage = () => {
           <Map />
         </Row>
       </Container>
+      <br />
       <Footer />
     </>
   );

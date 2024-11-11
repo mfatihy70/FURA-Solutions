@@ -7,9 +7,7 @@ const Logo = () => {
 
   return (
     <Link className="navbar-brand" to={`/${lang}/home`}>
-      <div className="logo-wrapper">
-        <img src={logo} alt="Logo" height="100" />
-      </div>
+      <img className="logo-wrapper" src={logo} alt="Logo" height="100" />
       <p className="fs-6 font-logo">INDUSTRIAL SOLUTIONS</p>
     </Link>
   );

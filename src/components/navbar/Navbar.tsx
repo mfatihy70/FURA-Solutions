@@ -1,12 +1,12 @@
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
+import { Navbar, Nav, Container } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Logo from "./Logo";
 import Link from "./NavLink";
 import LanguageSwitch from "./LanguageSwitch";
-import ToggleButton from "./ToggleButton";
 
-const Navbar = () => {
+const CustomNavbar = () => {
   const { t } = useTranslation();
   const [isOpen, setIsOpen] = useState(false);
 
@@ -22,21 +22,23 @@ const Navbar = () => {
   ];
 
   return (
-    <nav className="navbar navbar-expand-md navbar-light bg-light mb-5">
-      <div className="container">
-        <Logo />
-        <ToggleButton isOpen={isOpen} toggle={toggle} />
-        <div className={`collapse navbar-collapse ${isOpen ? "show" : ""}`}>
-          <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
+    <Navbar bg="light" expand="lg" className="mb-5">
+      <Container>
+        <Navbar.Brand>
+          <Logo />
+        </Navbar.Brand>
+        <Navbar.Toggle aria-controls="basic-navbar-nav" onClick={toggle} />
+        <Navbar.Collapse id="basic-navbar-nav" className={isOpen ? "show" : ""}>
+          <Nav className="ms-auto mb-2 mb-lg-0">
             {navItems.map((item) => (
-              <Link key={item.href} name={t(item.name)} href={item.href} />
+              <Link key={item.name} name={t(item.name)} href={item.href} />
             ))}
-            <LanguageSwitch />
-          </ul>
-        </div>
-      </div>
-    </nav>
+          </Nav>
+          <LanguageSwitch />
+        </Navbar.Collapse>
+      </Container>
+    </Navbar>
   );
 };
 
-export default Navbar;
+export default CustomNavbar;

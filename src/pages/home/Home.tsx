@@ -11,6 +11,7 @@ const Home = () => {
       <Section />
       <Catalog />
       <Partners />
+      <br />
       <Footer />
     </>
   );
