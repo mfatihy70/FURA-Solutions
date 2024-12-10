@@ -23,6 +23,7 @@
 - `Catalog.css` (content transferred to `Product.css`)
 - In-file data definitions
 - `import.ts` files under `assets/images`
+- `node_modules` of backend from git
 
 ## [v0.0.9] - 2024-11-9
 
