@@ -16,6 +16,7 @@
 - Animations on Language switch and cart icon
 - Centered and enlarged cart and language icons on toggled navbar view
 - CSS file names in camel case
+- Moved `README.md`, `CHANGELOG.md` and `TODO.md` into root folder
 
 ### Removed
 - `ToggleButton.css`
