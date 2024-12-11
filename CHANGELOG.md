@@ -3,10 +3,14 @@
 ## [v0.1.1] - 2024-12-11
 
 ### Added
+- Banner to `CartIcon.tsx` to show the product count using global state
 - Display products in cart in `Cart.tsx` as a list extracted from session storage
 
 ### Renamed
 - `PartnersParent.tsx` and `CatalogParent.tsx` into `...Page.tsx`
+
+### Changed
+- Toasts to show in the center
 
 ## [v0.1.0] - 2024-11-2
 

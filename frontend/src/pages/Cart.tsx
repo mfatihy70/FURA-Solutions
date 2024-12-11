@@ -14,6 +14,8 @@ const Cart = () => {
   const updateCart = (updatedCart: any[]) => {
     setCart(updatedCart)
     sessionStorage.setItem("cart", JSON.stringify(updatedCart))
+    // Dispatch a custom event to notify about the cart update
+    window.dispatchEvent(new Event("cartUpdated"))
   }
 
   const handleIncreaseQuantity = (id: number) => {
@@ -28,7 +30,7 @@ const Cart = () => {
       .map((item) =>
         item.id === id ? { ...item, quantity: item.quantity - 1 } : item
       )
-      .filter((item) => item.quantity > 0)
+      .filter((item) => item.quantity > 0) // Remove the item if quantity is 0
     updateCart(updatedCart)
   }
 
@@ -41,7 +43,7 @@ const Cart = () => {
     <Container>
       <h1>{t("cart.title")}</h1>
       {cart.length === 0 ? (
-        <p>{t("cart.empty")}</p>
+        <p>{t("cart.empty")}</p> // Display a message if the cart is empty
       ) : (
         <ListGroup>
           {cart.map((item) => (
@@ -51,10 +53,12 @@ const Cart = () => {
                   <Image src={item.image} alt={item.name} fluid rounded />
                 </Col>
                 <Col md={3}>
-                  <h5>{t(`${item.name}`)}</h5>
+                  <h5>{t(`${item.name}`)}</h5>{" "}
+                  {/* Translate the product name */}
                 </Col>
                 <Col md={2}>
-                  <h5>{`${item.price}${t("currency")}`}</h5>
+                  <h5>{`${item.price}${t("currency")}`}</h5>{" "}
+                  {/* Display the price with currency */}
                 </Col>
                 <Col md={2}>
                   <Button

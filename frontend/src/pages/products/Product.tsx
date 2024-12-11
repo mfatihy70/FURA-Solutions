@@ -1,7 +1,7 @@
 import { Card, Button } from "react-bootstrap"
 import { Link, useParams } from "react-router-dom"
 import { useTranslation } from "react-i18next"
-import "@/styles/products/Product.css"
+import "@/styles/products/Product.css" // Import the CSS file
 
 interface ProductProps {
   id: number
@@ -48,6 +48,9 @@ const Product = ({
     }
 
     sessionStorage.setItem("cart", JSON.stringify(cart))
+
+    // Dispatch a custom event to notify about the cart update
+    window.dispatchEvent(new Event("cartUpdated"))
 
     // Create a new toast notification
     const newToast = {

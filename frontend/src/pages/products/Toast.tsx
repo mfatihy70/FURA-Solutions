@@ -11,15 +11,7 @@ const ToastNotification = ({ toasts, onClose }: ToastNotificationProps) => {
   const { t } = useTranslation()
 
   return (
-    <ToastContainer
-      className="toast-container"
-      style={{
-        position: "fixed",
-        top: "20px",
-        right: "20px",
-        zIndex: 1100,
-      }}
-    >
+    <ToastContainer className="toast-container">
       {toasts.map((toast, index) => (
         <Toast
           key={toast.id}
