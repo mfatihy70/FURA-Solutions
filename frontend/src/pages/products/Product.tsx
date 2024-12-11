@@ -1,7 +1,7 @@
 import { Card, Button } from "react-bootstrap"
 import { Link, useParams } from "react-router-dom"
 import { useTranslation } from "react-i18next"
-import "@/styles/products/Product.css" // Import the CSS file
+import "@/styles/products/Product.css"
 
 interface ProductProps {
   id: number
@@ -34,15 +34,25 @@ const Product = ({
 
   // Function to handle adding the product to the cart
   const handleAddToCart = () => {
-    const productDetails = { id, image, name, price }
+    const productDetails = { id, image, name, price, quantity: 1 }
     const cart = JSON.parse(sessionStorage.getItem("cart") || "[]")
-    cart.push(productDetails)
+
+    // Check if the product already exists in the cart
+    const existingProductIndex = cart.findIndex((item: any) => item.id === id)
+    if (existingProductIndex !== -1) {
+      // Increase the quantity of the existing product
+      cart[existingProductIndex].quantity += 1
+    } else {
+      // Add the new product to the cart
+      cart.push(productDetails)
+    }
+
     sessionStorage.setItem("cart", JSON.stringify(cart))
 
     // Create a new toast notification
     const newToast = {
       id: Date.now(),
-      message: `${name} ${t("product.addedToCart")}`,
+      message: `${t(name)} ${t("product.addedToCart")}`, // Translate the name for the toast message
       image,
       name,
     }
@@ -61,10 +71,11 @@ const Product = ({
       >
         <Card.Img variant="top" src={image} />
         <Card.Body>
-          <Card.Title>{name}</Card.Title>
+          <Card.Title>{t(name)}</Card.Title>
+          {/* Translate the name for display */}
           {showDetails && (
             <>
-              <Card.Text>{price}</Card.Text>
+              <Card.Text>{`${price}${t("currency")}`}</Card.Text>
               <Button variant="primary" onClick={handleAddToCart}>
                 {t("product.addToCart")}
               </Button>

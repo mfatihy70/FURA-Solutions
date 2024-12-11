@@ -1,8 +1,17 @@
 # Changelog
 
-## [v0.1.0] - 2024-11-2 0
+## [v0.1.1] - 2024-12-11
 
 ### Added
+- Display products in cart in `Cart.tsx` as a list extracted from session storage
+
+### Renamed
+- `PartnersParent.tsx` and `CatalogParent.tsx` into `...Page.tsx`
+
+## [v0.1.0] - 2024-11-2
+
+### Added
+
 - 'backend' template for Express.js (in development)
 - Cart page and icon in navbar
 - Adding products in cart to session storage
@@ -10,7 +19,8 @@
 - `data` folder for partners, products and carousel items.
 
 ### Changed
-- Products in Catalog 
+
+- Products in Catalog
 - Moved `translatinos.json` into `locales` folder
 - The prices and currencies of products
 - Animations on Language switch and cart icon
@@ -19,6 +29,7 @@
 - Moved `README.md`, `CHANGELOG.md` and `TODO.md` into root folder
 
 ### Removed
+
 - `ToggleButton.css`
 - `Catalog.css` (content transferred to `Product.css`)
 - In-file data definitions

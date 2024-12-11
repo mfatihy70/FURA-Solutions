@@ -1,7 +1,7 @@
-import Footer from "@/components/Footer";
-import Partners from "./Partners";
-import { Container } from "react-bootstrap";
-import "@/styles/Partners.css";
+import Footer from "@/components/Footer"
+import Partners from "./Partners"
+import { Container } from "react-bootstrap"
+import "@/styles/Partners.css"
 
 const PartnersParent = () => {
   return (
@@ -12,7 +12,7 @@ const PartnersParent = () => {
       </main>
       <Footer />
     </Container>
-  );
-};
+  )
+}
 
-export default PartnersParent;
+export default PartnersParent

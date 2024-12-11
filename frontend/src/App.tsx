@@ -1,22 +1,17 @@
-import "./App.css";
-import {
-  HashRouter as Router,
-  Routes,
-  Route,
-  Navigate,
-} from "react-router-dom";
-import { LANGUAGES } from "./locales/i18n";
-import Navbar from "./components/navbar/Navbar";
-import Home from "./pages/home/Home";
-import About from "./pages/About";
-import Partners from "./pages/partners/PartnersParent";
-import Contact from "./pages/contact/Contact";
-import "./locales/i18n";
-import Login from "./pages/login/Login";
-import Register from "./pages/login/Register";
-import Catalog from "./pages/products/CatalogParent";
-import Cart from "./pages/Cart";
-import NotFound from "./pages/NotFound";
+import { HashRouter as Router, Routes, Route, Navigate } from "react-router-dom"
+import { LANGUAGES } from "./locales/i18n"
+import Navbar from "./components/navbar/Navbar"
+import Home from "./pages/home/Home"
+import About from "./pages/About"
+import Partners from "./pages/partners/PartnersPage"
+import Contact from "./pages/contact/Contact"
+import Login from "./pages/login/Login"
+import Register from "./pages/login/Register"
+import Catalog from "./pages/products/CatalogPage"
+import Cart from "./pages/Cart"
+import NotFound from "./pages/NotFound"
+import "./locales/i18n"
+import "./App.css"
 
 function App() {
   return (
@@ -49,7 +44,7 @@ function App() {
         <Route path="*" element={<NotFound />} />
       </Routes>
     </Router>
-  );
+  )
 }
 
-export default App;
+export default App

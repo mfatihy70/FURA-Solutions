@@ -217,7 +217,8 @@
       "Ihr Warenkorb ist leer."
     ],
     "total": ["Toplam", "Total", "Gesamt"],
-    "checkout": ["Ödeme Yap", "Checkout", "Zur Kasse"]
+    "checkout": ["Ödeme Yap", "Checkout", "Zur Kasse"],
+    "remove": ["Kaldır", "Remove", "Entfernen"]
   },
   "currency": ["₺", "$", "€"]
 }
