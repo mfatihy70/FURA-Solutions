@@ -1,18 +1,15 @@
 import { useState } from "react"
 import { useTranslation } from "react-i18next"
-import { Navbar, Nav, Container } from "react-bootstrap"
-import "bootstrap/dist/css/bootstrap.min.css"
+import { Navbar, Nav } from "react-bootstrap"
 import CartIcon from "./CartIcon"
 import Logo from "./Logo"
 import Link from "./NavLink"
 import LanguageSwitch from "./LanguageSwitch"
-import "@/styles/navbar/Navbar.css" // Import the custom CSS file
+import "@/styles/navbar/Navbar.css"
 
 const CustomNavbar = () => {
   const { t } = useTranslation()
-  const [isOpen, setIsOpen] = useState(false)
-
-  const toggle = () => setIsOpen(!isOpen)
+  const [isExpanded, setIsExpanded] = useState(false)
 
   const navItems = [
     { name: "navbar.home", href: "home" },
@@ -24,24 +21,28 @@ const CustomNavbar = () => {
   ]
 
   return (
-    <Navbar bg="light" expand="lg" className="mb-5">
-      <Container>
-        <Navbar.Brand>
-          <Logo />
-        </Navbar.Brand>
-        <Navbar.Toggle aria-controls="basic-navbar-nav" onClick={toggle} />
-        <Navbar.Collapse id="basic-navbar-nav" className={isOpen ? "show" : ""}>
-          <Nav className="ms-auto mb-2 mb-lg-0">
-            {navItems.map((item) => (
-              <Link key={item.name} name={t(item.name)} href={item.href} />
-            ))}
-          </Nav>
-          <div className="custom-navbar-icons">
-            <CartIcon />
-            <LanguageSwitch />
-          </div>
-        </Navbar.Collapse>
-      </Container>
+    <Navbar
+      expand="lg"
+      className="mb-5 mx-5 px-5 custom-navbar"
+      expanded={isExpanded}
+      sticky="top"
+      onToggle={(expanded) => setIsExpanded(expanded)}
+    >
+      <Navbar.Brand>
+        <Logo />
+      </Navbar.Brand>
+      <Navbar.Toggle aria-controls="basic-navbar-nav" />
+      <Navbar.Collapse id="basic-navbar-nav">
+        <Nav className="ms-auto mb-2" onClick={() => setIsExpanded(false)}>
+          {navItems.map((item) => (
+            <Link key={item.name} name={t(item.name)} href={item.href} />
+          ))}
+        </Nav>
+        <div className="d-flex justify-content-center align-items-center">
+          <CartIcon />
+          <LanguageSwitch />
+        </div>
+      </Navbar.Collapse>
     </Navbar>
   )
 }

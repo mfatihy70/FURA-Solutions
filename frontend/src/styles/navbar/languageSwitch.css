@@ -18,3 +18,11 @@
 .language-switch:hover {
   transform: scale(1.2); /* Scale effect on hover */
 }
+
+/* Responsive behavior for smaller screens */
+@media (max-width: 992px) {
+  .custom-navbar-icons {
+    width: 100%;
+    justify-content: center;
+  }
+}

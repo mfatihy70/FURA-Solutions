@@ -14,7 +14,7 @@ const CartIcon = () => {
 
   // Function to update the product count
   const updateProductCount = () => {
-    const cart = JSON.parse(sessionStorage.getItem("cart") || "[]")
+    const cart = JSON.parse(localStorage.getItem("cart") || "[]")
     const count = cart.reduce(
       (acc: number, item: any) => acc + item.quantity,
       0
@@ -22,7 +22,7 @@ const CartIcon = () => {
     setProductCount(count)
   }
 
-  // Retrieve the product count from session storage on component mount
+  // Retrieve the product count from local storage on component mount
   useEffect(() => {
     updateProductCount()
 
@@ -44,26 +44,9 @@ const CartIcon = () => {
       to={`/${currentLang}/cart`}
       style={{ textDecoration: "none", color: "inherit" }}
     >
-      <div
-        style={{ position: "relative", display: "flex", alignItems: "center" }}
-      >
+      <div className="cart-container">
         <FaShoppingCart size={24} className="cart-icon m-3" />
-        {productCount > 0 && (
-          <span
-            style={{
-              position: "absolute",
-              top: "0",
-              right: "0",
-              backgroundColor: "red",
-              color: "white",
-              borderRadius: "50%",
-              padding: "0.25em 0.5em",
-              fontSize: "0.75em",
-            }}
-          >
-            {productCount}
-          </span>
-        )}
+        {productCount > 0 && <span className="cart-badge">{productCount}</span>}
       </div>
     </Link>
   )

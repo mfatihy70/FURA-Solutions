@@ -35,7 +35,7 @@ const Product = ({
   // Function to handle adding the product to the cart
   const handleAddToCart = () => {
     const productDetails = { id, image, name, price, quantity: 1 }
-    const cart = JSON.parse(sessionStorage.getItem("cart") || "[]")
+    const cart = JSON.parse(localStorage.getItem("cart") || "[]")
 
     // Check if the product already exists in the cart
     const existingProductIndex = cart.findIndex((item: any) => item.id === id)
@@ -47,7 +47,7 @@ const Product = ({
       cart.push(productDetails)
     }
 
-    sessionStorage.setItem("cart", JSON.stringify(cart))
+    localStorage.setItem("cart", JSON.stringify(cart))
 
     // Dispatch a custom event to notify about the cart update
     window.dispatchEvent(new Event("cartUpdated"))

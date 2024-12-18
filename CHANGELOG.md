@@ -11,6 +11,17 @@
 
 ### Changed
 - Toasts to show in the center
+- Products get saved to local storage instead of session storage
+- Made the cart icon banner round
+- Sticky Navbar and simplification
+- `Section.tsx` uses full width
+
+
+### Moved
+- `Cart.tsx` under `cart` folder
+- - Styles from `Toast.tsx` into its css file
+- `CartIcon.tsx` styles in css file
+
 
 ## [v0.1.0] - 2024-11-2
 

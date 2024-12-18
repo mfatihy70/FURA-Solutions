@@ -2,9 +2,9 @@ import { useState } from "react"
 import { useTranslation } from "react-i18next"
 import { useNavigate } from "react-router-dom"
 import { LANGUAGES } from "@/locales/i18n"
+import { Dropdown } from "react-bootstrap"
 import "flag-icon-css/css/flag-icons.min.css"
 import "@/styles/navbar/LanguageSwitch.css"
-import { Dropdown } from "react-bootstrap"
 
 const LanguageSwitch = () => {
   const [isOpen, setIsOpen] = useState(false)

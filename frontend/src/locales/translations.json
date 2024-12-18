@@ -12,7 +12,7 @@
     "home": ["ANA SAYFA", "HOME", "STARTSEITE"],
     "about": ["HAKKIMIZDA", "ABOUT US", "ÜBER UNS"],
     "contact": ["İLETİŞİM", "CONTACT", "KONTAKT"],
-    "partners": ["PARTNERLERİMİZ", "PARTNERS", "PARTNER"],
+    "partners": ["PARTNERLER", "PARTNERS", "PARTNER"],
     "products": ["ÜRÜNLER", "PRODUCTS", "PRODUKTE"],
     "login": ["GİRİŞ YAP", "LOGIN", "ANMELDEN"]
   },

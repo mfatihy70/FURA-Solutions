@@ -21,17 +21,20 @@
 }
 
 .toast-container {
-  position: fixed;
+  position: sticky; /* This ensures it stays in the viewport */
   top: 20px;
   left: 50%;
   transform: translateX(-50%);
-  z-index: 100;
+  z-index: 1100; /* Ensure it is above other elements */
+  width: calc(100% - 40px); /* Responsive width with padding */
+  max-width: 400px; /* Optional: limit maximum width */
 }
 
 .toast {
   color: white;
   animation: slide-in-top 0.5s ease-out, slide-out-top 0.5s ease-out 4.5s;
   margin-bottom: 10px;
+  width: 100%; /* Full width of container */
 }
 
 .toast-header {
