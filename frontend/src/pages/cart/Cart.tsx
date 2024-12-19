@@ -57,16 +57,14 @@ const Cart = () => {
                     fluid
                     rounded
                     style={{
-                      width: "100%",
-                      height: "auto",
-                      aspectRatio: "1/1", // Ensures square
+                      aspectRatio: "1/1",
                       objectFit: "cover",
                     }}
                   />
                 </Col>
 
                 {/* Center Section: Details */}
-                <Col xs={6} sm={7} className="d-flex flex-column">
+                <Col xs={6} sm={6} className="d-flex flex-column">
                   <h5 className="mb-2" style={{ fontSize: "1.2rem" }}>
                     {t(`${item.name}`)}
                   </h5>
@@ -87,7 +85,7 @@ const Cart = () => {
                     <span style={{ fontSize: "1.2rem" }}>{item.quantity}</span>
                     <Button
                       variant="outline-secondary"
-                      className="mx-3"
+                      className="m-3"
                       onClick={() => handleIncreaseQuantity(item.id)}
                     >
                       +
@@ -96,10 +94,9 @@ const Cart = () => {
                 </Col>
 
                 {/* Right Section: Delete Button */}
-                <Col xs={2} className="text-end">
+                <Col xs={2}>
                   <Button
                     variant="danger"
-                    // size="sm" // Larger delete button
                     onClick={() => handleRemoveItem(item.id)}
                   >
                     {t("cart.remove")}

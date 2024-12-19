@@ -1,5 +1,6 @@
 import { Toast, ToastContainer } from "react-bootstrap"
 import { useTranslation } from "react-i18next"
+import { Link } from "react-router-dom"
 import "@/styles/products/Toast.css"
 
 interface ToastNotificationProps {
@@ -12,16 +13,15 @@ const ToastNotification = ({ toasts, onClose }: ToastNotificationProps) => {
 
   return (
     <ToastContainer className="toast-container">
-      {toasts.map((toast, index) => (
+      {toasts.map((toast) => (
         <Toast
           key={toast.id}
           onClose={() => onClose(toast.id)}
           show={true}
-          delay={5000}
+          delay={3000}
           autohide
           bg="success"
           className="toast"
-          style={{ marginTop: `${index * 20}px` }} // Ensures stacking
         >
           <Toast.Header closeButton className="toast-header">
             <strong className="me-auto">{t("cart.title")}</strong>
@@ -29,6 +29,9 @@ const ToastNotification = ({ toasts, onClose }: ToastNotificationProps) => {
           <Toast.Body className="toast-body">
             <img src={toast.image} alt={toast.name} />
             <span>{toast.message}</span>
+            <Link to="/lang/cart" className="btn btn-success mt-2">
+              {t("cart.showCart")}
+            </Link>
           </Toast.Body>
         </Toast>
       ))}

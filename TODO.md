@@ -3,6 +3,7 @@
 
 1. database
 2. admin-user login
-3. toast flashes after disappearing
-5. map height set manually temp
-6. show toast when deleting products
+3. map height set manually temp
+4. show toast when deleting products
+5. toast sticking only with !important
+6. collapse navbar on mobile when cart or language is selected

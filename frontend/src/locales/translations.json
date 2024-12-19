@@ -218,7 +218,10 @@
     ],
     "total": ["Toplam", "Total", "Gesamt"],
     "checkout": ["Ödeme Yap", "Checkout", "Zur Kasse"],
-    "remove": ["Kaldır", "Remove", "Entfernen"]
+    "remove": ["Kaldır", "Remove", "Entfernen"],
+    "showCart": ["Sepeti Göster", "Show Cart", "Warenkorb anzeigen"]
+
   },
+
   "currency": ["₺", "$", "€"]
 }

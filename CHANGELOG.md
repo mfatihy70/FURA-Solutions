@@ -5,6 +5,7 @@
 ### Added
 - Banner to `CartIcon.tsx` to show the product count using global state
 - Display products in cart in `Cart.tsx` as a list extracted from session storage
+- Navbar collapse when a menu item is clicked on mobile
 
 ### Renamed
 - `PartnersParent.tsx` and `CatalogParent.tsx` into `...Page.tsx`
@@ -15,12 +16,18 @@
 - Made the cart icon banner round
 - Sticky Navbar and simplification
 - `Section.tsx` uses full width
+- Toasts stay for 3 seconds
+
 
 
 ### Moved
 - `Cart.tsx` under `cart` folder
 - - Styles from `Toast.tsx` into its css file
 - `CartIcon.tsx` styles in css file
+
+### Fixed
+- Toast flashing after disappearing due to animation timing
+- Cart items dont fit on mobile
 
 
 ## [v0.1.0] - 2024-11-2
