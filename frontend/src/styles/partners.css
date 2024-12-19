@@ -1,0 +1,39 @@
+.partner-img {
+  max-height: 100px; /* Maximum height for partner logos */
+  width: 100%;
+  object-fit: contain;
+  transition: transform 0.3s ease; /* Smooth transition for hover effect */
+}
+
+.partner-img:hover {
+  transform: scale(1.1); /* Slight zoom on hover */
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.col-md-3 {
+  flex: 0 0 auto;
+  width: 50%; /* Set a fixed width for each column */
+  padding: 0 15px;
+}
+
+@media (max-width: 768px) {
+  .row {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .col-md-3 {
+    flex-basis: 50%;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  .partner-img {
+    max-height: 80px; /* Slightly smaller on mobile devices */
+  }
+}

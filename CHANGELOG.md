@@ -1,5 +1,114 @@
 # Changelog
 
+## [v0.1.1] - 2024-12-11
+
+### Added
+- Banner to `CartIcon.tsx` to show the product count using global state
+- Display products in cart in `Cart.tsx` as a list extracted from session storage
+- Navbar collapse when a menu item is clicked on mobile
+
+### Renamed
+- `PartnersParent.tsx` and `CatalogParent.tsx` into `...Page.tsx`
+
+### Changed
+- Toasts to show in the center
+- Products get saved to local storage instead of session storage
+- Made the cart icon banner round
+- Sticky Navbar and simplification
+- `Section.tsx` uses full width
+- Toasts stay for 3 seconds
+
+
+
+### Moved
+- `Cart.tsx` under `cart` folder
+- - Styles from `Toast.tsx` into its css file
+- `CartIcon.tsx` styles in css file
+
+### Fixed
+- Toast flashing after disappearing due to animation timing
+- Cart items dont fit on mobile
+
+
+## [v0.1.0] - 2024-11-2
+
+### Added
+
+- 'backend' template for Express.js (in development)
+- Cart page and icon in navbar
+- Adding products in cart to session storage
+- Showing stacking animated toasts when adding products to the cart
+- `data` folder for partners, products and carousel items.
+
+### Changed
+
+- Products in Catalog
+- Moved `translatinos.json` into `locales` folder
+- The prices and currencies of products
+- Animations on Language switch and cart icon
+- Centered and enlarged cart and language icons on toggled navbar view
+- CSS file names in camel case
+- Moved `README.md`, `CHANGELOG.md` and `TODO.md` into root folder
+
+### Removed
+
+- `ToggleButton.css`
+- `Catalog.css` (content transferred to `Product.css`)
+- In-file data definitions
+- `import.ts` files under `assets/images`
+- `node_modules` of backend from git
+
+## [v0.0.9] - 2024-11-9
+
+### Added
+
+- Contact form validation in `Form.tsx`
+- `Modal.tsx` for showing pop up when the email is sent
+- `formUtils.ts` for emailjs related stuff
+- Show error message in modal when the email couldn't be sent
+- `import.ts` for simplifying partners imports
+
+### Changed
+
+- `Navbar.tsx` with better collapsing
+- Moved form related files into `contact/form`
+- `About.tsx` `Partners.tsx` `Section.tsx` `Footer.tsx` `NotFound.tsx` `LanguageSwitch.tsx` `Image.tsx` `Cards.tsx` are now react bootstrap based
+- Rounded the carousel icons
+- Language switch shows up on the right in toggled view
+
+## [v0.0.8] - 2024-11-6
+
+### Added
+
+- `@` alias for absolute imports in `tsconfig.app.json`
+- Footer component to `NotFound.tsx`
+- `Catalog.tsx` for products with the css file
+- `import.ts` files for simpler imports in `Catalog.tsx` and `Carousel.tsx`
+- On hover animations to carousel, products and partners
+- Links to carousel text
+- `Footer.css` for on hover on links
+
+### Changed
+
+- Optimized and commented `form.tsx`
+- Updated `README.md`
+- Imports paths to absolute
+- Smaller text in `section.tsx`
+- `Partners.tsx` to `PartnersParent.tsx` and `ParentsChild.tsx` to `Parents.tsx`
+
+### Renamed
+
+- `Login` folder to `login`
+- Carousel images to english names
+- `slides` folder to `carousel`
+- `CarouselExample` to `CustomCarousel`
+- All `.tsx` files to start with capitals
+
+### Removed
+
+- `mdb-react-ui-kit` package
+- Unnecessary lines from `Carousel.css`
+
 ## [v0.0.7] - 2024-11-3
 
 ### Added
