@@ -24,7 +24,7 @@ const CartItem = ({ item, onIncrease, onDecrease, onRemove }: any) => {
         <h5 className="cart-item-title">{t(`${item.name}`)}</h5>
 
         {/* Price */}
-        <span className="text-muted cart-item-price">
+        <span className="cart-item-price">
           {`${item.price}${t("currency")}`}
         </span>
 
@@ -52,8 +52,6 @@ const CartItem = ({ item, onIncrease, onDecrease, onRemove }: any) => {
       <Col xs={12} sm={3} className="text-center text-sm-end mt-3 mt-sm-0">
         <Button
           variant="danger"
-          size="sm"
-          className="cart-item-remove"
           onClick={() => onRemove(item.id)}
         >
           {t("cart.remove.button")}

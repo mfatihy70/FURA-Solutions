@@ -16,28 +16,28 @@
 }
 
 .cart-item-price {
-  font-size: 1rem;
+  font-size: 1.1rem;
+  font-weight: 500;
 }
 
 /* Quantity Controls */
 .cart-item-quantity button {
   min-width: 35px;
   padding: 5px 10px;
+  font-weight: 700;
 }
 
-.cart-item-count {
-  font-size: 1rem;
-  font-weight: 600;
-}
 
-/* Remove Button */
-.cart-item-remove {
-  min-width: 100px;
-}
-
-/* Add spacing between rows */
-.list-group-item {
+.list-group-item {  
   margin-bottom: 10px;
   border: none;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+@media (min-width: 768px) {
+  .overview-top-right {
+    position: fixed;
+    top: 200px;
+    right: 0;
+  }
 }

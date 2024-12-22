@@ -244,10 +244,15 @@
         "wurde aus dem Warenkorb entfernt."
       ]
     },
-    "overview": ["Sepet Özeti", "Cart Overview", "Warenkorbübersicht"],
+    "overview": ["Özet", "Overview", "Übersicht"],
     "subtotal": ["Ara Toplam", "Subtotal", "Zwischensumme"],
     "itemCount": ["Ürün Adedi", "Item Count", "Artikelanzahl"],
     "shipping": ["Kargo", "Shipping", "Versand"]
+  },
+
+  "checkout":{
+    "title": ["Ödeme", "Checkout", "Kasse"]
+
   },
 
   "currency": ["₺", "$", "€"]

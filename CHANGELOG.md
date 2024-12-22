@@ -7,6 +7,12 @@
 - Toast when deleting products from cart
 - Mobile navbar collapse when click on cart and language
 - Cart overview section
+- `Checkout.tsx` (title only)
+
+### Fixed
+
+- Cart overview is now fixed to viewport
+- Cart now refreshes when adding or removing items
 
 ### Changed
 
@@ -14,6 +20,7 @@
 - `Toast.tsx` now accepts success and danger variants
 - Extracted cart overview, functions and items into seperate files
 - Restructured keys in `translations.json`
+- Added `Footer.tsx` to `App.tsx` for removing footer calls from each file
 
 ### Removed
 

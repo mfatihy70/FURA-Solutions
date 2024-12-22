@@ -6,31 +6,20 @@ export const loadCart = (setCart: Dispatch<SetStateAction<any[]>>) => {
   setCart(storedCart);
 };
 
-export const updateCart = (
-  updatedCart: any[],
-  setCart: Dispatch<SetStateAction<any[]>>
-) => {
+export const updateCart = (updatedCart: any[], setCart: Dispatch<SetStateAction<any[]>>) => {
   setCart(updatedCart);
   localStorage.setItem("cart", JSON.stringify(updatedCart));
   window.dispatchEvent(new Event("cartUpdated"));
 };
 
-export const handleIncreaseQuantity = (
-  id: number,
-  cart: any[],
-  setCart: Dispatch<SetStateAction<any[]>>
-) => {
+export const handleIncreaseQuantity = (id: number, cart: any[], setCart: Dispatch<SetStateAction<any[]>>) => {
   const updatedCart = cart.map((item) =>
     item.id === id ? { ...item, quantity: item.quantity + 1 } : item
   );
   updateCart(updatedCart, setCart);
 };
 
-export const handleDecreaseQuantity = (
-  id: number,
-  cart: any[],
-  setCart: Dispatch<SetStateAction<any[]>>
-) => {
+export const handleDecreaseQuantity = (id: number, cart: any[], setCart: Dispatch<SetStateAction<any[]>>) => {
   const updatedCart = cart
     .map((item) =>
       item.id === id ? { ...item, quantity: item.quantity - 1 } : item
@@ -65,10 +54,7 @@ export const handleRemoveItem = (
   }
 };
 
-export const handleToastClose = (
-  id: number,
-  setToasts: Dispatch<SetStateAction<any[]>>
-) => {
+export const handleToastClose = (id: number, setToasts: Dispatch<SetStateAction<any[]>>) => {
   setToasts((prevToasts) => prevToasts.filter((toast) => toast.id !== id));
 };
 

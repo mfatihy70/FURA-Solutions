@@ -1,6 +1,5 @@
 import { useTranslation } from "react-i18next";
 import { getLanguageFromRoute } from "@/locales/i18n";
-import Footer from "@/components/Footer";
 import { Container, Button } from "react-bootstrap";
 
 const NotFound = () => {
@@ -17,7 +16,6 @@ const NotFound = () => {
           {t("notFound.goHome")}
         </Button>
       </div>
-      <Footer />
     </Container>
   );
 };
