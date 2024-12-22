@@ -1,6 +1,7 @@
 import { HashRouter as Router, Routes, Route, Navigate } from "react-router-dom"
 import { LANGUAGES } from "./locales/i18n"
 import Navbar from "./components/navbar/Navbar"
+import Footer from "./components/Footer"
 import Home from "./pages/home/Home"
 import About from "./pages/About"
 import Partners from "./pages/partners/PartnersPage"
@@ -43,6 +44,7 @@ function App() {
         {/* 404 route */}
         <Route path="*" element={<NotFound />} />
       </Routes>
+      {/* <Footer /> */}
     </Router>
   )
 }

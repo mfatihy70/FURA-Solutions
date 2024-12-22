@@ -200,8 +200,7 @@
       "Müşteriye Özel Kablolar",
       "Custom Cables",
       "Kundenspezifische Kabel"
-    ],
-    "addToCart": ["Sepete Ekle", "Add to Cart", "In den Warenkorb legen"]
+    ]
   },
 
   "cart": {
@@ -213,29 +212,42 @@
     ],
     "total": ["Toplam", "Total", "Gesamt"],
     "checkout": ["Ödeme Yap", "Checkout", "Zur Kasse"],
-    "remove": ["Kaldır", "Remove", "Entfernen"],
     "showCart": ["Sepeti Göster", "Show Cart", "Warenkorb anzeigen"],
-    "addedTitle": [
-      "Ürün sepete eklendi.",
-      "Product added to cart.",
-      "Produkt wurde dem Warenkorb hinzugefügt."
-    ],
-    "added": [
-      "sepete eklendi.",
-      "added to cart.",
-      "wurde dem Warenkorb hinzugefügt."
-    ],
-    "removedTitle": [
-      "Ürün sepetten kaldırıldı.",
-      "Product removed from cart.",
-      "Produkt wurde aus dem Warenkorb entfernt."
-    ],
-    "removed": [
-      "sepetten kaldırıldı.",
-      "removed from cart.",
-      "wurde aus dem Warenkorb entfernt."
-    ]
-
+    "add": {
+      "title": [
+        "Ürün sepete eklendi.",
+        "Product added to cart.",
+        "Produkt wurde dem Warenkorb hinzugefügt."
+      ],
+      "toCart": ["Sepete ekle", "Add to Cart", "In den Warenkorb legen"],
+      "ed": [
+        "sepete eklendi.",
+        "added to cart.",
+        "wurde dem Warenkorb hinzugefügt."
+      ]
+    },
+    "remove": {
+      "title": [
+        "Ürün sepetten kaldırıldı.",
+        "Product removed from cart.",
+        "Produkt wurde aus dem Warenkorb entfernt."
+      ],
+      "button": ["Kaldır", "Remove", "Entfernen"],
+      "fromCart": [
+        "Sepetten kaldır",
+        "Remove from Cart",
+        "Aus dem Warenkorb entfernen"
+      ],
+      "ed": [
+        "sepetten kaldırıldı.",
+        "removed from cart.",
+        "wurde aus dem Warenkorb entfernt."
+      ]
+    },
+    "overview": ["Sepet Özeti", "Cart Overview", "Warenkorbübersicht"],
+    "subtotal": ["Ara Toplam", "Subtotal", "Zwischensumme"],
+    "itemCount": ["Ürün Adedi", "Item Count", "Artikelanzahl"],
+    "shipping": ["Kargo", "Shipping", "Versand"]
   },
 
   "currency": ["₺", "$", "€"]

@@ -2,7 +2,7 @@ import { useEffect } from "react"
 import Footer from "@/components/Footer"
 import ProductCatalog from "./ProductCatalog"
 
-const CatalogParent = () => {
+const CatalogPage = () => {
   // Scroll to the top of the page when the component mounts
   useEffect(() => {
     window.scrollTo(0, 0)
@@ -19,4 +19,4 @@ const CatalogParent = () => {
   )
 }
 
-export default CatalogParent
+export default CatalogPage

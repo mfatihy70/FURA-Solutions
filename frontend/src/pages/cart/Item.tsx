@@ -56,7 +56,7 @@ const CartItem = ({ item, onIncrease, onDecrease, onRemove }: any) => {
           className="cart-item-remove"
           onClick={() => onRemove(item.id)}
         >
-          {t("cart.remove")}
+          {t("cart.remove.button")}
         </Button>
       </Col>
     </Row>

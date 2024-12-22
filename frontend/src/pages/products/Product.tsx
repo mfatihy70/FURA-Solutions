@@ -55,7 +55,7 @@ const Product = ({
     // Create a new toast notification
     const newToast = {
       id: Date.now(),
-      message: `${t(name)} ${t("cart.added")}`, // Translate the name for the toast message
+      message: `${t(name)} ${t("cart.add.ed")}`, // Translate the name for the toast message
       image,
       name,
     }
@@ -80,7 +80,7 @@ const Product = ({
             <>
               <Card.Text>{`${price}${t("currency")}`}</Card.Text>
               <Button variant="primary" onClick={handleAddToCart}>
-                {t("product.addToCart")}
+                {t("cart.add.toCart")}
               </Button>
             </>
           )}

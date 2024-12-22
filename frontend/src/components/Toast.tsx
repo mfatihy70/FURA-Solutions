@@ -31,7 +31,7 @@ const ToastNotification = ({ toasts, onClose }: ToastNotificationProps) => {
         >
           <Toast.Header closeButton className="toast-header">
             <strong className="me-auto">
-              {toast.type === "danger" ? t("cart.removedTitle") : t("cart.addedTitle")}
+              {toast.type === "danger" ? t("cart.remove.title") : t("cart.add.title")}
             </strong>
           </Toast.Header>
           <Toast.Body className="toast-body">
