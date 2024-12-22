@@ -1,7 +1,7 @@
-import Carousel from "./Carousel";
-import Section from "./Section";
-import Partners from "../partners/Partners";
-import ProductCatalog from "../products/ProductCatalog";
+import Carousel from "./Carousel"
+import Section from "./Section"
+import Partners from "../partners/Partners"
+import ProductCatalog from "../products/ProductCatalog"
 
 const Home = () => {
   return (
@@ -11,7 +11,7 @@ const Home = () => {
       <ProductCatalog showDetails={false} />
       <Partners />
     </>
-  );
-};
+  )
+}
 
-export default Home;
+export default Home

@@ -1,24 +1,23 @@
-import { useTranslation } from "react-i18next";
-import { ListGroup, Card, Button } from "react-bootstrap";
-import { useParams, useNavigate } from "react-router-dom";
+import { useTranslation } from "react-i18next"
+import { ListGroup, Card, Button } from "react-bootstrap"
+import { useNavigate, useParams } from "react-router-dom"
+import { calculateTotalItems, calculateSubtotal } from "./Functions"
 
-// Props interface for CartOverview
+// Props interface
 interface CartOverviewProps {
-  totalItems: number;
-  subtotal: number;
-  totalPrice: number;
-  shippingCost: number;
+  cart: any[]
+  shippingCost: number
 }
 
-const CartOverview: React.FC<CartOverviewProps> = ({
-  totalItems,
-  subtotal,
-  totalPrice,
-  shippingCost,
-}) => {
-  const { t } = useTranslation();
-  const { lang } = useParams();
-  const navigate = useNavigate();
+const CartOverview = ({ cart, shippingCost }: CartOverviewProps) => {
+  const { t } = useTranslation()
+  const { lang } = useParams()
+  const navigate = useNavigate()
+
+  // Calculate totals directly using functions
+  const totalItems = calculateTotalItems(cart)
+  const subtotal = calculateSubtotal(cart)
+  const totalPrice = subtotal + (subtotal > 0 ? shippingCost : 0)
 
   return (
     <Card className="p-3 mb-3">
@@ -30,8 +29,7 @@ const CartOverview: React.FC<CartOverviewProps> = ({
         </ListGroup.Item>
         <ListGroup.Item className="d-flex justify-content-between">
           <span>{t("cart.subtotal")}</span>
-          {t("currency")}
-          {subtotal.toFixed(2)}
+          {`${t("currency")}${subtotal.toFixed(2)}`}
         </ListGroup.Item>
         <ListGroup.Item className="d-flex justify-content-between">
           <span>{t("cart.shipping")}</span>
@@ -41,10 +39,7 @@ const CartOverview: React.FC<CartOverviewProps> = ({
         </ListGroup.Item>
         <ListGroup.Item className="d-flex justify-content-between">
           <span>{t("cart.total")}</span>
-          <strong style={{ textDecoration: "underline" }}>
-            {t("currency")}
-            {totalPrice.toFixed(2)}
-          </strong>
+          <strong>{`${t("currency")}${totalPrice.toFixed(2)}`}</strong>
         </ListGroup.Item>
       </ListGroup>
       <Button
@@ -57,7 +52,7 @@ const CartOverview: React.FC<CartOverviewProps> = ({
         {t("cart.checkout")}
       </Button>
     </Card>
-  );
-};
+  )
+}
 
-export default CartOverview;
+export default CartOverview

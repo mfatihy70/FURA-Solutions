@@ -6,7 +6,7 @@ const PartnersParent = () => {
   return (
     // To fix the footer to the bottom
     <Container fluid className="d-flex flex-column min-vh-100 p-0">
-        <Partners />
+      <Partners />
     </Container>
   )
 }

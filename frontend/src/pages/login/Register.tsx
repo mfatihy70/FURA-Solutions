@@ -1,10 +1,10 @@
-import { Container, Row, Col, Card, Form, Button } from "react-bootstrap";
-import { useTranslation } from "react-i18next";
-import { Link, useParams } from "react-router-dom";
+import { Container, Row, Col, Card, Form, Button } from "react-bootstrap"
+import { useTranslation } from "react-i18next"
+import { Link, useParams } from "react-router-dom"
 
 const Register = () => {
-  const { t } = useTranslation();
-  const { lang } = useParams();
+  const { t } = useTranslation()
+  const { lang } = useParams()
 
   return (
     <Container fluid>
@@ -59,7 +59,12 @@ const Register = () => {
                 </Form.Group>
 
                 <Link to={`/${lang}/login`}>
-                  <Button variant="primary" size="lg" className="w-100 mb-4">
+                  <Button
+                    variant="primary"
+                    size="lg"
+                    className="w-100 mb-4"
+                    onClick={() => alert("In development")}
+                  >
                     {t("login.register")}
                   </Button>
                 </Link>
@@ -77,7 +82,7 @@ const Register = () => {
         </Col>
       </Row>
     </Container>
-  );
-};
+  )
+}
 
-export default Register;
+export default Register

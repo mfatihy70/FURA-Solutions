@@ -11,7 +11,6 @@ const Link = ({ name, href }: LinkProps) => {
   const { lang } = useParams()
   const { i18n } = useTranslation()
 
-  // Ensure we have a language, fallback to current i18n language
   const currentLang = lang || i18n.language
 
   return (

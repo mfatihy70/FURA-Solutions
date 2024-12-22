@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 import "@/styles/navbar/CartIcon.css";
 
 interface CartIconProps {
-  onCollapse?: () => void;
+  onCollapse?: () => void; // Optional prop to handle navbar collapse
 }
 
 const CartIcon = ({ onCollapse }: CartIconProps) => {
@@ -13,30 +13,38 @@ const CartIcon = ({ onCollapse }: CartIconProps) => {
   const { lang } = useParams();
   const [productCount, setProductCount] = useState(0);
 
+  // Determine the current language from URL params or i18n
   const currentLang = lang || i18n.language;
 
+  // Function to update the product count from local storage
   const updateProductCount = () => {
     const cart = JSON.parse(localStorage.getItem("cart") || "[]");
-    const count: number = cart.reduce((acc: number, item: { quantity: number }) => acc + item.quantity, 0);
+    const count: number = cart.reduce(
+      (acc: number, item: { quantity: number }) => acc + item.quantity,
+      0
+    );
     setProductCount(count);
   };
 
+  // Event listener to handle cart updates
+  const handleCartUpdated = () => {
+    updateProductCount();
+  };
+
+  // useEffect to update product count on component mount and when cart updates
   useEffect(() => {
     updateProductCount();
-
-    const handleCartUpdated = () => {
-      updateProductCount();
-    };
-
     window.addEventListener("cartUpdated", handleCartUpdated);
 
+    // Cleanup event listener on component unmount
     return () => {
       window.removeEventListener("cartUpdated", handleCartUpdated);
     };
   }, []);
 
+  // Handle click to collapse navbar if onCollapse prop is provided
   const handleClick = () => {
-    if (onCollapse) onCollapse(); // Collapse navbar
+    if (onCollapse) onCollapse();
   };
 
   return (

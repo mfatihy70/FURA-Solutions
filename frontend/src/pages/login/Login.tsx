@@ -1,3 +1,5 @@
+import { useTranslation } from "react-i18next"
+import { Link, useParams } from "react-router-dom"
 import {
   Container,
   Row,
@@ -6,13 +8,11 @@ import {
   CardBody,
   Form,
   Button,
-} from "react-bootstrap";
-import { useTranslation } from "react-i18next";
-import { Link, useParams } from "react-router-dom";
+} from "react-bootstrap"
 
 const Login = () => {
-  const { t } = useTranslation();
-  const { lang } = useParams();
+  const { t } = useTranslation()
+  const { lang } = useParams()
 
   return (
     <Container fluid>
@@ -50,7 +50,12 @@ const Login = () => {
                   </div>
                 </Form.Group>
 
-                <Button variant="primary" size="lg" className="w-100 mb-4">
+                <Button
+                  variant="primary"
+                  size="lg"
+                  className="w-100 mb-4"
+                  onClick={() => alert("In development")}
+                >
                   {t("login.login")}
                 </Button>
                 <br />
@@ -66,7 +71,7 @@ const Login = () => {
         </Col>
       </Row>
     </Container>
-  );
-};
+  )
+}
 
-export default Login;
+export default Login

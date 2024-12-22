@@ -250,9 +250,9 @@
     "shipping": ["Kargo", "Shipping", "Versand"]
   },
 
-  "checkout":{
-    "title": ["Ödeme", "Checkout", "Kasse"]
-
+  "checkout": {
+    "title": ["Ödeme", "Checkout", "Kasse"],
+    "backToCart": ["Sepete geri dön", "Back to Cart", "Zurück zum Warenkorb"]
   },
 
   "currency": ["₺", "$", "€"]

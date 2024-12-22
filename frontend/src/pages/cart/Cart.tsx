@@ -1,42 +1,29 @@
-import { useTranslation } from "react-i18next";
-import { useState, useEffect } from "react";
-import { Container, ListGroup, Row, Col } from "react-bootstrap";
-import CartItem from "./Item";
-import ToastNotification from "@/components/Toast";
-import CartOverview from "./Overview";
-import {
-  loadCart,
-  handleIncreaseQuantity,
-  handleDecreaseQuantity,
-  handleRemoveItem,
-  handleToastClose,
-  calculateTotalItems,
-  calculateSubtotal,
-} from "./Functions";
+import { useTranslation } from "react-i18next"
+import { useState, useEffect } from "react"
+import { Container, ListGroup, Row, Col } from "react-bootstrap"
+import CartItem from "./Item"
+import ToastNotification from "@/components/Toast"
+import CartOverview from "./Overview"
+import { loadCart, handleToastClose } from "./Functions"
 
 const Cart = () => {
-  const { t } = useTranslation();
+  const { t } = useTranslation()
 
   // State for cart items and toasts
-  const [cart, setCart] = useState<any[]>([]);
-  const [toasts, setToasts] = useState<any[]>([]);
+  const [cart, setCart] = useState<any[]>([])
+  const [toasts, setToasts] = useState<any[]>([])
 
   // Constants
-  const SHIPPING_COST = 5.99; // Fixed shipping cost
+  const SHIPPING_COST = 5.99 // Fixed shipping cost
 
   // Load cart from local storage
   useEffect(() => {
-    loadCart(setCart);
-  }, []);
-
-  // Recalculate totals whenever the cart updates
-  const totalItems = calculateTotalItems(cart);
-  const subtotal = calculateSubtotal(cart);
-  const totalPrice = subtotal + (subtotal > 0 ? SHIPPING_COST : 0);
+    loadCart(setCart)
+  }, [])
 
   return (
-    <Container>
-      <h2 className="cart-title text-center mb-5">{t("cart.title")}</h2>
+    <Container className="min-vh-100">
+      <h2 className="cart-title text-center mb-5 ">{t("cart.title")}</h2>
 
       {/* Toast Notifications */}
       <ToastNotification
@@ -56,15 +43,10 @@ const Cart = () => {
                 <ListGroup.Item key={item.id} className="mb-3 p-3">
                   <CartItem
                     item={item}
-                    onIncrease={() => {
-                      handleIncreaseQuantity(item.id, cart, setCart);
-                    }}
-                    onDecrease={() => {
-                      handleDecreaseQuantity(item.id, cart, setCart);
-                    }}
-                    onRemove={() => {
-                      handleRemoveItem(item.id, cart, setCart, setToasts, t);
-                    }}
+                    cart={cart}
+                    setCart={setCart}
+                    setToasts={setToasts}
+                    t={t}
                   />
                 </ListGroup.Item>
               ))}
@@ -73,17 +55,12 @@ const Cart = () => {
 
           {/* Overview Section */}
           <Col md={4} className="overview-top-right">
-            <CartOverview
-              totalItems={totalItems}
-              subtotal={subtotal}
-              totalPrice={totalPrice}
-              shippingCost={SHIPPING_COST}
-            />
+            <CartOverview cart={cart} shippingCost={SHIPPING_COST} />
           </Col>
         </Row>
       )}
     </Container>
-  );
-};
+  )
+}
 
-export default Cart;
+export default Cart

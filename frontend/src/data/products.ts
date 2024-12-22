@@ -1,3 +1,4 @@
+// Import simplifications
 import cableChannel from '@/assets/images/products/cableChannel.png';
 import cableGland from '@/assets/images/products/cableGland.png';
 import cableMarking from '@/assets/images/products/cableMarking.png';

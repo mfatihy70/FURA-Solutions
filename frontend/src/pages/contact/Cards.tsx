@@ -1,13 +1,13 @@
-import { Row, Col, Card } from "react-bootstrap";
-import { useTranslation } from "react-i18next";
-import { GeoAltFill, TelephoneFill, EnvelopeFill } from "react-bootstrap-icons";
-import { ReactNode } from "react";
+import { Row, Col, Card } from "react-bootstrap"
+import { useTranslation } from "react-i18next"
+import { GeoAltFill, TelephoneFill, EnvelopeFill } from "react-bootstrap-icons"
+import { ReactNode } from "react"
 
 // Interface for ContactCard props
 interface ContactCardProps {
-  icon: ReactNode; // Accepts JSX directly
-  title: string;
-  text: ReactNode;
+  icon: ReactNode // Accepts JSX directly
+  title: string
+  text: ReactNode
 }
 
 // ContactCard component to display individual contact information
@@ -21,11 +21,11 @@ const ContactCard = ({ icon, title, text }: ContactCardProps) => (
       </Card.Body>
     </Card>
   </Col>
-);
+)
 
 // Cards component to display a row of contact cards
 const Cards = () => {
-  const { t } = useTranslation(); // Translation hook
+  const { t } = useTranslation() // Translation hook
 
   // Data for each contact card
   const cardData = [
@@ -57,7 +57,7 @@ const Cards = () => {
         </a>
       ), // Email text with mailto link
     },
-  ];
+  ]
 
   // Render the row of contact cards
   return (
@@ -71,7 +71,7 @@ const Cards = () => {
         />
       ))}
     </Row>
-  );
-};
+  )
+}
 
-export default Cards;
+export default Cards

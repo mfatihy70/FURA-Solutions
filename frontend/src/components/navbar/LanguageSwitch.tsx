@@ -7,7 +7,7 @@ import "flag-icon-css/css/flag-icons.min.css";
 import "@/styles/navbar/LanguageSwitch.css";
 
 interface LanguageSwitchProps {
-  onCollapse?: () => void;
+  onCollapse?: () => void; // Optional prop to handle navbar collapse
 }
 
 const LanguageSwitch: React.FC<LanguageSwitchProps> = ({ onCollapse }) => {
@@ -15,23 +15,25 @@ const LanguageSwitch: React.FC<LanguageSwitchProps> = ({ onCollapse }) => {
   const { i18n } = useTranslation();
   const navigate = useNavigate();
 
+  // Function to get the current language's flag icon
   const getCurrentFlag = () => {
     const currentLang = LANGUAGES.find((lang) => lang.code === i18n.language);
     return currentLang?.flag || "tr";
   };
 
+  // Function to change the language and update the URL
   const changeLang = (langCode: string | undefined) => {
-    i18n.changeLanguage(langCode);
-    const currentPath = window.location.hash.split("/").slice(2).join("/");
-    navigate(`/${langCode}/${currentPath}`);
-    setIsOpen(false);
-    if (onCollapse) onCollapse(); // Collapse navbar
+    i18n.changeLanguage(langCode); // Change the language in i18n
+    const currentPath = window.location.hash.split("/").slice(2).join("/"); // Get the current path
+    navigate(`/${langCode}/${currentPath}`); // Navigate to the new language path
+    setIsOpen(false); // Close the dropdown
+    if (onCollapse) onCollapse(); // Collapse navbar if onCollapse prop is provided
   };
 
   return (
     <Dropdown className="m-2" show={isOpen} onToggle={() => setIsOpen(!isOpen)}>
       <Dropdown.Toggle
-        as="button"
+        as="button" // Render as a button to avoid nested <a> tags
         variant="link"
         id="dropdown-basic"
         className="language-switch d-flex align-items-center"

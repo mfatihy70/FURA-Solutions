@@ -1,16 +1,17 @@
-import { useState } from "react";
-import { useTranslation } from "react-i18next";
-import { Navbar, Nav } from "react-bootstrap";
-import CartIcon from "./CartIcon";
-import Logo from "./Logo";
-import Link from "./NavLink";
-import LanguageSwitch from "./LanguageSwitch";
-import "@/styles/navbar/navbar.css";
+import { useState } from "react"
+import { useTranslation } from "react-i18next"
+import { Navbar, Nav } from "react-bootstrap"
+import CartIcon from "./CartIcon"
+import Logo from "./Logo"
+import Link from "./NavLink"
+import LanguageSwitch from "./LanguageSwitch"
+import "@/styles/navbar/navbar.css"
 
 const CustomNavbar = () => {
-  const { t } = useTranslation();
-  const [isExpanded, setIsExpanded] = useState(false);
+  const { t } = useTranslation()
+  const [isExpanded, setIsExpanded] = useState(false)
 
+  // Navigation items
   const navItems = [
     { name: "navbar.home", href: "home" },
     { name: "navbar.about", href: "about" },
@@ -18,9 +19,10 @@ const CustomNavbar = () => {
     { name: "navbar.products", href: "products" },
     { name: "navbar.login", href: "login" },
     { name: "navbar.contact", href: "contact" },
-  ];
+  ]
 
-  const handleNavCollapse = () => setIsExpanded(false);
+  // Function to collapse the navbar
+  const handleNavCollapse = () => setIsExpanded(false)
 
   return (
     <Navbar
@@ -40,13 +42,12 @@ const CustomNavbar = () => {
           ))}
         </Nav>
         <div className="d-flex justify-content-center align-items-center">
-          {/* Pass the handleNavCollapse function */}
           <CartIcon onCollapse={handleNavCollapse} />
           <LanguageSwitch onCollapse={handleNavCollapse} />
         </div>
       </Navbar.Collapse>
     </Navbar>
-  );
-};
+  )
+}
 
-export default CustomNavbar;
+export default CustomNavbar

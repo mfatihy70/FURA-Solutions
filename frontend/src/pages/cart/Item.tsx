@@ -1,10 +1,12 @@
-import { useTranslation } from "react-i18next";
-import { Row, Col, Button, Image } from "react-bootstrap";
-import "@/styles/cart.css";
+import { Row, Col, Button, Image } from "react-bootstrap"
+import {
+  handleIncreaseQuantity,
+  handleDecreaseQuantity,
+  handleRemoveItem,
+} from "./Functions"
+import "@/styles/cart.css"
 
-const CartItem = ({ item, onIncrease, onDecrease, onRemove }: any) => {
-  const { t } = useTranslation();
-
+const CartItem = ({ item, cart, setCart, setToasts, t }: any) => {
   return (
     <Row className="cart-item align-items-center">
       {/* Image Section */}
@@ -20,10 +22,7 @@ const CartItem = ({ item, onIncrease, onDecrease, onRemove }: any) => {
 
       {/* Details Section */}
       <Col xs={8} sm={6} className="text-center">
-        {/* Name */}
         <h5 className="cart-item-title">{t(`${item.name}`)}</h5>
-
-        {/* Price */}
         <span className="cart-item-price">
           {`${item.price}${t("currency")}`}
         </span>
@@ -33,7 +32,7 @@ const CartItem = ({ item, onIncrease, onDecrease, onRemove }: any) => {
           <Button
             variant="outline-secondary"
             size="sm"
-            onClick={() => onDecrease(item.id)}
+            onClick={() => handleDecreaseQuantity(item.id, cart, setCart)}
           >
             -
           </Button>
@@ -41,24 +40,24 @@ const CartItem = ({ item, onIncrease, onDecrease, onRemove }: any) => {
           <Button
             variant="outline-secondary"
             size="sm"
-            onClick={() => onIncrease(item.id)}
+            onClick={() => handleIncreaseQuantity(item.id, cart, setCart)}
           >
             +
           </Button>
         </div>
       </Col>
 
-      {/* Remove Button Section */}
+      {/* Remove Button */}
       <Col xs={12} sm={3} className="text-center text-sm-end mt-3 mt-sm-0">
         <Button
           variant="danger"
-          onClick={() => onRemove(item.id)}
+          onClick={() => handleRemoveItem(item.id, cart, setCart, setToasts, t)}
         >
           {t("cart.remove.button")}
         </Button>
       </Col>
     </Row>
-  );
-};
+  )
+}
 
-export default CartItem;
+export default CartItem

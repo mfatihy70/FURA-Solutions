@@ -1,23 +1,20 @@
-import { useTranslation } from "react-i18next";
-import { Container } from "react-bootstrap";
-// import { getLanguageFromRoute } from "@/locales/i18n";
-// import Overview from "./cart/Overview";
-
+import { useTranslation } from "react-i18next"
+import { Container } from "react-bootstrap"
+import { Link } from "react-router-dom"
+import { useParams } from "react-router-dom"
 const Checkout = () => {
-  const { t } = useTranslation();
-  //   const currentLanguage = getLanguageFromRoute();
+  const { t } = useTranslation()
+  const { lang } = useParams()
 
   return (
-    <Container>
-      <h1 className="min-vh-100">{t("checkout.title")}</h1>
-      {/* <div className="mx-auto" style={{ maxWidth: "600px" }}>
-            <Overview />
-        </div>
-        <Button href={`#/${currentLanguage}/`} variant="primary" className="mt-4">
-            {t("checkout.goHome")}
-        </Button> */}
+    <Container className="min-vh-100">
+      <h1>{t("checkout.title")}</h1>
+      <p>(In development)</p>
+      <Link to={`/${lang}/cart`} className="btn btn-primary mt-4">
+        {t("checkout.backToCart")}
+      </Link>
     </Container>
-  );
-};
+  )
+}
 
-export default Checkout;
+export default Checkout

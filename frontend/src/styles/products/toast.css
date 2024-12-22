@@ -31,7 +31,6 @@
 
 /* Toast Animations */
 .toast {
-  color: white;
   animation: slide-in-top 0.5s ease-out, slide-out-top 0.5s ease-out 2.6s;
   margin-bottom: 10px;
 }

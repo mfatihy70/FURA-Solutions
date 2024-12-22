@@ -1,3 +1,4 @@
+// Import simplifications
 import flexa from "@/assets/images/partners/flexa.png"
 import agro from "@/assets/images/partners/agro.png"
 import ht from "@/assets/images/partners/ht.png"
