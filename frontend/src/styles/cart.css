@@ -1,0 +1,43 @@
+.cart-item {
+  padding: 10px;
+  border-radius: 5px;
+}
+
+/* Image Style */
+.cart-item-image {
+  aspect-ratio: 1/1;
+  object-fit: cover;
+}
+
+/* Title and Price */
+.cart-item-title {
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.cart-item-price {
+  font-size: 1rem;
+}
+
+/* Quantity Controls */
+.cart-item-quantity button {
+  min-width: 35px;
+  padding: 5px 10px;
+}
+
+.cart-item-count {
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+/* Remove Button */
+.cart-item-remove {
+  min-width: 100px;
+}
+
+/* Add spacing between rows */
+.list-group-item {
+  margin-bottom: 10px;
+  border: none;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}

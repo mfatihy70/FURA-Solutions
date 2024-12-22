@@ -1,5 +1,16 @@
 # Changelog
 
+## [v0.1.2] - 2024-12-21
+
+### Added
+- Mobile navbar collapse when click on cart and language
+
+### Changed
+- Optimized Cart items view on mobile
+
+### Removed
+- Sticky navbar
+
 ## [v0.1.1] - 2024-12-11
 
 ### Added

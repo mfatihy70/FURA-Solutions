@@ -1,55 +1,56 @@
-import { Link, useParams } from "react-router-dom"
-import { useTranslation } from "react-i18next"
-import { FaShoppingCart } from "react-icons/fa"
-import { useEffect, useState } from "react"
-import "@/styles/navbar/CartIcon.css"
+import { Link, useParams } from "react-router-dom";
+import { useTranslation } from "react-i18next";
+import { FaShoppingCart } from "react-icons/fa";
+import { useEffect, useState } from "react";
+import "@/styles/navbar/CartIcon.css";
 
-const CartIcon = () => {
-  const { i18n } = useTranslation()
-  const { lang } = useParams()
-  const [productCount, setProductCount] = useState(0)
+interface CartIconProps {
+  onCollapse?: () => void;
+}
 
-  // Ensure we have a language, fallback to current i18n language
-  const currentLang = lang || i18n.language
+const CartIcon = ({ onCollapse }: CartIconProps) => {
+  const { i18n } = useTranslation();
+  const { lang } = useParams();
+  const [productCount, setProductCount] = useState(0);
 
-  // Function to update the product count
+  const currentLang = lang || i18n.language;
+
   const updateProductCount = () => {
-    const cart = JSON.parse(localStorage.getItem("cart") || "[]")
-    const count = cart.reduce(
-      (acc: number, item: any) => acc + item.quantity,
-      0
-    )
-    setProductCount(count)
-  }
+    const cart = JSON.parse(localStorage.getItem("cart") || "[]");
+    const count: number = cart.reduce((acc: number, item: { quantity: number }) => acc + item.quantity, 0);
+    setProductCount(count);
+  };
 
-  // Retrieve the product count from local storage on component mount
   useEffect(() => {
-    updateProductCount()
+    updateProductCount();
 
-    // Listen for custom cartUpdated event
     const handleCartUpdated = () => {
-      updateProductCount()
-    }
+      updateProductCount();
+    };
 
-    window.addEventListener("cartUpdated", handleCartUpdated)
+    window.addEventListener("cartUpdated", handleCartUpdated);
 
-    // Cleanup event listener on component unmount
     return () => {
-      window.removeEventListener("cartUpdated", handleCartUpdated)
-    }
-  }, [])
+      window.removeEventListener("cartUpdated", handleCartUpdated);
+    };
+  }, []);
+
+  const handleClick = () => {
+    if (onCollapse) onCollapse(); // Collapse navbar
+  };
 
   return (
     <Link
       to={`/${currentLang}/cart`}
       style={{ textDecoration: "none", color: "inherit" }}
+      onClick={handleClick}
     >
       <div className="cart-container">
         <FaShoppingCart size={24} className="cart-icon m-3" />
         {productCount > 0 && <span className="cart-badge">{productCount}</span>}
       </div>
     </Link>
-  )
-}
+  );
+};
 
-export default CartIcon
+export default CartIcon;

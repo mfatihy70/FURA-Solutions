@@ -3,7 +3,7 @@ import { Container, Row, Col } from "react-bootstrap";
 import { useTranslation } from "react-i18next";
 import { products } from "@/data/products"; // Import the products data
 import Product from "./Product";
-import ToastNotification from "./Toast";
+import ToastNotification from "@/components/Toast";
 
 const ProductCatalog = ({ showDetails }: { showDetails: boolean }) => {
   const { t } = useTranslation();

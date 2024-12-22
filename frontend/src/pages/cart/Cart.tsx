@@ -1,114 +1,97 @@
-import { useTranslation } from "react-i18next"
-import { useState, useEffect } from "react"
-import { Container, Row, Col, Button, ListGroup, Image } from "react-bootstrap"
+import { useTranslation } from "react-i18next";
+import { useState, useEffect } from "react";
+import { Container, ListGroup } from "react-bootstrap";
+import CartItem from "./CartItem";
+import ToastNotification from "@/components/Toast";
 
 const Cart = () => {
-  const { t } = useTranslation()
-  const [cart, setCart] = useState<any[]>([])
+  const { t } = useTranslation();
+
+  // State for cart items and toasts
+  const [cart, setCart] = useState<any[]>([]);
+  const [toasts, setToasts] = useState<any[]>([]);
 
   useEffect(() => {
-    const storedCart = JSON.parse(localStorage.getItem("cart") || "[]")
-    setCart(storedCart)
-  }, [])
+    const storedCart = JSON.parse(localStorage.getItem("cart") || "[]");
+    setCart(storedCart);
+  }, []);
 
   const updateCart = (updatedCart: any[]) => {
-    setCart(updatedCart)
-    localStorage.setItem("cart", JSON.stringify(updatedCart))
-    window.dispatchEvent(new Event("cartUpdated"))
-  }
+    setCart(updatedCart);
+    localStorage.setItem("cart", JSON.stringify(updatedCart));
+    window.dispatchEvent(new Event("cartUpdated"));
+  };
 
+  // Handle quantity increase
   const handleIncreaseQuantity = (id: number) => {
     const updatedCart = cart.map((item) =>
       item.id === id ? { ...item, quantity: item.quantity + 1 } : item
-    )
-    updateCart(updatedCart)
-  }
+    );
+    updateCart(updatedCart);
+  };
 
+  // Handle quantity decrease
   const handleDecreaseQuantity = (id: number) => {
     const updatedCart = cart
       .map((item) =>
         item.id === id ? { ...item, quantity: item.quantity - 1 } : item
       )
-      .filter((item) => item.quantity > 0)
-    updateCart(updatedCart)
-  }
+      .filter((item) => item.quantity > 0);
+    updateCart(updatedCart);
+  };
 
+  // Handle item removal
   const handleRemoveItem = (id: number) => {
-    const updatedCart = cart.filter((item) => item.id !== id)
-    updateCart(updatedCart)
-  }
+    const removedItem = cart.find((item) => item.id === id);
+    const updatedCart = cart.filter((item) => item.id !== id);
+    updateCart(updatedCart);
+
+    // Add toast for item removal
+    if (removedItem) {
+      setToasts((prevToasts) => [
+        ...prevToasts,
+        {
+          id: Date.now(),
+          message: `${t(removedItem.name)} ${t("cart.removed")}`,
+          image: removedItem.image,
+          name: removedItem.name,
+          type: "danger", // Use "danger" for removal
+        },
+      ]);
+    }
+  };
+
+  // Close Toast
+  const handleToastClose = (id: number) => {
+    setToasts((prevToasts) => prevToasts.filter((toast) => toast.id !== id));
+  };
 
   return (
     <Container>
-      <h1>{t("cart.title")}</h1>
-      <br />
+      <h2 className="cart-title text-center mb-4">{t("cart.title")}</h2>
+
+      {/* Toast Notifications */}
+      <ToastNotification toasts={toasts} onClose={handleToastClose} />
+
+      {/* Cart Content */}
       {cart.length === 0 ? (
-        <p>{t("cart.empty")}</p>
+        <p className="text-center">{t("cart.empty")}</p>
       ) : (
         <ListGroup>
           {cart.map((item) => (
-            <ListGroup.Item key={item.id}>
-              <Row className="align-items-center">
-                {/* Left Section: Image */}
-                <Col xs={4} sm={3}>
-                  <Image
-                    src={item.image}
-                    alt={item.name}
-                    fluid
-                    rounded
-                    style={{
-                      aspectRatio: "1/1",
-                      objectFit: "cover",
-                    }}
-                  />
-                </Col>
-
-                {/* Center Section: Details */}
-                <Col xs={6} sm={6} className="d-flex flex-column">
-                  <h5 className="mb-2" style={{ fontSize: "1.2rem" }}>
-                    {t(`${item.name}`)}
-                  </h5>
-                  <h6
-                    className="text-muted mb-3"
-                    style={{ fontSize: "1.2rem" }}
-                  >
-                    {`${item.price}${t("currency")}`}
-                  </h6>
-                  <div className="d-flex align-items-center justify-content-center">
-                    <Button
-                      variant="outline-secondary"
-                      className="mx-3"
-                      onClick={() => handleDecreaseQuantity(item.id)}
-                    >
-                      -
-                    </Button>
-                    <span style={{ fontSize: "1.2rem" }}>{item.quantity}</span>
-                    <Button
-                      variant="outline-secondary"
-                      className="m-3"
-                      onClick={() => handleIncreaseQuantity(item.id)}
-                    >
-                      +
-                    </Button>
-                  </div>
-                </Col>
-
-                {/* Right Section: Delete Button */}
-                <Col xs={2}>
-                  <Button
-                    variant="danger"
-                    onClick={() => handleRemoveItem(item.id)}
-                  >
-                    {t("cart.remove")}
-                  </Button>
-                </Col>
-              </Row>
+            <ListGroup.Item key={item.id} className="mb-3 p-3">
+              <CartItem
+                item={item}
+                onIncrease={handleIncreaseQuantity}
+                onDecrease={handleDecreaseQuantity}
+                onRemove={handleRemoveItem}
+              />
             </ListGroup.Item>
           ))}
         </ListGroup>
       )}
     </Container>
-  )
-}
+  );
+};
 
-export default Cart
+export default Cart;

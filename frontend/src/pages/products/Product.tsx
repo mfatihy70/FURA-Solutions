@@ -55,7 +55,7 @@ const Product = ({
     // Create a new toast notification
     const newToast = {
       id: Date.now(),
-      message: `${t(name)} ${t("product.addedToCart")}`, // Translate the name for the toast message
+      message: `${t(name)} ${t("cart.added")}`, // Translate the name for the toast message
       image,
       name,
     }
