@@ -1,16 +1,50 @@
 # Changelog
 
+## [v0.1.2] - 2024-12-21
+
+### Added
+
+- Toast when deleting products from cart
+- Mobile navbar collapse when click on cart and language
+- Cart overview section
+- `Checkout.tsx` with title and return button
+- In development alert on `Login` and `Register` pages
+
+### Fixed
+
+- Cart overview is now fixed to viewport
+- Cart now refreshes when adding or removing items
+- Manaul map alignment in contact page
+
+### Changed
+
+- General commenting and optimization
+- Toast button margin
+- Optimized Cart items view on mobile
+- `Toast.tsx` now accepts success and danger variants
+- Extracted cart overview, functions and items into seperate files
+- Restructured keys in `translations.json`
+- Added `Footer.tsx` to `App.tsx` for removing footer calls from each file
+- Compressed the images and icons
+
+### Removed
+
+- Sticky navbar
+
 ## [v0.1.1] - 2024-12-11
 
 ### Added
+
 - Banner to `CartIcon.tsx` to show the product count using global state
 - Display products in cart in `Cart.tsx` as a list extracted from session storage
 - Navbar collapse when a menu item is clicked on mobile
 
 ### Renamed
+
 - `PartnersParent.tsx` and `CatalogParent.tsx` into `...Page.tsx`
 
 ### Changed
+
 - Toasts to show in the center
 - Products get saved to local storage instead of session storage
 - Made the cart icon banner round
@@ -18,17 +52,16 @@
 - `Section.tsx` uses full width
 - Toasts stay for 3 seconds
 
-
-
 ### Moved
+
 - `Cart.tsx` under `cart` folder
 - - Styles from `Toast.tsx` into its css file
 - `CartIcon.tsx` styles in css file
 
 ### Fixed
+
 - Toast flashing after disappearing due to animation timing
 - Cart items dont fit on mobile
-
 
 ## [v0.1.0] - 2024-11-2
 

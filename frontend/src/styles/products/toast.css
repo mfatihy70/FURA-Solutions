@@ -20,23 +20,26 @@
   }
 }
 
+/* Toast Container */
 .toast-container {
   position: fixed !important;
   top: 20px;
   left: 50%;
   transform: translateX(-50%);
+  z-index: 1050; /* Ensure it overlays content */
 }
 
+/* Toast Animations */
 .toast {
-  color: white;
   animation: slide-in-top 0.5s ease-out, slide-out-top 0.5s ease-out 2.6s;
   margin-bottom: 10px;
 }
 
+/* Success Toast Body */
 .toast-body {
   display: flex;
   align-items: center;
-  background-color: #00bd5fc0;
+  background-color: #34ff9ac0;
 }
 
 .toast-body img {
@@ -45,4 +48,13 @@
   margin-right: 10px;
   object-fit: cover;
   border-radius: 4px;
+}
+
+/* Danger Variant */
+.toast-danger .toast-body {
+  background-color: #ff7583c0; /* Red color for danger */
+}
+
+.toast-danger .btn {
+  display: none; /* Hide the button for danger type */
 }

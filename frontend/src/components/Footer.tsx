@@ -7,8 +7,8 @@ const Footer = () => {
   const { t } = useTranslation()
   const currentLanguage = getLanguageFromRoute()
 
-  return (
-    <footer className="bg-dark text-light py-4 mt-5">
+  return (  
+    <footer className="footer bg-dark text-light py-4 mt-5">
       <Container>
         <Row className="align-items-center">
           <Col

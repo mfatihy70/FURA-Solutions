@@ -1,33 +1,33 @@
-import { useState } from "react";
-import { Container, Row, Col } from "react-bootstrap";
-import { useTranslation } from "react-i18next";
-import { products } from "@/data/products"; // Import the products data
-import Product from "./Product";
-import ToastNotification from "./Toast";
+import { useState } from "react"
+import { Container, Row, Col } from "react-bootstrap"
+import { useTranslation } from "react-i18next"
+import { products } from "@/data/products" // Import the products data
+import Product from "./Product"
+import ToastNotification from "@/components/Toast"
 
 const ProductCatalog = ({ showDetails }: { showDetails: boolean }) => {
-  const { t } = useTranslation();
-  const [hovered, setHovered] = useState<number | null>(null);
+  const { t } = useTranslation()
+  const [hovered, setHovered] = useState<number | null>(null)
 
   // State to manage the list of toasts
   const [toasts, setToasts] = useState<
     { id: number; message: string; image: string; name: string }[]
-  >([]);
+  >([])
 
   // Function to add a new toast to the list
   const addToast = (toast: {
-    id: number;
-    message: string;
-    image: string;
-    name: string;
+    id: number
+    message: string
+    image: string
+    name: string
   }) => {
-    setToasts((prevToasts) => [...prevToasts, toast]);
-  };
+    setToasts((prevToasts) => [...prevToasts, toast])
+  }
 
   // Function to remove a toast from the list by its id
   const removeToast = (id: number) => {
-    setToasts((prevToasts) => prevToasts.filter((toast) => toast.id !== id));
-  };
+    setToasts((prevToasts) => prevToasts.filter((toast) => toast.id !== id))
+  }
 
   return (
     <Container id="catalog">
@@ -50,7 +50,7 @@ const ProductCatalog = ({ showDetails }: { showDetails: boolean }) => {
       </Row>
       <ToastNotification toasts={toasts} onClose={removeToast} />{" "}
     </Container>
-  );
-};
+  )
+}
 
-export default ProductCatalog;
+export default ProductCatalog

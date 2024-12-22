@@ -1,11 +1,10 @@
-import { useTranslation } from "react-i18next";
-import { getLanguageFromRoute } from "@/locales/i18n";
-import Footer from "@/components/Footer";
-import { Container, Button } from "react-bootstrap";
+import { useTranslation } from "react-i18next"
+import { getLanguageFromRoute } from "@/locales/i18n"
+import { Container, Button } from "react-bootstrap"
 
 const NotFound = () => {
-  const { t } = useTranslation();
-  const currentLanguage = getLanguageFromRoute();
+  const { t } = useTranslation()
+  const currentLanguage = getLanguageFromRoute()
 
   return (
     // To fix the content to the top and footer to the bottom
@@ -17,9 +16,8 @@ const NotFound = () => {
           {t("notFound.goHome")}
         </Button>
       </div>
-      <Footer />
     </Container>
-  );
-};
+  )
+}
 
-export default NotFound;
+export default NotFound

@@ -1,26 +1,25 @@
-import { useState } from "react";
-import { Col, Form, Button } from "react-bootstrap";
-import { useTranslation } from "react-i18next";
-import CustomModal from "./Modal";
-import { useFormHandlers } from "./formUtils";
+import { useState } from "react"
+import { Col, Form, Button } from "react-bootstrap"
+import { useTranslation } from "react-i18next"
+import CustomModal from "./Modal"
+import { useFormHandlers } from "./formUtils"
 
 const ContactForm = () => {
-  // Translation hook
-  const { t } = useTranslation();
+  const { t } = useTranslation()
 
   // State to manage form validation errors
-  const [errors, setErrors] = useState<{ [key: string]: string }>({});
+  const [errors, setErrors] = useState<{ [key: string]: string }>({})
   // State to control modal visibility
-  const [showModal, setShowModal] = useState(false);
+  const [showModal, setShowModal] = useState(false)
   // State to manage form submission status
-  const [status, setStatus] = useState({ success: false, message: "" });
+  const [status, setStatus] = useState({ success: false, message: "" })
   // State to manage form data
   const [formData, setFormData] = useState<{ [key: string]: string }>({
     name: "",
     email: "",
     message: "",
     receiver: "",
-  });
+  })
 
   // Custom hook to handle form data and submission
   const { handleChange, handleSubmit } = useFormHandlers(
@@ -28,7 +27,7 @@ const ContactForm = () => {
     setErrors,
     setStatus,
     setShowModal
-  );
+  )
 
   // Function to create form input fields
   const createFormInput = (
@@ -40,7 +39,6 @@ const ContactForm = () => {
     errors: any,
     options?: { value: string; label: string }[] // Optional options for select
   ) => (
-    // Form group with label, input field, and validation error message
     <Form.Group className="mb-3" key={name}>
       <Form.Label className="text-start w-100 fs-5">
         {t(`form.${name}`)}
@@ -76,7 +74,7 @@ const ContactForm = () => {
         {errors[name]}
       </Form.Control.Feedback>
     </Form.Group>
-  );
+  )
 
   // Configuration for input fields
   const inputConfigs = [
@@ -92,9 +90,8 @@ const ContactForm = () => {
         { value: "kamuran", label: "Kamuran" },
       ],
     },
-  ];
+  ]
 
-  // Render the form
   return (
     <Col md={6} className="mb-5 mb-md-0">
       <h2 className="mb-4">{t("form.title")}</h2>
@@ -128,7 +125,7 @@ const ContactForm = () => {
         message={status.message}
       />
     </Col>
-  );
-};
+  )
+}
 
-export default ContactForm;
+export default ContactForm

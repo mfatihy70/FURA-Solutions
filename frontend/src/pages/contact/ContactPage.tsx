@@ -1,5 +1,4 @@
 import { Container, Row } from "react-bootstrap"
-import Footer from "@/components/Footer"
 import ContactImage from "./Image"
 import Cards from "./Cards"
 import ContactForm from "./form/Form"
@@ -16,13 +15,11 @@ const ContactPage = () => {
       <Container>
         <ContactImage />
         <Cards />
-        <Row>
+        <Row className="align-items-start">
           <ContactForm />
           <Map />
         </Row>
       </Container>
-      <br />
-      <Footer />
     </>
   )
 }

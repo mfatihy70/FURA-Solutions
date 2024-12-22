@@ -1,14 +1,16 @@
 import { HashRouter as Router, Routes, Route, Navigate } from "react-router-dom"
 import { LANGUAGES } from "./locales/i18n"
 import Navbar from "./components/navbar/Navbar"
+import Footer from "./components/Footer"
 import Home from "./pages/home/Home"
 import About from "./pages/About"
 import Partners from "./pages/partners/PartnersPage"
-import Contact from "./pages/contact/Contact"
+import Contact from "./pages/contact/ContactPage"
 import Login from "./pages/login/Login"
 import Register from "./pages/login/Register"
 import Catalog from "./pages/products/CatalogPage"
 import Cart from "./pages/cart/Cart"
+import Checkout from "./pages/Checkout"
 import NotFound from "./pages/NotFound"
 import "./locales/i18n"
 import "./App.css"
@@ -39,10 +41,12 @@ function App() {
         <Route path="/:lang/register" element={<Register />} />
         <Route path="/:lang/products" element={<Catalog />} />
         <Route path="/:lang/cart" element={<Cart />} />
+        <Route path="/:lang/checkout" element={<Checkout />} />
 
         {/* 404 route */}
         <Route path="*" element={<NotFound />} />
       </Routes>
+      <Footer />
     </Router>
   )
 }

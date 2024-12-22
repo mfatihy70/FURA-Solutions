@@ -6,8 +6,8 @@ const Partners = () => {
   const { t } = useTranslation()
 
   return (
-    <Container className="my-4">
-      <h2 className="mb-5 mt-5">{t("partners")}</h2>
+    <Container className="my-5">
+      <h2 className="mb-5">{t("partners")}</h2>
       <Row className="align-items-center">
         {partners.map((partner, index) => (
           <Col key={index} md={3} sm={6} className="mb-4">

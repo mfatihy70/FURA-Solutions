@@ -4,7 +4,13 @@ import { Link } from "react-router-dom"
 import "@/styles/products/Toast.css"
 
 interface ToastNotificationProps {
-  toasts: { id: number; message: string; image: string; name: string }[]
+  toasts: {
+    id: number
+    message: string
+    image: string
+    name: string
+    type?: "success" | "danger" // Optional type, defaults to success
+  }[]
   onClose: (id: number) => void
 }
 
@@ -20,18 +26,24 @@ const ToastNotification = ({ toasts, onClose }: ToastNotificationProps) => {
           show={true}
           delay={3000}
           autohide
-          bg="success"
-          className="toast"
+          bg={toast.type === "danger" ? "danger" : "success"}
+          className={`toast ${toast.type === "danger" ? "toast-danger" : ""}`}
         >
           <Toast.Header closeButton className="toast-header">
-            <strong className="me-auto">{t("cart.title")}</strong>
+            <strong className="me-auto">
+              {toast.type === "danger"
+                ? t("cart.remove.title")
+                : t("cart.add.title")}
+            </strong>
           </Toast.Header>
           <Toast.Body className="toast-body">
             <img src={toast.image} alt={toast.name} />
             <span>{toast.message}</span>
-            <Link to="/lang/cart" className="btn btn-success mt-2">
-              {t("cart.showCart")}
-            </Link>
+            {toast.type !== "danger" && (
+              <Link to="/lang/cart" className="btn btn-success m-2">
+                {t("cart.showCart")}
+              </Link>
+            )}
           </Toast.Body>
         </Toast>
       ))}

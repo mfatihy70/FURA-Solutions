@@ -1,10 +1,9 @@
-import React from "react"
 import { Carousel } from "react-bootstrap"
 import { useTranslation } from "react-i18next"
 import { carouselItems } from "@/data/carousel" // Import the carousel data
 import "@/styles/Carousel.css"
 
-const CustomCarousel: React.FC = () => {
+const CustomCarousel = () => {
   const { t } = useTranslation()
 
   // Map the carousel items to include the translated titles and subtitles
