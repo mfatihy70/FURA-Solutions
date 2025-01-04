@@ -5,7 +5,6 @@ import CartIcon from "./CartIcon"
 import Logo from "./Logo"
 import Link from "./NavLink"
 import LanguageSwitch from "./LanguageSwitch"
-import "@/styles/navbar/navbar.css"
 
 const CustomNavbar = () => {
   const { t } = useTranslation()
