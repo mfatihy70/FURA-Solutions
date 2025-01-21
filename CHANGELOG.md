@@ -1,5 +1,17 @@
 # Changelog
 
+## [v0.1.3] - 2025-01-03
+
+### Added
+
+- Backend API endpoints and MongoDB connection
+- Models and routes for carousel, partners, products and users (optimization required)
+- Scroll to top on `Checkout.tsx`
+
+## Removed
+- Non-existing css import from `Navbar.tsx` 
+- Unnecessary `package.lock.json` file from root
+
 ## [v0.1.2] - 2024-12-21
 
 ### Added

@@ -3,7 +3,7 @@ import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-dom";
 import { LANGUAGES } from "@/locales/i18n";
 import { Dropdown } from "react-bootstrap";
-import "flag-icon-css/css/flag-icons.min.css";
+import "flag-icons/css/flag-icons.min.css";
 import "@/styles/navbar/LanguageSwitch.css";
 
 interface LanguageSwitchProps {
@@ -18,7 +18,7 @@ const LanguageSwitch: React.FC<LanguageSwitchProps> = ({ onCollapse }) => {
   // Function to get the current language's flag icon
   const getCurrentFlag = () => {
     const currentLang = LANGUAGES.find((lang) => lang.code === i18n.language);
-    return currentLang?.flag || "tr";
+    return currentLang?.flag || "tr"; // Default to Turkish flag if not found
   };
 
   // Function to change the language and update the URL
@@ -39,7 +39,7 @@ const LanguageSwitch: React.FC<LanguageSwitchProps> = ({ onCollapse }) => {
         className="language-switch d-flex align-items-center"
       >
         <span
-          className={`flag-icon flag-icon-${getCurrentFlag()}`}
+          className={`fi fi-${getCurrentFlag()}`} // Updated class to match flag-icons npm package
           style={{ width: "1.5em", height: "1.5em" }}
         ></span>
       </Dropdown.Toggle>
@@ -52,7 +52,7 @@ const LanguageSwitch: React.FC<LanguageSwitchProps> = ({ onCollapse }) => {
             className="d-flex align-items-center gap-2"
           >
             <span
-              className={`flag-icon flag-icon-${lang.flag}`}
+              className={`fi fi-${lang.flag}`} // Updated class to match flag-icons npm package
               style={{ width: "1.5em", height: "1.5em" }}
             ></span>
             {lang.name}
