@@ -1,5 +1,13 @@
 # Changelog
 
+## [v0.1.4] - 2025-01-26
+
+### Changed
+
+- Upgrade to flag-icons package from flag-icon-css
+- Updated `README.md`
+- Replaced nodemon with node --watch in `backend`
+
 ## [v0.1.3] - 2025-01-03
 
 ### Added
@@ -9,7 +17,8 @@
 - Scroll to top on `Checkout.tsx`
 
 ## Removed
-- Non-existing css import from `Navbar.tsx` 
+
+- Non-existing css import from `Navbar.tsx`
 - Unnecessary `package.lock.json` file from root
 
 ## [v0.1.2] - 2024-12-21
