@@ -1,17 +1,9 @@
 import { Row, Col, Card } from "react-bootstrap"
 import { useTranslation } from "react-i18next"
 import { GeoAltFill, TelephoneFill, EnvelopeFill } from "react-bootstrap-icons"
-import { ReactNode } from "react"
-
-// Interface for ContactCard props
-interface ContactCardProps {
-  icon: ReactNode // Accepts JSX directly
-  title: string
-  text: ReactNode
-}
 
 // ContactCard component to display individual contact information
-const ContactCard = ({ icon, title, text }: ContactCardProps) => (
+const ContactCard = ({ icon, title, text }) => (
   <Col md={4} className="d-flex">
     <Card className="text-center h-100 w-100">
       <Card.Body>

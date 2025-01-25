@@ -1,17 +1,17 @@
 import { useTranslation } from "react-i18next"
 import { useState, useEffect } from "react"
 import { Container, ListGroup, Row, Col } from "react-bootstrap"
-import CartItem from "./Item"
-import ToastNotification from "@/components/Toast"
-import CartOverview from "./Overview"
 import { loadCart, handleToastClose } from "./Functions"
+import ToastNotification from "@/components/Toast"
+import CartItem from "./Item"
+import CartOverview from "./Overview"
 
 const Cart = () => {
   const { t } = useTranslation()
 
   // State for cart items and toasts
-  const [cart, setCart] = useState<any[]>([])
-  const [toasts, setToasts] = useState<any[]>([])
+  const [cart, setCart] = useState([])
+  const [toasts, setToasts] = useState([])
 
   // Constants
   const SHIPPING_COST = 5.99 // Fixed shipping cost
@@ -23,7 +23,7 @@ const Cart = () => {
 
   return (
     <Container className="min-vh-100">
-      <h2 className="cart-title text-center mb-5 ">{t("cart.title")}</h2>
+      <h2 className="cart-title text-center mb-5">{t("cart.title")}</h2>
 
       {/* Toast Notifications */}
       <ToastNotification

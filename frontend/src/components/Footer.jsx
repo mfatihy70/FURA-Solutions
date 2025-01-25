@@ -1,13 +1,13 @@
 import { useTranslation } from "react-i18next"
-import { getLanguageFromRoute } from "@/locales/i18n"
 import { Container, Row, Col } from "react-bootstrap"
+import { getLanguageFromRoute } from "@/locales/i18n"
 import "@/styles/Footer.css"
 
 const Footer = () => {
   const { t } = useTranslation()
   const currentLanguage = getLanguageFromRoute()
 
-  return (  
+  return (
     <footer className="footer bg-dark text-light py-4 mt-5">
       <Container>
         <Row className="align-items-center">

@@ -3,6 +3,7 @@ import { useTranslation } from "react-i18next"
 import { Container } from "react-bootstrap"
 import { Link } from "react-router-dom"
 import { useParams } from "react-router-dom"
+
 const Checkout = () => {
   const { t } = useTranslation()
   const { lang } = useParams()

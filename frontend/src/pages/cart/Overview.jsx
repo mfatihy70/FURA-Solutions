@@ -3,13 +3,7 @@ import { ListGroup, Card, Button } from "react-bootstrap"
 import { useNavigate, useParams } from "react-router-dom"
 import { calculateTotalItems, calculateSubtotal } from "./Functions"
 
-// Props interface
-interface CartOverviewProps {
-  cart: any[]
-  shippingCost: number
-}
-
-const CartOverview = ({ cart, shippingCost }: CartOverviewProps) => {
+const CartOverview = ({ cart, shippingCost }) => {
   const { t } = useTranslation()
   const { lang } = useParams()
   const navigate = useNavigate()

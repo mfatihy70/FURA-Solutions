@@ -2,12 +2,7 @@ import { NavLink, useParams } from "react-router-dom"
 import { useTranslation } from "react-i18next"
 import "@/styles/navbar/NavLink.css"
 
-interface LinkProps {
-  name: string
-  href: string
-}
-
-const Link = ({ name, href }: LinkProps) => {
+const Link = ({ name, href }) => {
   const { lang } = useParams()
   const { i18n } = useTranslation()
 

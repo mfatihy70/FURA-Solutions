@@ -3,18 +3,7 @@ import { useTranslation } from "react-i18next"
 import { Link } from "react-router-dom"
 import "@/styles/products/Toast.css"
 
-interface ToastNotificationProps {
-  toasts: {
-    id: number
-    message: string
-    image: string
-    name: string
-    type?: "success" | "danger" // Optional type, defaults to success
-  }[]
-  onClose: (id: number) => void
-}
-
-const ToastNotification = ({ toasts, onClose }: ToastNotificationProps) => {
+const ToastNotification = ({ toasts, onClose }) => {
   const { t } = useTranslation()
 
   return (

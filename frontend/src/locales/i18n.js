@@ -7,13 +7,13 @@ export const LANGUAGES = [
   { code: "tr", name: "Türkçe", flag: "tr" },
   { code: "en", name: "English", flag: "gb" },
   { code: "de", name: "Deutsch", flag: "de" },
-] as const
+]
 
-export type LanguageCode = (typeof LANGUAGES)[number]["code"]
+export const LanguageCode = LANGUAGES.map((lang) => lang.code)
 
 // Function to transform translations
-const transformTranslations = (translations: any, index: number) => {
-  const transform = (obj: any): any => {
+const transformTranslations = (translations, index) => {
+  const transform = (obj) => {
     if (Array.isArray(obj)) {
       return obj[index]
     } else if (typeof obj === "object" && obj !== null) {
@@ -27,12 +27,12 @@ const transformTranslations = (translations: any, index: number) => {
 }
 
 // Get language from hash route
-export const getLanguageFromRoute = (): LanguageCode => {
-  const hash = window.location.hash
-  const langCode = hash.split("/")[1] // Get language code after #/
-  if (langCode && LANGUAGES.some((lang) => lang.code === langCode)) {
-    return langCode as LanguageCode
-  }
+export const getLanguageFromRoute = () => {
+  // const hash = window.location.hash
+  // const langCode = hash.split("/")[1] // Get language code after #/
+  // if (langCode && LANGUAGES.some((lang) => lang.code === langCode)) {
+  //   return langCode
+  // }
   return "tr" // Default language
 }
 

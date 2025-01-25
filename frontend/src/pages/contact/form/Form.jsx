@@ -1,20 +1,19 @@
 import { useState } from "react"
 import { Col, Form, Button } from "react-bootstrap"
 import { useTranslation } from "react-i18next"
-import CustomModal from "./Modal"
 import { useFormHandlers } from "./formUtils"
+import CustomModal from "./Modal"
 
 const ContactForm = () => {
   const { t } = useTranslation()
-
   // State to manage form validation errors
-  const [errors, setErrors] = useState<{ [key: string]: string }>({})
+  const [errors, setErrors] = useState({})
   // State to control modal visibility
   const [showModal, setShowModal] = useState(false)
   // State to manage form submission status
   const [status, setStatus] = useState({ success: false, message: "" })
   // State to manage form data
-  const [formData, setFormData] = useState<{ [key: string]: string }>({
+  const [formData, setFormData] = useState({
     name: "",
     email: "",
     message: "",
@@ -31,13 +30,13 @@ const ContactForm = () => {
 
   // Function to create form input fields
   const createFormInput = (
-    name: string,
-    type: string = "text",
-    as: React.ElementType = "input",
-    formData: any,
-    handleChange: any,
-    errors: any,
-    options?: { value: string; label: string }[] // Optional options for select
+    name,
+    type = "text",
+    as = "input",
+    formData,
+    handleChange,
+    errors,
+    options // Optional options for select
   ) => (
     <Form.Group className="mb-3" key={name}>
       <Form.Label className="text-start w-100 fs-5">
@@ -78,13 +77,13 @@ const ContactForm = () => {
 
   // Configuration for input fields
   const inputConfigs = [
-    { name: "name", type: "text", as: "input" as React.ElementType },
-    { name: "email", type: "email", as: "input" as React.ElementType },
-    { name: "message", type: "text", as: "textarea" as React.ElementType },
+    { name: "name", type: "text", as: "input" },
+    { name: "email", type: "email", as: "input" },
+    { name: "message", type: "text", as: "textarea" },
     {
       name: "receiver",
       type: "text",
-      as: "select" as React.ElementType,
+      as: "select",
       options: [
         { value: "fatih", label: "Fatih" },
         { value: "kamuran", label: "Kamuran" },

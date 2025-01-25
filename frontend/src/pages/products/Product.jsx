@@ -1,23 +1,7 @@
 import { Card, Button } from "react-bootstrap"
 import { Link, useParams } from "react-router-dom"
 import { useTranslation } from "react-i18next"
-import "@/styles/products/Product.css" // Import the CSS file
-
-interface ProductProps {
-  id: number
-  image: string
-  name: string
-  price: string
-  showDetails: boolean
-  hovered: boolean
-  onHover: (id: number | null) => void
-  addToast: (toast: {
-    id: number
-    message: string
-    image: string
-    name: string
-  }) => void
-}
+import "@/styles/products/Product.css"
 
 const Product = ({
   id,
@@ -28,7 +12,7 @@ const Product = ({
   hovered,
   onHover,
   addToast,
-}: ProductProps) => {
+}) => {
   const { t } = useTranslation()
   const { lang } = useParams()
 
@@ -38,7 +22,7 @@ const Product = ({
     const cart = JSON.parse(localStorage.getItem("cart") || "[]")
 
     // Check if the product already exists in the cart
-    const existingProductIndex = cart.findIndex((item: any) => item.id === id)
+    const existingProductIndex = cart.findIndex((item) => item.id === id)
     if (existingProductIndex !== -1) {
       // Increase the quantity of the existing product
       cart[existingProductIndex].quantity += 1

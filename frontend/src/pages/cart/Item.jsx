@@ -6,7 +6,7 @@ import {
 } from "./Functions"
 import "@/styles/cart.css"
 
-const CartItem = ({ item, cart, setCart, setToasts, t }: any) => {
+const CartItem = ({ item, cart, setCart, setToasts, t }) => {
   return (
     <Row className="cart-item align-items-center">
       {/* Image Section */}
@@ -23,9 +23,9 @@ const CartItem = ({ item, cart, setCart, setToasts, t }: any) => {
       {/* Details Section */}
       <Col xs={8} sm={6} className="text-center">
         <h5 className="cart-item-title">{t(`${item.name}`)}</h5>
-        <span className="cart-item-price">
-          {`${item.price}${t("currency")}`}
-        </span>
+        <span className="cart-item-price">{`${item.price}${t(
+          "currency"
+        )}`}</span>
 
         {/* Quantity Controls */}
         <div className="cart-item-quantity my-2">

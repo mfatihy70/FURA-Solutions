@@ -1,11 +1,6 @@
 import { Navbar } from "react-bootstrap"
 
-interface ToggleButtonProps {
-  isOpen: boolean
-  toggle: () => void
-}
-
-const ToggleButton = ({ isOpen, toggle }: ToggleButtonProps) => (
+const ToggleButton = (isOpen, toggle) => (
   <Navbar.Toggle
     onClick={toggle}
     aria-expanded={isOpen}

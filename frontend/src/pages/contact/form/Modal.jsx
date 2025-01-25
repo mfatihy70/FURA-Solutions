@@ -4,21 +4,8 @@ import React from "react"
 import { useTranslation } from "react-i18next"
 import { FaCheckCircle, FaTimesCircle } from "react-icons/fa"
 
-// Interface for CustomModal props
-interface CustomModalProps {
-  show: boolean
-  onHide: () => void
-  status: "success" | "failure"
-  message: string
-}
-
 // CustomModal component
-const CustomModal: React.FC<CustomModalProps> = ({
-  show,
-  onHide,
-  status,
-  message,
-}) => {
+const CustomModal = ({show, onHide, status, message}) => {
   const { t } = useTranslation()
 
   return (
