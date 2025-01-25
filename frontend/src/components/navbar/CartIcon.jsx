@@ -1,10 +1,10 @@
-import { Link, useParams } from "react-router-dom"
-import { useTranslation } from "react-i18next"
-import { FaShoppingCart } from "react-icons/fa"
 import { useEffect, useState } from "react"
+import { FaShoppingCart } from "react-icons/fa"
+import { useTranslation } from "react-i18next"
+import { useParams, Link } from "react-router-dom"
 import "@/styles/navbar/CartIcon.css"
 
-const CartIcon = (onCollapse) => {
+const CartIcon = ({ onCollapse }) => {
   const { i18n } = useTranslation()
   const { lang } = useParams()
   const [productCount, setProductCount] = useState(0)
@@ -24,7 +24,6 @@ const CartIcon = (onCollapse) => {
     updateProductCount()
   }
 
-  // useEffect to update product count on component mount and when cart updates
   useEffect(() => {
     updateProductCount()
     window.addEventListener("cartUpdated", handleCartUpdated)

@@ -2,6 +2,9 @@
 
 ## [v0.1.5] - 2025-01-22
 
+## Added 
+- Navbar toggle on logo click
+
 ## Changed
 - Frontend files to Javascript for simpler codebase
 - Upgrade to emailjs/browser package from emailjs-com

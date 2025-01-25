@@ -30,7 +30,8 @@ const CustomNavbar = () => {
       expanded={isExpanded}
       onToggle={(expanded) => setIsExpanded(expanded)}
     >
-      <Navbar.Brand>
+      <Navbar.Brand onClick={handleNavCollapse} style={{ cursor: "pointer" }}>
+        {/* Ensure the Logo acts like a link */}
         <Logo />
       </Navbar.Brand>
       <Navbar.Toggle aria-controls="basic-navbar-nav" className="ms-auto" />
