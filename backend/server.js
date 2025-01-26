@@ -11,8 +11,11 @@ const app = express()
 
 // Middleware
 app.use(express.json()) // Parse JSON bodies
-app.use(cors()) // Enable CORS
-app.use("/uploads", express.static("uploads")) // Serve static files
+app.use(
+  cors({
+    origin: "http://localhost:3000", // Replace with your React app's URL
+  })
+)
 
 // Routes
 app.use("/api/users", userRoutes) // User routes

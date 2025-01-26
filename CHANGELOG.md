@@ -1,11 +1,25 @@
 # Changelog
 
+## [v0.1.6] - 2025-01-26
+
+### Added
+
+- CORS connection between frontend and backend
+- Fetching products from backend
+
+### Changed
+
+- Simplied `product.routes.js` by importing funcs from controller
+- Extracted functions of `products` into a `functions.js` file
+
 ## [v0.1.5] - 2025-01-22
 
-## Added 
+### Added
+
 - Navbar toggle on logo click
 
-## Changed
+### Changed
+
 - Frontend files to Javascript for simpler codebase
 - Upgrade to emailjs/browser package from emailjs-com
 
@@ -25,7 +39,7 @@
 - Models and routes for carousel, partners, products and users (optimization required)
 - Scroll to top on `Checkout.tsx`
 
-## Removed
+### Removed
 
 - Non-existing css import from `Navbar.tsx`
 - Unnecessary `package.lock.json` file from root

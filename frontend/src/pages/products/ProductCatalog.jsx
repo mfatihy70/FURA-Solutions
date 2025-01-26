@@ -1,15 +1,26 @@
-import { useState } from "react"
-import { Container, Row, Col } from "react-bootstrap"
+import { useState, useEffect } from "react"
+import { Container, Row, Col, Spinner } from "react-bootstrap"
 import { useTranslation } from "react-i18next"
-import { products } from "@/data/products"
 import Product from "./Product"
 import ToastNotification from "@/components/Toast"
+import { fetchProducts } from "./functions"
 
 const ProductCatalog = ({ showDetails }) => {
   const { t } = useTranslation()
-  const [hovered, setHovered] = useState(null)
-  // State to manage the list of toasts
-  const [toasts, setToasts] = useState([])
+  const [products, setProducts] = useState([]) // State to store products fetched from API
+  const [loading, setLoading] = useState(true) // State to handle loading
+  const [hovered, setHovered] = useState(null) // State for hovered product
+  const [toasts, setToasts] = useState([]) // State to manage toast notifications
+
+  // Fetch products on component mount
+  useEffect(() => {
+    fetchProducts(setProducts, setLoading)
+  }, [])
+
+  // Log the products state to verify the image URLs
+  useEffect(() => {
+    console.log(products)
+  }, [products])
 
   // Function to add a new toast to the list
   const addToast = (toast) => {
@@ -21,21 +32,29 @@ const ProductCatalog = ({ showDetails }) => {
     setToasts((prevToasts) => prevToasts.filter((toast) => toast.id !== id))
   }
 
+  if (loading) {
+    return (
+      <div className="d-flex justify-content-center align-items-center min-vh-100">
+        <Spinner animation="border" variant="primary" />
+      </div>
+    )
+  }
+
   return (
     <Container id="catalog">
       <h2 className="mb-5 mt-5">{t("product.title")}</h2>
       <Row className="justify-content-center">
         {products.map((product) => (
-          <Col key={product.id} sm={10} md={6} lg={4} className="mb-4">
+          <Col key={product._id} sm={10} md={6} lg={4} className="mb-4">
             <Product
-              id={product.id}
-              image={product.image}
-              name={product.name} // Pass the original name
+              id={product._id}
+              imageUrl={product.imageUrl}
+              name={product.name}
               price={product.price}
               showDetails={showDetails}
-              hovered={hovered === product.id}
+              hovered={hovered === product._id}
               onHover={setHovered}
-              addToast={addToast} // Pass the addToast function to the Product component
+              addToast={addToast}
             />
           </Col>
         ))}

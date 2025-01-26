@@ -1,6 +1,7 @@
 import mongoose from "mongoose"
 import Product from "../models/product.model.js"
 
+// GET all products
 export const getProducts = async (req, res) => {
   try {
     const products = await Product.find({})
@@ -11,10 +12,11 @@ export const getProducts = async (req, res) => {
   }
 }
 
+// POST new product
 export const createProduct = async (req, res) => {
-  const product = req.body // user will send this data
+  const product = req.body
 
-  if (!product.name || !product.price || !product.image) {
+  if (!product.name || !product.price || !product.imageUrl) {
     return res
       .status(400)
       .json({ success: false, message: "Please provide all fields" })
@@ -31,9 +33,9 @@ export const createProduct = async (req, res) => {
   }
 }
 
+// PUT update product
 export const updateProduct = async (req, res) => {
   const { id } = req.params
-
   const product = req.body
 
   if (!mongoose.Types.ObjectId.isValid(id)) {
@@ -52,6 +54,7 @@ export const updateProduct = async (req, res) => {
   }
 }
 
+// DELETE product by ID
 export const deleteProduct = async (req, res) => {
   const { id } = req.params
 
@@ -66,6 +69,17 @@ export const deleteProduct = async (req, res) => {
     res.status(200).json({ success: true, message: "Product deleted" })
   } catch (error) {
     console.log("error in deleting product:", error.message)
+    res.status(500).json({ success: false, message: "Server Error" })
+  }
+}
+
+// DELETE all products
+export const deleteAllProducts = async (req, res) => {
+  try {
+    await Product.deleteMany({})
+    res.status(200).json({ success: true, message: "All products deleted" })
+  } catch (error) {
+    console.log("error in deleting all products:", error.message)
     res.status(500).json({ success: false, message: "Server Error" })
   }
 }

@@ -1,7 +1,7 @@
 import { useTranslation } from "react-i18next"
 import { useState, useEffect } from "react"
 import { Container, ListGroup, Row, Col } from "react-bootstrap"
-import { loadCart, handleToastClose } from "./Functions"
+import { loadCart, handleToastClose } from "./functions"
 import ToastNotification from "@/components/Toast"
 import CartItem from "./Item"
 import CartOverview from "./Overview"
