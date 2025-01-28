@@ -1,7 +1,7 @@
 import { useState } from "react"
 import { Col, Form, Button } from "react-bootstrap"
 import { useTranslation } from "react-i18next"
-import { useFormHandlers } from "./formUtils"
+import { useFormHandlers } from "@/utils/form"
 import CustomModal from "./Modal"
 
 const ContactForm = () => {

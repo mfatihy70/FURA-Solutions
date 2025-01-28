@@ -1,7 +1,7 @@
 import { useTranslation } from "react-i18next"
 import { ListGroup, Card, Button } from "react-bootstrap"
 import { useNavigate, useParams } from "react-router-dom"
-import { calculateTotalItems, calculateSubtotal } from "./Functions"
+import { calculateTotalItems, calculateSubtotal } from "@/utils/cart"
 
 const CartOverview = ({ cart, shippingCost }) => {
   const { t } = useTranslation()

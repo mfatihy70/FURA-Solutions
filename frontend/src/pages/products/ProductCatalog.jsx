@@ -3,7 +3,7 @@ import { Container, Row, Col, Spinner } from "react-bootstrap"
 import { useTranslation } from "react-i18next"
 import Product from "./Product"
 import ToastNotification from "@/components/Toast"
-import { fetchProducts } from "./functions"
+import { fetchProducts } from "@/utils/products"
 
 const ProductCatalog = ({ showDetails }) => {
   const { t } = useTranslation()

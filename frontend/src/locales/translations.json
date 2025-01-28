@@ -41,7 +41,9 @@
         "Bestätigen Sie Ihr Passwort"
       ],
       "name": ["Adınız", "Name", "Name"],
-      "surname": ["Soyadınız", "Surname", "Nachname"]
+      "surname": ["Soyadınız", "Surname", "Nachname"],
+      "address": ["Adresiniz", "Address", "Adresse"],
+      "phone": ["Telefon numaranız", "Phone number", "Telefonnummer"]
     },
     "error": [
       "Kullanıcı adı veya şifre hatalı. Lütfen tekrar deneyin.",

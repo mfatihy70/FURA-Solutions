@@ -3,7 +3,7 @@ import {
   handleIncreaseQuantity,
   handleDecreaseQuantity,
   handleRemoveItem,
-} from "./functions"
+} from "@/utils/cart"
 import "@/styles/cart.css"
 
 const CartItem = ({ item, cart, setCart, setToasts, t }) => {

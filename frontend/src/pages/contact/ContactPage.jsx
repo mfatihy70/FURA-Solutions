@@ -1,7 +1,7 @@
 import { Container, Row } from "react-bootstrap"
 import ContactImage from "./Image"
 import Cards from "./Cards"
-import ContactForm from "./form/Form"
+import ContactForm from "./Form"
 import Map from "./Map"
 import { useEffect } from "react"
 

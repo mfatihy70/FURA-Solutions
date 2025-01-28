@@ -1,5 +1,30 @@
 # Changelog
 
+## [v0.1.7] - 2025-01-27
+
+### Added
+
+- User login and registriation over backend and db
+- `User.jsx` and `Admin.jsx` dashboard pages
+- `user.controller.js` for seperating functions
+- Axios package to frontend
+- `utils` folder for functions
+- Fancy animation to navlinks on `navlink.css`
+- `EditUser.jsx` for editing user/admin information
+- edit and get user by id routes for users
+
+### Changed
+
+- Minor simplifications to `Login.jsx` and `Register.jsx`
+- Product card on hover animations
+- change the folder name `login` to `auth`
+- `Section.jsx` now redirects to `About.jsx`
+
+### Removed
+
+- `data/products.js` since the products get called from db
+- `contact/form` folder, moved contents to parent
+
 ## [v0.1.6] - 2025-01-26
 
 ### Added

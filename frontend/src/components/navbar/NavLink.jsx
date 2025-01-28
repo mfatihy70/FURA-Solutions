@@ -12,9 +12,8 @@ const Link = ({ name, href }) => {
     <NavLink
       className={({ isActive }) => (isActive ? "nav-link active" : "nav-link")}
       to={`/${currentLang}/${href}`}
-      style={{ fontWeight: "600" }}
     >
-      {name}
+      <span>{name}</span>
     </NavLink>
   )
 }

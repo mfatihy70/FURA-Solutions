@@ -6,12 +6,14 @@ import Home from "./pages/home/Home"
 import About from "./pages/About"
 import Partners from "./pages/partners/PartnersPage"
 import Contact from "./pages/contact/ContactPage"
-import Login from "./pages/login/Login"
-import Register from "./pages/login/Register"
+import Login from "./pages/auth/Login"
+import Register from "./pages/auth/Register"
 import Catalog from "./pages/products/CatalogPage"
 import Cart from "./pages/cart/Cart"
 import Checkout from "./pages/Checkout"
 import NotFound from "./pages/NotFound"
+import UserDashboard from "./pages/dashboard/User"
+import AdminDashboard from "./pages/dashboard/Admin"
 import "./locales/i18n"
 import "./App.css"
 
@@ -42,6 +44,8 @@ function App() {
         <Route path="/:lang/products" element={<Catalog />} />
         <Route path="/:lang/cart" element={<Cart />} />
         <Route path="/:lang/checkout" element={<Checkout />} />
+        <Route path="/:lang/dashboard" element={<UserDashboard />} />
+        <Route path="/:lang/admin" element={<AdminDashboard />} />
 
         {/* 404 route */}
         <Route path="*" element={<NotFound />} />

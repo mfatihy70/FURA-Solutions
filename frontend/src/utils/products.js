@@ -1,5 +1,3 @@
-import { useTranslation } from "react-i18next"
-
 // Function to fetch products from the backend
 export const fetchProducts = async (setProducts, setLoading) => {
   try {
@@ -20,9 +18,15 @@ export const fetchProducts = async (setProducts, setLoading) => {
   }
 }
 
-// Function to handle adding the product to the cart
-export const handleAddToCart = (id, imageUrl, name, price, addToast) => {
-  const { t } = useTranslation()
+// Function to add a product to the cart
+export const handleAddToCart = (
+  id,
+  imageUrl,
+  name,
+  price,
+  addToast,
+  toastMessage
+) => {
   const productDetails = { id, image: imageUrl, name, price, quantity: 1 }
   const cart = JSON.parse(localStorage.getItem("cart") || "[]")
 
@@ -44,7 +48,7 @@ export const handleAddToCart = (id, imageUrl, name, price, addToast) => {
   // Create a new toast notification
   const newToast = {
     id: Date.now(),
-    message: `${t(name)} ${t("cart.add.ed")}`, // Translate the name for the toast message
+    message: `${name} ${toastMessage}`, // Use the pre-translated message
     image: imageUrl,
     name,
   }

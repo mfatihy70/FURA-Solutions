@@ -1,7 +1,7 @@
 import { Card, Button } from "react-bootstrap"
 import { Link, useParams } from "react-router-dom"
 import { useTranslation } from "react-i18next"
-import { handleAddToCart } from "/.Functions"
+import { handleAddToCart } from "@/utils/products"
 import "@/styles/products/Product.css"
 
 const Product = ({
@@ -36,9 +36,16 @@ const Product = ({
               <Card.Text>{`${price}${t("currency")}`}</Card.Text>
               <Button
                 variant="primary"
-                onClick={() =>
-                  handleAddToCart(id, imageUrl, name, price, addToast)
-                }
+                onClick={(e) => {
+                  handleAddToCart(
+                    id,
+                    imageUrl,
+                    t(name), // Pass the translated name here
+                    price,
+                    addToast,
+                    t("cart.add.ed") // Pass the "added to cart" translation
+                  )
+                }}
               >
                 {t("cart.add.toCart")}
               </Button>
