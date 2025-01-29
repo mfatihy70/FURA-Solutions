@@ -1,5 +1,61 @@
 # Changelog
 
+## [v0.1.7] - 2025-01-27
+
+### Added
+
+- User login and registriation over backend and db
+- `User.jsx` and `Admin.jsx` dashboard pages
+- `user.controller.js` for seperating functions
+- Axios package to frontend
+- `utils` folder for functions
+- Fancy animation to navlinks on `navlink.css`
+- `EditUser.jsx` for editing user/admin information
+- edit and get user by id routes for users
+
+### Changed
+
+- Minor simplifications to `Login.jsx` and `Register.jsx`
+- Product card on hover animations
+- change the folder name `login` to `auth`
+- `Section.jsx` now redirects to `About.jsx`
+
+### Removed
+
+- `data/products.js` since the products get called from db
+- `contact/form` folder, moved contents to parent
+
+## [v0.1.6] - 2025-01-26
+
+### Added
+
+- CORS connection between frontend and backend
+- Fetching products from backend
+
+### Changed
+
+- Simplied `product.routes.js` by importing funcs from controller
+- Extracted functions of `products` into a `functions.js` file
+
+## [v0.1.5] - 2025-01-22
+
+### Added
+
+- Navbar toggle on logo click
+
+### Changed
+
+- Frontend files to Javascript for simpler codebase
+- Upgrade to emailjs/browser package from emailjs-com
+
+## [v0.1.4] - 2025-01-22
+
+### Changed
+
+- Upgrade to flag-icons package from flag-icon-css
+- Updated `README.md`
+- Replaced nodemon with node --watch in `backend`
+
 ## [v0.1.3] - 2025-01-03
 
 ### Added
@@ -8,8 +64,9 @@
 - Models and routes for carousel, partners, products and users (optimization required)
 - Scroll to top on `Checkout.tsx`
 
-## Removed
-- Non-existing css import from `Navbar.tsx` 
+### Removed
+
+- Non-existing css import from `Navbar.tsx`
 - Unnecessary `package.lock.json` file from root
 
 ## [v0.1.2] - 2024-12-21

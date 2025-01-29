@@ -1,12 +1,51 @@
 .nav-link {
+  position: relative;
+  display: inline-block;
+
   border-radius: 10px;
   margin: 0.5em;
+  padding: 0.5em 1em;
+  overflow: hidden; /* Ensures ::before doesn’t overflow */
+  color: inherit; /* Preserve text color */
+  text-decoration: none;
+  z-index: 1; /* Ensure the link itself is above other elements */
+  transition: color 0.3s ease; /* Smooth text color transition */
+}
+
+.nav-link::before {
+  content: "";
+  position: absolute;
+  top: var(--hover-y, 50%); /* Default to center */
+  left: var(--hover-x, 50%);
+  width: 0;
+  height: 0;
+  background-color: #94dfff; /* Hover color */
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  transition: width 0.6s ease, height 0.6s ease;
+  z-index: 0; /* Below the text */
+}
+
+.nav-link:hover::before {
+  width: 300%; /* Large enough to cover the button */
+  height: 300%;
 }
 
 .nav-link:hover {
-  background-color: #94dfff;
+  color: white; /* Change text color on hover */
+}
+
+.nav-link.active::before {
+  width: 300%; /* Permanently fill the background for active links */
+  height: 300%;
+  background-color: #2db3ec; /* Active background color */
 }
 
 .nav-link.active {
-  background-color: #2db3ec; /* Active background color */
+  color: white; /* Text color for active state */
+}
+
+.nav-link span {
+  position: relative;
+  z-index: 2; /* Ensure text stays above the pseudo-element */
 }
