@@ -26,7 +26,7 @@ const CustomNavbar = () => {
   return (
     <Navbar
       expand="lg"
-      className="mb-5 px-5"
+      className={`mb-5 px-5 ${isExpanded ? "navbar-expanded" : ""}`}
       expanded={isExpanded}
       onToggle={(expanded) => setIsExpanded(expanded)}
     >

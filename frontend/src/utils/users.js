@@ -1,6 +1,5 @@
 import axios from "axios"
 
-// Function to handle user login
 export const handleLogin = async (
   email,
   password,
@@ -15,9 +14,15 @@ export const handleLogin = async (
     })
     alert(res.data.msg) // Show success message
     localStorage.setItem("token", res.data.token) // Save token to localStorage
-    navigate(`/${lang}/dashboard`) // Redirect to dashboard
+
+    const isAdmin = res.data.isAdmin // Retrieve isAdmin value
+    if (isAdmin) {
+      navigate(`/${lang}/admin`) // Redirect to admin dashboard
+    } else {
+      navigate(`/${lang}/dashboard`) // Redirect to user dashboard
+    }
   } catch (err) {
-    setError(err.response?.data?.msg || "Something went wrong")
+    setError(err.response?.data?.msg || "Something went wrong " + err)
   }
 }
 

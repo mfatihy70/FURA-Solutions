@@ -1,7 +1,6 @@
 .nav-link {
   position: relative;
   display: inline-block;
-
   border-radius: 10px;
   margin: 0.5em;
   padding: 0.5em 1em;
@@ -26,13 +25,26 @@
   z-index: 0; /* Below the text */
 }
 
+.navbar-expanded .nav-link::before {
+  transition: none; /* Disable transition when navbar is expanded */
+}
+
 .nav-link:hover::before {
   width: 300%; /* Large enough to cover the button */
   height: 300%;
 }
 
+.navbar-expanded .nav-link:hover::before {
+  width: 0; /* Disable hover effect when navbar is expanded */
+  height: 0;
+}
+
 .nav-link:hover {
   color: white; /* Change text color on hover */
+}
+
+.navbar-expanded .nav-link:hover {
+  color: inherit; /* Preserve text color when navbar is expanded */
 }
 
 .nav-link.active::before {
@@ -43,6 +55,16 @@
 
 .nav-link.active {
   color: white; /* Text color for active state */
+}
+
+.nav-link.active:hover::before {
+  width: 300%; /* Ensure the background remains filled */
+  height: 300%;
+  background-color: #2db3ec; /* Keep the active background color */
+}
+
+.nav-link.active:hover {
+  color: white; /* Ensure the text color remains white */
 }
 
 .nav-link span {

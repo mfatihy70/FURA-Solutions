@@ -1,10 +1,27 @@
+import { useEffect, useState } from "react"
 import { Carousel } from "react-bootstrap"
 import { useTranslation } from "react-i18next"
-import { carouselItems } from "@/data/carousel" // Import the carousel data
+import { fetchCarouselItems } from "@/utils/carousel"
 import "@/styles/Carousel.css"
 
 const CustomCarousel = () => {
   const { t } = useTranslation()
+  const [carouselItems, setCarouselItems] = useState([])
+  const [loading, setLoading] = useState(true)
+  const [error, setError] = useState("")
+
+  useEffect(() => {
+    fetchCarouselItems(setCarouselItems, setLoading, setError)
+  }, [])
+
+  useEffect(() => {}, [carouselItems])
+
+  if (loading) {
+    return <div>Loading...</div>
+  }
+  if (error) {
+    return <div>Error: {error}</div>
+  }
 
   // Map the carousel items to include the translated titles and subtitles
   const items = carouselItems.map((item) => ({
@@ -17,24 +34,17 @@ const CustomCarousel = () => {
     <Carousel>
       {items.map((item, index) => (
         <Carousel.Item key={index} interval={3000}>
-          <a
-            href={item.link}
-            className="carousel-link"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <div className="carousel-image-container">
-              <img
-                src={item.image}
-                className="carousel-image"
-                alt={item.title}
-              />
-            </div>
-            <Carousel.Caption>
-              <h3>{item.title}</h3>
-              {item.subtitle && <p>{item.subtitle}</p>}
-            </Carousel.Caption>
-          </a>
+          <div className="carousel-image-container">
+            <img
+              src={item.imageUrl}
+              className="carousel-image"
+              alt={item.title}
+            />
+          </div>
+          <Carousel.Caption>
+            <h3>{item.title}</h3>
+            {item.subtitle && <p>{item.subtitle}</p>}
+          </Carousel.Caption>
         </Carousel.Item>
       ))}
     </Carousel>

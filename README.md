@@ -6,11 +6,14 @@ This repository contains the new website for **FURA Solutions**, designed to rep
 
 ## Getting Started
 
-### Clone, Install and Run the Frontend
+### Clone, Install and Run
 
 ```bash
 git clone https://github.com/mfatihy70/FURA-Solutions.git
 cd fura-solutions/frontend
+npm i
+npm run dev
+cd ../backend
 npm i
 npm run dev
 ```
@@ -22,17 +25,21 @@ Open [http://localhost:3000](http://localhost:3000) in your browser.
 - **Responsive Design**: Works on desktops, tablets, and mobile devices.
 - **Scalable Architecture**: Supports future updates and expansion.
 - **Optimized Performance**: Fast loading and smooth navigation.
-- **Contact Form**: Sends emails in easier way
+- **Contact Form**: Easier way to contact
 - **Multiple Languages**: English, German and Turkish
-- **Products and Cart**: Give your order per e-mail
+- **Products and Cart**: Straightforward order placement per e-mail
+- **User and Admin Login**: Update your information and orders
 
 ## Tech Stack
 
-- **React** for building dynamic UIs
-- **Bootstrap** for responsive styling and consistency
-- **EmailJS** for sending emails via contact form
-- **Express.js** for backend 
-- **MongoDB** for database
+### MERN
+
+- **MongoDB** database
+- **Express.js** backend and APIs
+- **React** dynamic and reusable frontend
+- **Node.js** server
+- **Bootstrap** responsive styling
+- **EmailJS** for sending emails
 
 ## License
 

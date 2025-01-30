@@ -1,8 +1,9 @@
 import mongoose from "mongoose"
 
 const carouselSchema = new mongoose.Schema({
+  title: { type: String, required: true },
   imageUrl: { type: String, required: true },
-  text: { type: String },
+  subtitle: { type: String },
 })
 
 export default mongoose.model("Carousel", carouselSchema)

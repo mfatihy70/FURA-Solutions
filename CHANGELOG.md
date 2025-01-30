@@ -1,5 +1,23 @@
 # Changelog
 
+## [v0.1.8] - 2025-01-29
+
+### Added
+
+- Fetching product, partner and carousel item info from backend
+- Placeholders for `EditUser.jsx` form with data from user
+- `carousel.controller.js` and `partner.controller.js`
+- `jwt-decode` package
+
+### Changed
+
+- Disabled navlink animation on toggled navbar
+- Updated `README.md`
+
+### Deleted
+
+- `data` folder with its contents
+
 ## [v0.1.7] - 2025-01-27
 
 ### Added

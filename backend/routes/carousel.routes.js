@@ -1,33 +1,20 @@
 import express from "express"
-import Carousel from "../models/carousel.model.js"
+import {
+  getCarouselItems,
+  getCarouselItemById,
+  createCarouselItem,
+  updateCarouselItem,
+  deleteCarouselItemById,
+  deleteAllCarouselItems,
+} from "../controllers/carousel.controller.js"
 
 const router = express.Router()
 
-// GET request to fetch all carousel items
-router.get("/", async (req, res) => {
-  try {
-    const carousels = await Carousel.find()
-    res.status(200).json(carousels)
-  } catch (error) {
-    res.status(500).json({ message: error.message })
-  }
-})
-
-// POST request to create a new carousel item
-router.post("/", async (req, res) => {
-  const { imageUrl, text } = req.body
-
-  const newCarousel = new Carousel({
-    imageUrl,
-    text,
-  })
-
-  try {
-    const savedCarousel = await newCarousel.save()
-    res.status(201).json(savedCarousel)
-  } catch (error) {
-    res.status(400).json({ message: error.message })
-  }
-})
+router.get("/", getCarouselItems)
+router.get("/:id", getCarouselItemById)
+router.post("/", createCarouselItem)
+router.put("/:id", updateCarouselItem)
+router.delete("/:id", deleteCarouselItemById)
+router.delete("/", deleteAllCarouselItems)
 
 export default router
