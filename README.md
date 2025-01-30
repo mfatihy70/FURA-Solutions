@@ -47,4 +47,7 @@ This project is licensed under the GPL-3 License. See the LICENSE file for detai
 
 ---
 
-<img src="https://github.com/user-attachments/assets/e4987d25-728e-4da0-8276-3e2cf7c18df8" alt="screenshot" size="700"/>
+<img src="https://github.com/user-attachments/assets/23580818-2bba-481e-a565-314406d011eb" alt="hp" width="500"/>
+<img src="https://github.com/user-attachments/assets/a7fd4556-eeb6-4d1f-9cdd-b274026eabd8" alt="prd" width="500"/>
+<img src="https://github.com/user-attachments/assets/6153660a-af04-4998-8c95-48f38ecf90a6" alt="cart" width="500"/>
+<img src="https://github.com/user-attachments/assets/15f984fa-3fc0-48d3-88d3-bc493b6dadd8" alt="contact" width="500"/>
