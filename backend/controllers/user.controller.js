@@ -63,7 +63,13 @@ export const loginUser = async (req, res) => {
     const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET, {
       expiresIn: "1h",
     }) // Generate token
-    res.json({ msg: "Login successful!", token })
+
+    // Include isAdmin in the response
+    res.json({
+      msg: "Login successful!",
+      token,
+      isAdmin: user.isAdmin,
+    })
   } catch (err) {
     res.status(500).json({ msg: `Server error | ${err}` })
   }
@@ -85,7 +91,8 @@ export const editUser = async (req, res) => {
     if (password) {
       user.password = await bcrypt.hash(password, 10) // Hash new password
     }
-    if (typeof isAdmin !== "undefined") { // Check if isAdmin is sent in request
+    if (typeof isAdmin !== "undefined") {
+      // Check if isAdmin is sent in request
       user.isAdmin = isAdmin
     }
 

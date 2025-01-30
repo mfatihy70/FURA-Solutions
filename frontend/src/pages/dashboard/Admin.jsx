@@ -1,5 +1,5 @@
 import { useState } from "react"
-import { Container, Row, Col, Card, Modal, Button, Form } from "react-bootstrap"
+import { Container, Row, Col, Card, Modal, Button } from "react-bootstrap"
 import {
   FaUserEdit,
   FaBoxOpen,
@@ -21,7 +21,6 @@ const AdminDashboard = ({ adminName }) => {
 
   const handleCloseModal = () => {
     setShowModal(false)
-    setModalContent(null)
   }
 
   return (

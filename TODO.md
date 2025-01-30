@@ -2,11 +2,11 @@
 
 ## Dont forget so set version in `package.json`
 
-1. redirect user or admin login correspondingly
-2. admin login for adding carousel items, partners and products
-3. translating product names in database
-4. checkout
-5. users items on carts
-6. toast sticking only with !important
-7. undo button to toast
-8. testing
+1. adding carousel items, partners and products as admin
+3. replace login/register alerts with modals
+4. products fetch when on homepage and have success and data
+5. checkout
+6. users items on carts
+7. toast sticking only with !important
+8. undo button to toast
+9. testing
