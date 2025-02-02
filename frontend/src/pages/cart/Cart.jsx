@@ -1,4 +1,5 @@
 import { useTranslation } from "react-i18next"
+import { Link, useParams } from "react-router-dom"
 import { useState, useEffect } from "react"
 import { Container, ListGroup, Row, Col } from "react-bootstrap"
 import { loadCart, handleToastClose } from "@/utils/cart"
@@ -8,6 +9,7 @@ import CartOverview from "./Overview"
 
 const Cart = () => {
   const { t } = useTranslation()
+  const { lang } = useParams()
 
   // State for cart items and toasts
   const [cart, setCart] = useState([])
@@ -33,7 +35,12 @@ const Cart = () => {
 
       {/* Cart Content */}
       {cart.length === 0 ? (
-        <p className="text-center">{t("cart.empty")}</p>
+        <>
+          <p className="text-center">{t("cart.empty")}</p>
+          <Link className="btn btn-primary" to={`/${lang}/products`}>
+            {t("checkout.backToCart")}
+          </Link>
+        </>
       ) : (
         <Row>
           {/* Cart Items */}

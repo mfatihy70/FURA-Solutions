@@ -8,7 +8,11 @@ import {
   FaUsers,
 } from "react-icons/fa"
 import EditUser from "./EditUser"
-import "@/styles/Admin.css"
+import EditCarousel from "./admin/Carousel"
+import ManagePartners from "./admin/Partners"
+import ManageUsers from "./admin/Users"
+import EditProducts from "./admin/Products"
+import "@/styles/admin.css"
 
 const AdminDashboard = ({ adminName }) => {
   const [showModal, setShowModal] = useState(false)
@@ -122,18 +126,10 @@ const AdminDashboard = ({ adminName }) => {
         </Modal.Header>
         <Modal.Body>
           {modalContent === "editUserInfo" && <EditUser />}
-          {modalContent === "editProducts" && (
-            <p>Product editing functionality will be displayed here.</p>
-          )}
-          {modalContent === "managePartners" && (
-            <p>Partner management functionality will be displayed here.</p>
-          )}
-          {modalContent === "editCarousel" && (
-            <p>Carousel image editing functionality will be displayed here.</p>
-          )}
-          {modalContent === "registeredUsers" && (
-            <p>Registered users will be displayed here.</p>
-          )}
+          {modalContent === "editProducts" && <EditProducts />}
+          {modalContent === "managePartners" && <ManagePartners />}
+          {modalContent === "editCarousel" && <EditCarousel />}
+          {modalContent === "registeredUsers" && <ManageUsers />}
         </Modal.Body>
         <Modal.Footer>
           <Button variant="secondary" onClick={handleCloseModal}>

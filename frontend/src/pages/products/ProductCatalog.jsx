@@ -34,7 +34,7 @@ const ProductCatalog = ({ showDetails }) => {
 
   if (loading) {
     return (
-      <div className="d-flex justify-content-center align-items-center min-vh-100">
+      <div className="d-flex justify-content-center align-items-start min-vh-100">
         <Spinner animation="border" variant="primary" />
       </div>
     )

@@ -134,75 +134,9 @@
     ]
   },
 
-  "carousel": {
-    "cableChannel": {
-      "title": [
-        "Demiryolu standartlı kablo kanalları",
-        "Railway standard cable channels",
-        "Bahnstandard-Kabelkanäle"
-      ],
-      "subtitle": [
-        "Borular, Bağlantı Elemanları, Aksesuarlar",
-        "Conduits, Fittings, Accessories",
-        "Leitungen, Armaturen, Zubehör"
-      ]
-    },
-    "cableGland": {
-      "title": [
-        "Demiryolu standartlı kablo rekorları",
-        "Railway standard cable glands",
-        "Bahnstandard-Kabelverschraubungen"
-      ]
-    },
-    "trainScale": {
-      "title": [
-        "Portatif tren kantarları",
-        "Portable train scales",
-        "Portable Zugwaagen"
-      ],
-      "subtitle": [
-        "EU standartlarına uygun",
-        "Compliant with EU standards",
-        "Entspricht EU-Standards"
-      ]
-    },
-    "cableMarking": {
-      "title": [
-        "Endüstriyel markalama ve kablo bağları",
-        "Industrial marking and cable ties",
-        "Industrielle Markierung und Kabelbinder"
-      ]
-    },
-    "customCable": {
-      "title": [
-        "Müşteriye Özel Kablolu Çözümler",
-        "Custom Cable Solutions",
-        "Kundenspezifische Kabellösungen"
-      ],
-      "subtitle": [
-        "Fiber, Patch ve Jumper Kablolar",
-        "Fiber Cords, Patch Cords, Jumper Cables",
-        "Glasfaser-, Patch- und Verbindungskabel"
-      ]
-    }
-  },
-
   "notFound": {
     "message": ["Sayfa Bulunamadı", "Page Not Found", "Seite nicht gefunden"],
     "goHome": ["Ana sayfaya dön", "Go to homepage", "Zur Startseite gehen"]
-  },
-
-  "product": {
-    "title": ["Ürünlerimiz", "Products", "Produkte"],
-    "cableChannel": ["Kablo Kanalı", "Cable Channel", "Kabelkanal"],
-    "cableGland": ["Kablo Rekoru", "Cable Gland", "Kabelverschraubung"],
-    "trainScale": ["Tren Kantarı", "Train Scale", "Zugwaage"],
-    "cableMarking": ["Kablo Markalama", "Cable Marking", "Kabelmarkierung"],
-    "customCable": [
-      "Müşteriye Özel Kablolar",
-      "Custom Cables",
-      "Kundenspezifische Kabel"
-    ]
   },
 
   "cart": {

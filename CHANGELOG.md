@@ -1,5 +1,21 @@
 # Changelog
 
+## [v0.1.9] - 2025-02-01
+
+### Added
+
+- Back to cart button when the cart is empty
+- Products, users, carousel items and partners update through admin dashboard
+
+### Changes
+
+- Products and carousel items only have english names for simpler product editing.
+- Small simplification to `Logo.jsx`
+- `ProductCatalog.jsx` spinner shows at the top
+
+### Deleted
+- Translation entries for products and carousel items from `translations.json`
+
 ## [v0.1.8] - 2025-01-29
 
 ### Added

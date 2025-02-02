@@ -22,3 +22,30 @@ export const fetchCarouselItems = async (
     setLoading(false) // Stop loading even if there's an error
   }
 }
+
+export const editCarouselItem = async (id, item) => {
+  try {
+    const response = await fetch(`http://localhost:5000/api/carousel/${id}`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        title: item.title,
+        subtitle: item.subtitle,
+        imageUrl: item.imageUrl,
+      }),
+    })
+
+    if (!response.ok) {
+      throw new Error(`Failed to update item with ID ${id}`)
+    }
+
+    const data = await response.json()
+    console.log("Updated carousel item:", data)
+    return data
+  } catch (error) {
+    console.error("Error updating carousel item:", error)
+    throw new Error("Error updating carousel item")
+  }
+}

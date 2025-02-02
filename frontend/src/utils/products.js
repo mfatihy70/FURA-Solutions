@@ -18,6 +18,34 @@ export const fetchProducts = async (setProducts, setLoading) => {
   }
 }
 
+// Function to update products
+export const editProducts = async (id, product) => {
+  try {
+    const response = await fetch(`http://localhost:5000/api/products/${id}`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        name: product.name,
+        price: product.price,
+        imageUrl: product.imageUrl,
+      }),
+    })
+
+    if (!response.ok) {
+      throw new Error(`Failed to update product with ID ${id}`)
+    }
+
+    const data = await response.json()
+    console.log("Updated product:", data)
+    return data
+  } catch (error) {
+    console.error("Error updating product:", error)
+    throw new Error("Error updating product")
+  }
+}
+
 // Function to add a product to the cart
 export const handleAddToCart = (
   id,

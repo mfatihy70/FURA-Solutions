@@ -18,3 +18,29 @@ export const fetchPartners = async (setPartners, setLoading, setError) => {
     setLoading(false) // Stop loading even if there's an error
   }
 }
+
+export const managePartners = async (id, partner) => {
+  try {
+    const response = await fetch(`http://localhost:5000/api/partners/${id}`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        imageUrl: partner.imageUrl,
+        link: partner.link,
+      }),
+    })
+
+    if (!response.ok) {
+      throw new Error(`Failed to update partner with ID ${id}`)
+    }
+
+    const data = await response.json()
+    console.log("Updated partner:", data)
+    return data
+  } catch (error) {
+    console.error("Error updating partner:", error)
+    throw new Error("Error updating partner")
+  }
+}

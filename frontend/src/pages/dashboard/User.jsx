@@ -1,5 +1,5 @@
 import React from "react"
-import { Container, Row, Col, Card, Button, Form } from "react-bootstrap"
+import { Container, Row, Col, Card } from "react-bootstrap"
 import EditUser from "./EditUser"
 
 const UserDashboard = ({ userName }) => {
@@ -21,7 +21,6 @@ const UserDashboard = ({ userName }) => {
           >
             <Card.Body className="p-5 w-100 d-flex flex-column">
               <Card.Title className="text-center">Your Cart</Card.Title>
-              {/* Add your cart items here */}
               <p>Cart items will be displayed here.</p>
             </Card.Body>
           </Card>

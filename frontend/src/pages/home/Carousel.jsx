@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import { Carousel } from "react-bootstrap"
+import { Carousel, Spinner } from "react-bootstrap"
 import { useTranslation } from "react-i18next"
 import { fetchCarouselItems } from "@/utils/carousel"
 import "@/styles/Carousel.css"
@@ -17,7 +17,11 @@ const CustomCarousel = () => {
   useEffect(() => {}, [carouselItems])
 
   if (loading) {
-    return <div>Loading...</div>
+    return (
+      <div className="d-flex justify-content-center align-items-start min-vh-100">
+        <Spinner animation="border" variant="primary" />
+      </div>
+    )
   }
   if (error) {
     return <div>Error: {error}</div>
