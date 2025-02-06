@@ -14,6 +14,8 @@ import Checkout from "./pages/Checkout"
 import NotFound from "./pages/NotFound"
 import UserDashboard from "./pages/dashboard/User"
 import AdminDashboard from "./pages/dashboard/Admin"
+import ProtectedAdminRoute from "./pages/auth/AdminRoute"
+import PermissionDenied from "./pages/auth/PermissionDenied"
 import "./locales/i18n"
 import "./App.css"
 
@@ -22,10 +24,8 @@ function App() {
     <Router future={{ v7_startTransition: true, v7_relativeSplatPath: true }}>
       <Navbar />
       <Routes>
-        {/* Default redirect */}
         <Route path="/" element={<Navigate to="/tr/home" replace />} />
 
-        {/* Language-specific routes */}
         {LANGUAGES.map(({ code }) => (
           <Route
             key={code}
@@ -34,7 +34,6 @@ function App() {
           />
         ))}
 
-        {/* Main routes with language parameter */}
         <Route path="/:lang/home" element={<Home />} />
         <Route path="/:lang/about" element={<About />} />
         <Route path="/:lang/partners" element={<Partners />} />
@@ -45,9 +44,17 @@ function App() {
         <Route path="/:lang/cart" element={<Cart />} />
         <Route path="/:lang/checkout" element={<Checkout />} />
         <Route path="/:lang/dashboard" element={<UserDashboard />} />
-        <Route path="/:lang/admin" element={<AdminDashboard />} />
-
-        {/* 404 route */}
+        {/* Admin routes */}
+        <Route
+          path="/:lang/admin"
+          // Add ProtectedAdminRoute to protect the admin dashboard
+          element={
+            <ProtectedAdminRoute>
+              <AdminDashboard />
+            </ProtectedAdminRoute>
+          }
+        />
+        <Route path="/:lang/permission-denied" element={<PermissionDenied />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
       <Footer />

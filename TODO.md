@@ -2,14 +2,16 @@
 
 ## Dont forget so set version in `package.json`
 
-1. adding and deleting carousel items, partners and products as admin preferrably under new tab
-3. replace login/register alerts with modals
-4. products fetch when on homepage and have success and data
-5. reach admin dashboard only as admin user - not directly through /admin
-6. simplify & comment dashboard folder
-7. checkout
+1. replace login/register alerts with modals
+2. products fetch when on homepage and have success and data
+3. change password option
+4. reorder items 
+5. simplify & comment dashboard folder
+6. checkout
+7. users items on carts
 8. deployment
-9. users items on carts
-10. toast sticking only with !important
-11. undo button to toast
-12. testing
+9. forgot password
+10. log out
+11. toast sticking only with !important
+12. undo button to toast
+13. testing

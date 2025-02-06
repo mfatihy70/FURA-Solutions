@@ -5,7 +5,6 @@ import {
   createCarouselItem,
   updateCarouselItem,
   deleteCarouselItemById,
-  deleteAllCarouselItems,
 } from "../controllers/carousel.controller.js"
 
 const router = express.Router()
@@ -15,6 +14,5 @@ router.get("/:id", getCarouselItemById)
 router.post("/", createCarouselItem)
 router.put("/:id", updateCarouselItem)
 router.delete("/:id", deleteCarouselItemById)
-router.delete("/", deleteAllCarouselItems)
 
 export default router

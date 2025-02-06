@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import { fetchUsers, manageUsers } from "@/utils/users"
+import { getUsers, editUser, deleteUser } from "@/utils/users"
 import {
   ListGroup,
   Form,
@@ -10,6 +10,7 @@ import {
   Col,
 } from "react-bootstrap"
 import { useTranslation } from "react-i18next"
+import { FaTrash } from "react-icons/fa"
 
 const ManageUsers = () => {
   const { t } = useTranslation()
@@ -19,7 +20,7 @@ const ManageUsers = () => {
   const [saving, setSaving] = useState(false)
 
   useEffect(() => {
-    fetchUsers(setUsers, setLoading, setError) // Fetch users
+    getUsers(setUsers, setLoading, setError)
   }, [])
 
   const handleInputChange = (index, field, value) => {
@@ -31,13 +32,25 @@ const ManageUsers = () => {
   const handleSave = async () => {
     setSaving(true)
     try {
-      // Send PUT requests for each user
-      await Promise.all(users.map((user) => manageUsers(user._id, user)))
+      await Promise.all(
+        users.map((user) => editUser(user._id, user, setError, setLoading))
+      )
       alert("Users updated successfully!")
     } catch (err) {
       alert("Failed to update users: " + err.message)
     } finally {
       setSaving(false)
+    }
+  }
+
+  const handleDeleteUser = async (id) => {
+    if (window.confirm("Are you sure you want to delete this user?")) {
+      try {
+        await deleteUser(id, setError, setSaving)
+        setUsers(users.filter((user) => user._id !== id))
+      } catch (err) {
+        alert("Failed to delete user: " + err.message)
+      }
     }
   }
 
@@ -55,11 +68,15 @@ const ManageUsers = () => {
 
   return (
     <div style={{ maxWidth: "800px", margin: "0 auto" }}>
+      <div className="d-flex justify-content-between mb-3">
+        <h4>Manage Users</h4>
+      </div>
+
       <ListGroup>
         {users.map((user, index) => (
           <ListGroup.Item key={user._id}>
             <Row>
-              <Col xs={12}>
+              <Col xs={10}>
                 <Form.Group className="mb-2">
                   <Form.Label>{t("Name")}</Form.Label>
                   <Form.Control
@@ -82,16 +99,23 @@ const ManageUsers = () => {
                   />
                 </Form.Group>
 
-                <Form.Group className="mb-2">
-                  <Form.Label>{t("Is Admin")}</Form.Label>
-                  <Form.Check
-                    type="switch"
-                    checked={user.isAdmin}
-                    onChange={(e) =>
-                      handleInputChange(index, "isAdmin", e.target.checked)
-                    }
-                  />
-                </Form.Group>
+                <Form.Check
+                  type="switch"
+                  label={t("Is Admin")}
+                  checked={user.isAdmin}
+                  onChange={(e) =>
+                    handleInputChange(index, "isAdmin", e.target.checked)
+                  }
+                />
+              </Col>
+
+              <Col xs={2} className="text-end my-2">
+                <Button
+                  variant="danger"
+                  onClick={() => handleDeleteUser(user._id)}
+                >
+                  <FaTrash />
+                </Button>
               </Col>
             </Row>
           </ListGroup.Item>

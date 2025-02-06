@@ -1,6 +1,6 @@
-import bcrypt from "bcryptjs" // Password encryption
-import jwt from "jsonwebtoken" // Token generation
-import User from "../models/user.model.js" // User model
+import bcrypt from "bcryptjs"
+import jwt from "jsonwebtoken"
+import User from "../models/user.model.js"
 
 // Get User by ID
 export const getUserById = async (req, res) => {
@@ -23,15 +23,43 @@ export const getAllUsers = async (req, res) => {
   }
 }
 
+// Login User
+export const loginUser = async (req, res) => {
+  const { email, password } = req.body
+  try {
+    const user = await User.findOne({ email })
+    if (!user) return res.status(400).json({ msg: "User not found" })
+
+    const isMatch = await bcrypt.compare(password, user.password)
+    if (!isMatch) return res.status(400).json({ msg: "Invalid credentials" })
+
+    const token = jwt.sign(
+      { id: user._id, isAdmin: user.isAdmin },
+      process.env.JWT_SECRET,
+      { expiresIn: "1h" }
+    )
+
+    res.json({
+      msg: "Login successful!",
+      token,
+      isAdmin: user.isAdmin,
+    })
+  } catch (err) {
+    console.error("Error in loginUser:", err.message)
+    res.status(500).json({ msg: "Server error" })
+  }
+}
+
 // Register User
 export const registerUser = async (req, res) => {
   const { name, surname, email, password, address, phone } = req.body
   try {
     const existingUser = await User.findOne({ email })
-    if (existingUser)
+    if (existingUser) {
       return res.status(400).json({ msg: "User already exists" })
+    }
 
-    const hashedPassword = await bcrypt.hash(password, 10) // Hash password
+    const hashedPassword = await bcrypt.hash(password, 10)
     const user = new User({
       name,
       surname,
@@ -39,9 +67,9 @@ export const registerUser = async (req, res) => {
       password: hashedPassword,
       address,
       phone,
-      isAdmin: false, // Set isAdmin to false by default
+      isAdmin: false,
     })
-    await user.save() // Save to database
+    await user.save()
 
     res.status(201).json({ msg: "User registered successfully!" })
   } catch (err) {
@@ -50,78 +78,42 @@ export const registerUser = async (req, res) => {
   }
 }
 
-// Login User
-export const loginUser = async (req, res) => {
-  const { email, password } = req.body
-  try {
-    const user = await User.findOne({ email })
-    if (!user) return res.status(400).json({ msg: "User not found" })
-
-    const isMatch = await bcrypt.compare(password, user.password) // Check password
-    if (!isMatch) return res.status(400).json({ msg: "Invalid credentials" })
-
-    const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET, {
-      expiresIn: "1h",
-    }) // Generate token
-
-    // Include isAdmin in the response
-    res.json({
-      msg: "Login successful!",
-      token,
-      isAdmin: user.isAdmin,
-    })
-  } catch (err) {
-    res.status(500).json({ msg: `Server error | ${err}` })
-  }
-}
-
 // Edit User
 export const editUser = async (req, res) => {
   const { id } = req.params
-  const { name, surname, email, password, address, phone, isAdmin } = req.body
+  const { name, surname, email, address, phone, isAdmin } = req.body // Removed password from destructuring
+
   try {
     const user = await User.findById(id)
     if (!user) return res.status(404).json({ msg: "User not found" })
 
-    user.name = name || user.name
-    user.surname = surname || user.surname
-    user.email = email || user.email
-    user.address = address || user.address
-    user.phone = phone || user.phone
-    if (password) {
-      user.password = await bcrypt.hash(password, 10) // Hash new password
-    }
-    if (typeof isAdmin !== "undefined") {
-      // Check if isAdmin is sent in request
-      user.isAdmin = isAdmin
+    const updateData = {
+      name: name || user.name,
+      surname: surname || user.surname,
+      email: email || user.email,
+      address: address || user.address,
+      phone: phone || user.phone,
+      isAdmin: typeof isAdmin !== "undefined" ? isAdmin : user.isAdmin,
     }
 
-    await user.save()
-    res.json({ msg: "User updated successfully!", user })
+    const updatedUser = await User.findByIdAndUpdate(id, updateData, {
+      new: true,
+    })
+    res.json({ msg: "User updated successfully!", user: updatedUser })
   } catch (err) {
-    console.error(err)
+    console.error("Error in editUser:", err.message)
     res.status(500).json({ msg: "Server error" })
   }
 }
 
-// DELETE user by ID
+// Delete User
 export const deleteUser = async (req, res) => {
   try {
     const user = await User.findById(req.params.id)
     if (!user) return res.status(404).json({ msg: "User not found" })
 
-    await user.remove()
+    await user.deleteOne()
     res.json({ msg: "User deleted successfully!" })
-  } catch (err) {
-    res.status(500).json({ msg: "Server error" })
-  }
-}
-
-// DELETE all users
-export const deleteAllUsers = async (req, res) => {
-  try {
-    await User.deleteMany()
-    res.json({ msg: "All users deleted successfully!" })
   } catch (err) {
     res.status(500).json({ msg: "Server error" })
   }

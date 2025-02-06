@@ -34,7 +34,7 @@ const Register = () => {
   }
 
   return (
-    <Container>
+    <Container fluid className="d-flex flex-column min-vh-100 p-0">
       <Row>
         <Col>
           <Card

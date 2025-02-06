@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
 import { Container, Row, Col, Spinner } from "react-bootstrap"
 import { useTranslation } from "react-i18next"
-import { fetchPartners } from "@/utils/partners"
+import { getPartners } from "@/utils/partners"
 
 const Partners = () => {
   const { t } = useTranslation()
@@ -10,7 +10,7 @@ const Partners = () => {
   const [error, setError] = useState("")
 
   useEffect(() => {
-    fetchPartners(setPartners, setLoading, setError)
+    getPartners(setPartners, setError, setLoading)
   }, [])
 
   if (loading) {

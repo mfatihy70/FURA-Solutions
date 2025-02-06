@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
 import { Carousel, Spinner } from "react-bootstrap"
 import { useTranslation } from "react-i18next"
-import { fetchCarouselItems } from "@/utils/carousel"
+import { getCarouselItems } from "@/utils/carousel"
 import "@/styles/Carousel.css"
 
 const CustomCarousel = () => {
@@ -11,10 +11,8 @@ const CustomCarousel = () => {
   const [error, setError] = useState("")
 
   useEffect(() => {
-    fetchCarouselItems(setCarouselItems, setLoading, setError)
+    getCarouselItems(setCarouselItems, setError, setLoading)
   }, [])
-
-  useEffect(() => {}, [carouselItems])
 
   if (loading) {
     return (
@@ -23,11 +21,11 @@ const CustomCarousel = () => {
       </div>
     )
   }
+
   if (error) {
     return <div>Error: {error}</div>
   }
 
-  // Map the carousel items to include the translated titles and subtitles
   const items = carouselItems.map((item) => ({
     ...item,
     title: t(item.title),

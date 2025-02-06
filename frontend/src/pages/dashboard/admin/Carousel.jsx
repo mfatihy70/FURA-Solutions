@@ -1,5 +1,12 @@
-import { useEffect, useState } from "react"
-import { fetchCarouselItems, editCarouselItem } from "@/utils/carousel"
+import { useState, useEffect } from "react"
+import { useTranslation } from "react-i18next"
+import { FaTrash, FaPlus } from "react-icons/fa"
+import {
+  getCarouselItems,
+  editCarouselItem,
+  addCarouselItem,
+  deleteCarouselItem,
+} from "@/utils/carousel"
 import {
   ListGroup,
   Form,
@@ -10,7 +17,6 @@ import {
   Col,
   Image,
 } from "react-bootstrap"
-import { useTranslation } from "react-i18next"
 
 const EditCarousel = () => {
   const { t } = useTranslation()
@@ -20,7 +26,7 @@ const EditCarousel = () => {
   const [saving, setSaving] = useState(false)
 
   useEffect(() => {
-    fetchCarouselItems(setItems, setLoading, setError) // ✅ Fetch carousel items
+    getCarouselItems(setItems, setError, setLoading)
   }, [])
 
   const handleInputChange = (index, field, value) => {
@@ -32,13 +38,43 @@ const EditCarousel = () => {
   const handleSave = async () => {
     setSaving(true)
     try {
-      // ✅ Send PUT requests for each item
-      await Promise.all(items.map((item) => editCarouselItem(item._id, item)))
+      await Promise.all(
+        items.map((item) =>
+          editCarouselItem(item._id, item, setError, setSaving)
+        )
+      )
       alert("Carousel items updated successfully!")
     } catch (err) {
       alert("Failed to update carousel items: " + err.message)
     } finally {
       setSaving(false)
+    }
+  }
+
+  const handleAddItem = async () => {
+    const newItem = {
+      title: "New Title",
+      subtitle: "New Subtitle",
+      imageUrl: "https://picsum.photos/150",
+    }
+
+    try {
+      const addedItem = await addCarouselItem(newItem, setError, setSaving)
+      setItems([...items, addedItem])
+      alert("Item added successfully!")
+    } catch (err) {
+      alert("Failed to add item: " + err.message)
+    }
+  }
+
+  const handleDeleteItem = async (id) => {
+    if (window.confirm("Are you sure you want to delete this item?")) {
+      try {
+        await deleteCarouselItem(id, setError, setSaving)
+        setItems(items.filter((item) => item._id !== id))
+      } catch (err) {
+        alert("Failed to delete item: " + err.message)
+      }
     }
   }
 
@@ -56,20 +92,27 @@ const EditCarousel = () => {
 
   return (
     <div style={{ maxWidth: "800px", margin: "0 auto" }}>
+      <div className="d-flex justify-content-between mb-3">
+        <h4>{t("Carousel Items")}</h4>
+        <Button variant="success" onClick={handleAddItem}>
+          <FaPlus /> {t("Add New Item")}
+        </Button>
+      </div>
+
       <ListGroup>
         {items.map((item, index) => (
           <ListGroup.Item key={item._id}>
-            <Row>
+            <Row className="align-items-center">
               <Col xs={3} md={2}>
                 <Image
-                  src={item.imageUrl || "https://via.placeholder.com/100"}
+                  src={item.imageUrl || "https://picsum.photos/150"}
                   thumbnail
                   alt={t(item.title)}
                   style={{ maxHeight: "100px" }}
                 />
               </Col>
 
-              <Col xs={9} md={10}>
+              <Col xs={7} md={9}>
                 <Form.Group className="mb-2">
                   <Form.Label>{t("Title")}</Form.Label>
                   <Form.Control
@@ -102,6 +145,15 @@ const EditCarousel = () => {
                     }
                   />
                 </Form.Group>
+              </Col>
+
+              <Col xs={2} className="text-end my-2">
+                <Button
+                  variant="danger"
+                  onClick={() => handleDeleteItem(item._id)}
+                >
+                  <FaTrash />
+                </Button>
               </Col>
             </Row>
           </ListGroup.Item>

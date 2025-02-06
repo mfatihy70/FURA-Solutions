@@ -1,5 +1,21 @@
 # Changelog
 
+## [v0.2.0] - 2025-02-03
+
+### Added
+
+- All CRUD operations through dashboard work
+- Restricting access of users to /admin route with `AdminRoute.jsx` and `PermissionDenied.jsx`
+- Footer margin on `Login.jsx` and `Register.jsx`
+- Added missing deleteUser function to `user.controller.js`
+
+### Fixed
+- Login error after editing user caused by password rehashing
+
+### Removed
+- Delete all functions from backend
+- Edit password text field until functionality is implemented
+
 ## [v0.1.9] - 2025-02-01
 
 ### Added

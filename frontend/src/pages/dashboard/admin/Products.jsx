@@ -1,5 +1,10 @@
 import { useEffect, useState } from "react"
-import { fetchProducts, editProducts } from "@/utils/products"
+import {
+  getProducts,
+  editProduct,
+  addProduct,
+  deleteProduct,
+} from "@/utils/products"
 import {
   ListGroup,
   Form,
@@ -11,6 +16,7 @@ import {
   Image,
 } from "react-bootstrap"
 import { useTranslation } from "react-i18next"
+import { FaTrash, FaPlus } from "react-icons/fa"
 
 const EditProducts = () => {
   const { t } = useTranslation()
@@ -20,7 +26,7 @@ const EditProducts = () => {
   const [saving, setSaving] = useState(false)
 
   useEffect(() => {
-    fetchProducts(setProducts, setLoading, setError) // Fetch products
+    getProducts(setProducts, setError, setLoading)
   }, [])
 
   const handleInputChange = (index, field, value) => {
@@ -32,15 +38,40 @@ const EditProducts = () => {
   const handleSave = async () => {
     setSaving(true)
     try {
-      // Send PUT requests for each product
       await Promise.all(
-        products.map((product) => editProducts(product._id, product))
+        products.map((product) => editProduct(product._id, product, setError, setLoading))
       )
       alert("Products updated successfully!")
     } catch (err) {
       alert("Failed to update products: " + err.message)
     } finally {
       setSaving(false)
+    }
+  }
+
+  const handleAddProduct = async () => {
+    const newProduct = {
+      name: "New Product",
+      price: 0,
+      imageUrl: "https://picsum.photos/150",
+    }
+    try {
+      const addedProduct = await addProduct(newProduct, setError, setSaving)
+      setProducts([...products, addedProduct])
+      alert("Product added successfully!")
+    } catch (err) {
+      alert("Failed to add product: " + err.message)
+    }
+  }
+
+  const handleDeleteProduct = async (id) => {
+    if (window.confirm("Are you sure you want to delete this product?")) {
+      try {
+        await deleteProduct(id, setError, setSaving)
+        setProducts(products.filter((product) => product._id !== id))
+      } catch (err) {
+        alert("Failed to delete product: " + err.message)
+      }
     }
   }
 
@@ -58,6 +89,13 @@ const EditProducts = () => {
 
   return (
     <div style={{ maxWidth: "800px", margin: "0 auto" }}>
+      <div className="d-flex justify-content-between mb-3">
+        <h4>{t("Products")}</h4>
+        <Button variant="success" onClick={handleAddProduct}>
+          <FaPlus /> {t("Add Product")}
+        </Button>
+      </div>
+
       <ListGroup>
         {products.map((product, index) => (
           <ListGroup.Item key={product._id}>
@@ -71,7 +109,7 @@ const EditProducts = () => {
                 />
               </Col>
 
-              <Col xs={9} md={10}>
+              <Col xs={7} md={8}>
                 <Form.Group className="mb-2">
                   <Form.Label>{t("Name")}</Form.Label>
                   <Form.Control
@@ -86,7 +124,7 @@ const EditProducts = () => {
                 <Form.Group className="mb-2">
                   <Form.Label>{t("Price")}</Form.Label>
                   <Form.Control
-                    type="text"
+                    type="number"
                     value={product.price}
                     onChange={(e) =>
                       handleInputChange(index, "price", e.target.value)
@@ -104,6 +142,15 @@ const EditProducts = () => {
                     }
                   />
                 </Form.Group>
+              </Col>
+
+              <Col xs={2} className="text-end my-2">
+                <Button
+                  variant="danger"
+                  onClick={() => handleDeleteProduct(product._id)}
+                >
+                  <FaTrash />
+                </Button>
               </Col>
             </Row>
           </ListGroup.Item>

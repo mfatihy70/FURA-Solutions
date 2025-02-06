@@ -65,13 +65,3 @@ export const deleteCarouselItemById = async (req, res) => {
     res.status(500).json({ message: error.message })
   }
 }
-
-// Delete all carousel items
-export const deleteAllCarouselItems = async (req, res) => {
-  try {
-    await Carousel.deleteMany()
-    res.status(200).json({ message: "All carousel items deleted successfully" })
-  } catch (error) {
-    res.status(500).json({ message: error.message })
-  }
-}

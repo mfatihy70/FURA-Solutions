@@ -3,18 +3,19 @@ import { Container, Row, Col, Spinner } from "react-bootstrap"
 import { useTranslation } from "react-i18next"
 import Product from "./Product"
 import ToastNotification from "@/components/Toast"
-import { fetchProducts } from "@/utils/products"
+import { getProducts } from "@/utils/products"
 
 const ProductCatalog = ({ showDetails }) => {
   const { t } = useTranslation()
   const [products, setProducts] = useState([]) // State to store products fetched from API
   const [loading, setLoading] = useState(true) // State to handle loading
+  const [error, setError] = useState("") // State to handle errors
   const [hovered, setHovered] = useState(null) // State for hovered product
   const [toasts, setToasts] = useState([]) // State to manage toast notifications
 
   // Fetch products on component mount
   useEffect(() => {
-    fetchProducts(setProducts, setLoading)
+    getProducts(setProducts, setError, setLoading)
   }, [])
 
   // Log the products state to verify the image URLs
@@ -40,9 +41,13 @@ const ProductCatalog = ({ showDetails }) => {
     )
   }
 
+  if (error) {
+    return <div>Error: {error}</div>
+  }
+
   return (
     <Container id="catalog">
-      <h2 className="mb-5 mt-5">{t("product.title")}</h2>
+      <h2 className="mb-5 mt-5">{t("products")}</h2>
       <Row className="justify-content-center">
         {products.map((product) => (
           <Col key={product._id} sm={10} md={6} lg={4} className="mb-4">

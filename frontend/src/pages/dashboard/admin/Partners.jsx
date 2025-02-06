@@ -1,5 +1,10 @@
 import { useEffect, useState } from "react"
-import { fetchPartners, managePartners } from "@/utils/partners"
+import {
+  getPartners,
+  editPartner,
+  addPartner,
+  deletePartner,
+} from "@/utils/partners"
 import {
   ListGroup,
   Form,
@@ -11,6 +16,7 @@ import {
   Image,
 } from "react-bootstrap"
 import { useTranslation } from "react-i18next"
+import { FaTrash, FaPlus } from "react-icons/fa"
 
 const ManagePartners = () => {
   const { t } = useTranslation()
@@ -20,7 +26,7 @@ const ManagePartners = () => {
   const [saving, setSaving] = useState(false)
 
   useEffect(() => {
-    fetchPartners(setPartners, setLoading, setError) // Fetch partners
+    getPartners(setPartners, setError, setLoading)
   }, [])
 
   const handleInputChange = (index, field, value) => {
@@ -32,15 +38,40 @@ const ManagePartners = () => {
   const handleSave = async () => {
     setSaving(true)
     try {
-      // Send PUT requests for each partner
       await Promise.all(
-        partners.map((partner) => managePartners(partner._id, partner))
+        partners.map((partner) => editPartner(partner._id, partner, setError, setLoading))
       )
       alert("Partners updated successfully!")
     } catch (err) {
       alert("Failed to update partners: " + err.message)
     } finally {
       setSaving(false)
+    }
+  }
+
+  const handleAddPartner = async () => {
+    const newPartner = {
+      name: "New Partner",
+      imageUrl: "https://picsum.photos/150",
+      link: "#",
+    }
+    try {
+      const addedPartner = await addPartner(newPartner, setError, setSaving)
+      setPartners([...partners, addedPartner])
+      alert("Partner added successfully!")
+    } catch (err) {
+      alert("Failed to add partner: " + err.message)
+    }
+  }
+
+  const handleDeletePartner = async (id) => {
+    if (window.confirm("Are you sure you want to delete this partner?")) {
+      try {
+        await deletePartner(id, setError, setSaving)
+        setPartners(partners.filter((partner) => partner._id !== id))
+      } catch (err) {
+        alert("Failed to delete partner: " + err.message)
+      }
     }
   }
 
@@ -58,6 +89,13 @@ const ManagePartners = () => {
 
   return (
     <div style={{ maxWidth: "800px", margin: "0 auto" }}>
+      <div className="d-flex justify-content-between mb-3">
+        <h4>{t("Partners")}</h4>
+        <Button variant="success" onClick={handleAddPartner}>
+          <FaPlus /> {t("Add Partner")}
+        </Button>
+      </div>
+
       <ListGroup>
         {partners.map((partner, index) => (
           <ListGroup.Item key={partner._id}>
@@ -71,7 +109,7 @@ const ManagePartners = () => {
                 />
               </Col>
 
-              <Col xs={9} md={10}>
+              <Col xs={7} md={8}>
                 <Form.Group className="mb-2">
                   <Form.Label>{t("Image URL")}</Form.Label>
                   <Form.Control
@@ -93,6 +131,15 @@ const ManagePartners = () => {
                     }
                   />
                 </Form.Group>
+              </Col>
+
+              <Col xs={2} className="text-end my-2">
+                <Button
+                  variant="danger"
+                  onClick={() => handleDeletePartner(partner._id)}
+                >
+                  <FaTrash />
+                </Button>
               </Col>
             </Row>
           </ListGroup.Item>

@@ -1,6 +1,6 @@
 {
-  "name": "backend",
-  "version": "0.1.9",
+  "name": "fura-solutions-backend",
+  "version": "0.2.0",
   "main": "server.js",
   "type": "module",
   "scripts": {

@@ -1,51 +1,43 @@
-export const fetchCarouselItems = async (
-  setCarouselItems,
-  setLoading,
-  setError
-) => {
+import axiosInstance from "./axiosInstance"
+
+export const getCarouselItems = async (setCarousels, setError, setLoading) => {
   try {
-    const response = await fetch("http://localhost:5000/api/carousel") // Replace with your backend API URL
-    const data = await response.json()
-    console.log("Fetched carousel items:", data) // Log the response to verify its structure
-    if (Array.isArray(data)) {
-      setCarouselItems(data) // Update carousel items state
-    } else if (data.data && Array.isArray(data.data)) {
-      setCarouselItems(data.data) // Handle nested data structure
-    } else {
-      console.error("Unexpected response format:", data)
-      setError("Unexpected response format")
-    }
-    setLoading(false) // Stop loading
-  } catch (error) {
-    console.error("Error fetching carousel items:", error)
-    setError("Error fetching carousel items")
-    setLoading(false) // Stop loading even if there's an error
+    const response = await axiosInstance.get("/carousel")
+    setCarousels(response.data)
+  } catch (err) {
+    setError(err.message)
+  } finally {
+    setLoading(false)
   }
 }
 
-export const editCarouselItem = async (id, item) => {
+export const editCarouselItem = async (id, updatedItem, setError, setLoading) => {
   try {
-    const response = await fetch(`http://localhost:5000/api/carousel/${id}`, {
-      method: "PUT",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        title: item.title,
-        subtitle: item.subtitle,
-        imageUrl: item.imageUrl,
-      }),
-    })
+    await axiosInstance.put(`/carousel/${id}`, updatedItem)
+  } catch (err) {
+    setError(err.message)
+  } finally {
+    setLoading(false)
+  }
+}
 
-    if (!response.ok) {
-      throw new Error(`Failed to update item with ID ${id}`)
-    }
+export const addCarouselItem = async (newItem, setError, setLoading) => {
+  try {
+    const response = await axiosInstance.post("/carousel", newItem)
+    return response.data
+  } catch (err) {
+    setError(err.message)
+  } finally {
+    setLoading(false)
+  }
+}
 
-    const data = await response.json()
-    console.log("Updated carousel item:", data)
-    return data
-  } catch (error) {
-    console.error("Error updating carousel item:", error)
-    throw new Error("Error updating carousel item")
+export const deleteCarouselItem = async (id, setError, setLoading) => {
+  try {
+    await axiosInstance.delete(`/carousel/${id}`)
+  } catch (err) {
+    setError(err.message)
+  } finally {
+    setLoading(false)
   }
 }

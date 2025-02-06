@@ -16,7 +16,12 @@ export const getProducts = async (req, res) => {
 export const createProduct = async (req, res) => {
   const product = req.body
 
-  if (!product.name || !product.price || !product.imageUrl) {
+  if (
+    !product.name ||
+    product.price === undefined ||
+    product.price === null ||
+    !product.imageUrl
+  ) {
     return res.status(400).json({ msg: "Please provide all fields" })
   }
 
@@ -24,7 +29,7 @@ export const createProduct = async (req, res) => {
 
   try {
     await newProduct.save()
-    res.status(201).json({ success: true, data: newProduct })
+    res.status(201).json(newProduct)
   } catch (error) {
     console.error("Error in Create product:", error.msg)
     res.status(500).json({ msg: "Server Error" })
@@ -59,21 +64,10 @@ export const deleteProduct = async (req, res) => {
   }
 
   try {
-    await Product.findByIdAndDelefte(id)
+    await Product.findByIdAndDelete(id)
     res.status(200).json({ msg: "Product deleted" })
   } catch (error) {
     console.log("error in deleting product:", error.msg)
-    res.status(500).json({ msg: "Server Error" })
-  }
-}
-
-// DELETE all products
-export const deleteAllProducts = async (req, res) => {
-  try {
-    await Product.deleteMany({})
-    res.status(200).json({ msg: "All products deleted" })
-  } catch (error) {
-    console.log("error in deleting all products:", error.msg)
     res.status(500).json({ msg: "Server Error" })
   }
 }

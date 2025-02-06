@@ -97,7 +97,7 @@ const EditUser = () => {
           onChange={handleInputChange}
         />
       </Form.Group>
-      <Form.Group controlId="formPassword" className="mb-3">
+      {/* <Form.Group controlId="formPassword" className="mb-3">
         <Form.Label className="text-start w-100">Password</Form.Label>
         <Form.Control
           type="password"
@@ -105,7 +105,7 @@ const EditUser = () => {
           name="password"
           onChange={handleInputChange}
         />
-      </Form.Group>
+      </Form.Group> */}
       <Form.Group controlId="formAddress" className="mb-3">
         <Form.Label className="text-start w-100">Address</Form.Label>
         <Form.Control

@@ -68,13 +68,3 @@ export const deletePartner = async (req, res) => {
     res.status(500).json({ message: error.message })
   }
 }
-
-// Delete all partners
-export const deleteAllPartners = async (req, res) => {
-  try {
-    await Partner.deleteMany()
-    res.status(200).json({ message: "All partners deleted successfully" })
-  } catch (error) {
-    res.status(500).json({ message: error.message })
-  }
-}

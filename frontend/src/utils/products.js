@@ -1,48 +1,46 @@
-// Function to fetch products from the backend
-export const fetchProducts = async (setProducts, setLoading) => {
+import axiosInstance from "./axiosInstance"
+
+export const getProducts = async (setProducts, setError, setLoading) => {
   try {
-    const response = await fetch("http://localhost:5000/api/products") // Replace with your backend API URL
-    const data = await response.json()
-    console.log("Fetched products:", data) // Log the response to verify its structure
-    if (Array.isArray(data)) {
-      setProducts(data) // Update products state
-    } else if (data.data && Array.isArray(data.data)) {
-      setProducts(data.data) // Handle nested data structure
-    } else {
-      console.error("Unexpected response format:", data)
-    }
-    setLoading(false) // Stop loading
-  } catch (error) {
-    console.error("Error fetching products:", error)
-    setLoading(false) // Stop loading even if there's an error
+    const response = await axiosInstance.get("/products")
+    setProducts(response.data)
+  } catch (err) {
+    setError(err.message)
+  } finally {
+    setLoading(false)
   }
 }
 
-// Function to update products
-export const editProducts = async (id, product) => {
+export const editProduct = async (id, updatedProduct, setError, setLoading) => {
   try {
-    const response = await fetch(`http://localhost:5000/api/products/${id}`, {
-      method: "PUT",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        name: product.name,
-        price: product.price,
-        imageUrl: product.imageUrl,
-      }),
-    })
+    await axiosInstance.put(`/products/${id}`, updatedProduct)
+  } catch (err) {
+    setError(err.message)
+  } finally {
+    setLoading(false)
+  }
+}
 
-    if (!response.ok) {
-      throw new Error(`Failed to update product with ID ${id}`)
-    }
+export const addProduct = async (newProduct, setError, setLoading) => {
+  try {
+    console.log("Sending Product Data:", newProduct)
+    const response = await axiosInstance.post("/products", newProduct)
+    return response.data
+  } catch (err) {
+    console.error("Error Details:", err.response?.data)
+    setError(err.message)
+  } finally {
+    setLoading(false)
+  }
+}
 
-    const data = await response.json()
-    console.log("Updated product:", data)
-    return data
-  } catch (error) {
-    console.error("Error updating product:", error)
-    throw new Error("Error updating product")
+export const deleteProduct = async (id, setError, setLoading) => {
+  try {
+    await axiosInstance.delete(`/products/${id}`)
+  } catch (err) {
+    setError(err.message)
+  } finally {
+    setLoading(false)
   }
 }
 
@@ -56,7 +54,7 @@ export const handleAddToCart = (
   toastMessage
 ) => {
   const productDetails = { id, image: imageUrl, name, price, quantity: 1 }
-  const cart = JSON.parse(localStorage.getItem("cart") || "[]")
+  const cart = JSON.parse(localStorage.getProduct("cart") || "[]")
 
   // Check if the product already exists in the cart
   const existingProductIndex = cart.findIndex((item) => item.id === id)
@@ -68,7 +66,7 @@ export const handleAddToCart = (
     cart.push(productDetails)
   }
 
-  localStorage.setItem("cart", JSON.stringify(cart))
+  localStorage.setProduct("cart", JSON.stringify(cart))
 
   // Dispatch a custom event to notify about the cart update
   window.dispatchEvent(new Event("cartUpdated"))

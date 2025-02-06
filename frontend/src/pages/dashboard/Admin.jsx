@@ -6,6 +6,7 @@ import {
   FaHandshake,
   FaImages,
   FaUsers,
+  FaPlus,
 } from "react-icons/fa"
 import EditUser from "./EditUser"
 import EditCarousel from "./admin/Carousel"
@@ -28,7 +29,7 @@ const AdminDashboard = ({ adminName }) => {
   }
 
   return (
-    <Container>
+    <Container fluid className="d-flex flex-column min-vh-100 p-0">
       <Row className="justify-content-center mt-4">
         <Col md={8} lg={6}>
           <h2 className="text-center">
@@ -113,15 +114,15 @@ const AdminDashboard = ({ adminName }) => {
           </Card>
         </Col>
       </Row>
-
-      <Modal show={showModal} onHide={handleCloseModal} centered>
+      <Modal show={showModal} onHide={handleCloseModal} size="lg" centered>
+        {/* ✅ Wider Modal with size="lg" */}
         <Modal.Header closeButton>
           <Modal.Title>
-            {modalContent === "editUserInfo" && "Edit Admin User Information"}
-            {modalContent === "editProducts" && "Edit Available Products"}
+            {modalContent === "editUserInfo" && "Edit Admin Information"}
+            {modalContent === "editCarousel" && "Manage Carousel"}
+            {modalContent === "editProducts" && "Edit Products"}
+            {modalContent === "manageUsers" && "Manage Users"}
             {modalContent === "managePartners" && "Manage Partners"}
-            {modalContent === "editCarousel" && "Edit Carousel Images"}
-            {modalContent === "registeredUsers" && "Registered Users"}
           </Modal.Title>
         </Modal.Header>
         <Modal.Body>

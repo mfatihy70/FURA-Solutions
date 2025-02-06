@@ -1,46 +1,43 @@
-export const fetchPartners = async (setPartners, setLoading, setError) => {
+import axiosInstance from "./axiosInstance"
+
+export const getPartners = async (setPartners, setError, setLoading) => {
   try {
-    const response = await fetch("http://localhost:5000/api/partners") // Replace with your backend API URL
-    const data = await response.json()
-    console.log("Fetched partners:", data) // Log the response to verify its structure
-    if (Array.isArray(data)) {
-      setPartners(data) // Update partners state
-    } else if (data.data && Array.isArray(data.data)) {
-      setPartners(data.data) // Handle nested data structure
-    } else {
-      console.error("Unexpected response format:", data)
-      setError("Unexpected response format")
-    }
-    setLoading(false) // Stop loading
-  } catch (error) {
-    console.error("Error fetching partners:", error)
-    setError("Error fetching partners")
-    setLoading(false) // Stop loading even if there's an error
+    const response = await axiosInstance.get("/partners")
+    setPartners(response.data)
+  } catch (err) {
+    setError(err.message)
+  } finally {
+    setLoading(false)
   }
 }
 
-export const managePartners = async (id, partner) => {
+export const editPartner = async (id, updatedItem, setError, setLoading) => {
   try {
-    const response = await fetch(`http://localhost:5000/api/partners/${id}`, {
-      method: "PUT",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        imageUrl: partner.imageUrl,
-        link: partner.link,
-      }),
-    })
+    await axiosInstance.put(`/partners/${id}`, updatedItem)
+  } catch (err) {
+    setError(err.message)
+  } finally {
+    setLoading(false)
+  }
+}
 
-    if (!response.ok) {
-      throw new Error(`Failed to update partner with ID ${id}`)
-    }
+export const addPartner = async (newItem, setError, setLoading) => {
+  try {
+    const response = await axiosInstance.post("/partners", newItem)
+    return response.data
+  } catch (err) {
+    setError(err.message)
+  } finally {
+    setLoading(false)
+  }
+}
 
-    const data = await response.json()
-    console.log("Updated partner:", data)
-    return data
-  } catch (error) {
-    console.error("Error updating partner:", error)
-    throw new Error("Error updating partner")
+export const deletePartner = async (id, setError, setLoading) => {
+  try {
+    await axiosInstance.delete(`/partners/${id}`)
+  } catch (err) {
+    setError(err.message)
+  } finally {
+    setLoading(false)
   }
 }
