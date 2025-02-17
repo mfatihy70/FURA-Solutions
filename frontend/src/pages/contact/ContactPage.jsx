@@ -14,6 +14,7 @@ const ContactPage = () => {
     <>
       <Container>
         <ContactImage />
+        <h2 className="m-5">Contact</h2>
         <Cards />
         <Row className="align-items-start">
           <ContactForm />

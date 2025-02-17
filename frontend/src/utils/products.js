@@ -54,7 +54,9 @@ export const handleAddToCart = (
   toastMessage
 ) => {
   const productDetails = { id, image: imageUrl, name, price, quantity: 1 }
-  const cart = JSON.parse(localStorage.getProduct("cart") || "[]")
+
+  // Use getItem instead of getProduct
+  const cart = JSON.parse(localStorage.getItem("cart") || "[]")
 
   // Check if the product already exists in the cart
   const existingProductIndex = cart.findIndex((item) => item.id === id)
@@ -66,7 +68,8 @@ export const handleAddToCart = (
     cart.push(productDetails)
   }
 
-  localStorage.setProduct("cart", JSON.stringify(cart))
+  // Use setItem instead of setProduct
+  localStorage.setItem("cart", JSON.stringify(cart))
 
   // Dispatch a custom event to notify about the cart update
   window.dispatchEvent(new Event("cartUpdated"))

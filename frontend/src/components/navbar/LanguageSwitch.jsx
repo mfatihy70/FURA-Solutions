@@ -2,58 +2,92 @@ import { useState } from "react"
 import { useTranslation } from "react-i18next"
 import { useNavigate } from "react-router-dom"
 import { Dropdown } from "react-bootstrap"
-import "flag-icons/css/flag-icons.min.css"
 import "@/styles/navbar/LanguageSwitch.css"
 import { LANGUAGES } from "@/locales/i18n"
+
+// Change the imports to .png
+import trFlag from "@/assets/languages/tr.png"
+import gbFlag from "@/assets/languages/gb.png"
+import deFlag from "@/assets/languages/de.png"
 
 const LanguageSwitch = ({ onCollapse }) => {
   const [isOpen, setIsOpen] = useState(false)
   const { i18n } = useTranslation()
   const navigate = useNavigate()
 
-  // Function to get the current language's flag icon
+  // Get the current language's flag
   const getCurrentFlag = () => {
-    const currentLang = LANGUAGES.find((lang) => lang.code === i18n.language)
-    return currentLang?.flag || "tr"
+    switch (i18n.language) {
+      case "tr":
+        return trFlag
+      case "en":
+        return gbFlag
+      case "de":
+        return deFlag
+      default:
+        return trFlag
+    }
   }
 
-  // Function to change the language and update the URL
-  const changeLang = (langCode) => {
-    i18n.changeLanguage(langCode) // Change the language in i18n
-    const currentPath = window.location.hash.split("/").slice(2).join("/") // Get the current path
-    navigate(`/${langCode}/${currentPath}`) // Navigate to the new language path
-    setIsOpen(false) // Close the dropdown
-    if (onCollapse) onCollapse() // Collapse navbar if onCollapse prop is provided
+  const handleLanguageChange = (langCode) => {
+    i18n.changeLanguage(langCode)
+    const currentPath = window.location.hash.split("/").slice(2).join("/")
+    navigate(`/${langCode}/${currentPath}`)
+    setIsOpen(false)
+    onCollapse?.()
   }
 
   return (
-    <Dropdown className="m-2" show={isOpen} onToggle={() => setIsOpen(!isOpen)}>
+    <Dropdown
+      className="m-2"
+      show={isOpen}
+      onToggle={() => setIsOpen((prev) => !prev)}
+    >
       <Dropdown.Toggle
-        as="button" // Render as a button to avoid nested <a> tags
+        as="button"
         variant="link"
-        id="dropdown-basic"
         className="language-switch d-flex align-items-center"
+        id="dropdown-basic"
       >
-        <span
-          className={`fi fi-${getCurrentFlag()}`}
-          style={{ width: "1.5em", height: "1.5em" }}
-        ></span>
+        <img
+          src={getCurrentFlag()}
+          alt={i18n.language}
+          style={{ width: "1.8em", height: "1.35em" }} // Updated dimensions for rectangular shape
+        />
       </Dropdown.Toggle>
 
       <Dropdown.Menu align="end">
-        {LANGUAGES.map((lang) => (
-          <Dropdown.Item
-            key={lang.code}
-            onClick={() => changeLang(lang.code)}
-            className="d-flex align-items-center gap-2"
-          >
-            <span
-              className={`fi fi-${lang.flag}`}
-              style={{ width: "1.5em", height: "1.5em" }}
-            ></span>
-            {lang.name}
-          </Dropdown.Item>
-        ))}
+        {LANGUAGES.map(({ code, name }) => {
+          let flagSrc
+          switch (code) {
+            case "tr":
+              flagSrc = trFlag
+              break
+            case "en":
+              flagSrc = gbFlag
+              break
+            case "de":
+              flagSrc = deFlag
+              break
+            default:
+              flagSrc = trFlag
+          }
+
+          return (
+            <Dropdown.Item
+              key={code}
+              onClick={() => handleLanguageChange(code)}
+              className="d-flex align-items-center gap-2"
+            >
+              <img
+                src={flagSrc}
+                alt={name}
+                style={{ width: "1.8em", height: "1.35em" }} // Updated dimensions for rectangular shape
+              />
+              {name}
+            </Dropdown.Item>
+          )
+        })}
       </Dropdown.Menu>
     </Dropdown>
   )

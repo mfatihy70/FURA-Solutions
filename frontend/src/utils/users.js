@@ -39,7 +39,7 @@ export const handleLogin = async (email, password, setError, navigate, lang) => 
     localStorage.removeItem("token");
     localStorage.removeItem("isAdmin");
 
-    const res = await axios.post("http://localhost:5000/api/users/login", {
+    const res = await axiosInstance.post("/users/login", {
       email,
       password,
     });
@@ -77,7 +77,7 @@ export const handleRegister = async (
     return
   }
   try {
-    const res = await axios.post("http://localhost:5000/api/users/register", {
+    const res = await axiosInstance.post("/users/register", {
       name,
       surname,
       email,

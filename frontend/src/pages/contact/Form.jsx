@@ -93,7 +93,7 @@ const ContactForm = () => {
 
   return (
     <Col md={6} className="mb-5 mb-md-0">
-      <h2 className="mb-4">{t("form.title")}</h2>
+      <h3 className="mb-4">{t("form.title")}</h3>
       <Form onSubmit={(e) => handleSubmit(e, formData)}>
         {inputConfigs.map((config) =>
           createFormInput(

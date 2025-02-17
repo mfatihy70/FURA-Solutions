@@ -25,7 +25,7 @@ const Partners = () => {
   }
 
   return (
-    <Container className="my-5">
+    <Container className="mb-5">
       <h2 className="mb-5">{t("partners")}</h2>
       <Row className="align-items-center">
         {partners.map((partner, index) => (

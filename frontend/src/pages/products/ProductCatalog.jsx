@@ -18,11 +18,6 @@ const ProductCatalog = ({ showDetails }) => {
     getProducts(setProducts, setError, setLoading)
   }, [])
 
-  // Log the products state to verify the image URLs
-  useEffect(() => {
-    console.log(products)
-  }, [products])
-
   // Function to add a new toast to the list
   const addToast = (toast) => {
     setToasts((prevToasts) => [...prevToasts, toast])
@@ -47,7 +42,7 @@ const ProductCatalog = ({ showDetails }) => {
 
   return (
     <Container id="catalog">
-      <h2 className="mb-5 mt-5">{t("products")}</h2>
+      <h2 className="mb-5">{t("products")}</h2>
       <Row className="justify-content-center">
         {products.map((product) => (
           <Col key={product._id} sm={10} md={6} lg={4} className="mb-4">
