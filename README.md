@@ -10,10 +10,16 @@ This repository contains the new website for **FURA Solutions**, designed to rep
 
 ```bash
 git clone https://github.com/mfatihy70/FURA-Solutions.git
+```
+frontend
+```bash
 cd fura-solutions/frontend
 npm i
 npm run dev
-cd ../backend
+```
+backend
+```bash
+cd fura-solutions/backend
 npm i
 npm run dev
 ```
@@ -40,6 +46,7 @@ Open [http://localhost:3000](http://localhost:3000) in your browser.
 - **Node.js** server
 - **Bootstrap** responsive styling
 - **EmailJS** for sending emails
+- **i18next** for localization
 
 ## License
 
