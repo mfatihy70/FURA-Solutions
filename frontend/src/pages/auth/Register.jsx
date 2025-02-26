@@ -1,8 +1,8 @@
 import { useState } from "react"
 import { useTranslation } from "react-i18next"
 import { Link, useParams, useNavigate } from "react-router-dom"
-import { Container, Row, Col, Card, Form, Button } from "react-bootstrap"
-import { handleRegister } from "@/utils/users"
+import { Container, Row, Col, Card, Form, Button, Alert } from "react-bootstrap"
+import { handleRegister } from "@/utils/auth"
 
 const Register = () => {
   const { t } = useTranslation()
@@ -18,20 +18,7 @@ const Register = () => {
   const [phone, setPhone] = useState("")
   const [error, setError] = useState("")
 
-  const handleRegisterClick = () => {
-    handleRegister(
-      name,
-      surname,
-      email,
-      password,
-      confirmPassword,
-      address,
-      phone,
-      setError,
-      navigate,
-      lang
-    )
-  }
+  const [message, setMessage] = useState(null)
 
   return (
     <Container fluid className="d-flex flex-column min-vh-100 p-0">
@@ -43,7 +30,12 @@ const Register = () => {
           >
             <Card.Body className="p-5 w-100 d-flex flex-column">
               <h3 className="mb-5 text-center">{t("login.register")}</h3>
-              {error && <p className="text-danger text-center">{error}</p>}
+
+              {message && <Alert variant={message.type}>{message.text}</Alert>}
+              {!message && error && (
+                <Alert variant={error.type}>{error.text}</Alert>
+              )}
+
               <Form>
                 <Form.Group className="mb-4" controlId="formName">
                   <Form.Control
@@ -112,7 +104,21 @@ const Register = () => {
                   variant="primary"
                   size="lg"
                   className="w-100 mb-4"
-                  onClick={handleRegisterClick}
+                  onClick={() =>
+                    handleRegister(
+                      name,
+                      surname,
+                      email,
+                      password,
+                      confirmPassword,
+                      address,
+                      phone,
+                      setError,
+                      setMessage,
+                      navigate,
+                      lang
+                    )
+                  }
                 >
                   {t("login.register")}
                 </Button>

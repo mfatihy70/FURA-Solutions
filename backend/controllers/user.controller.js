@@ -118,3 +118,39 @@ export const deleteUser = async (req, res) => {
     res.status(500).json({ msg: "Server error" })
   }
 }
+
+// Update User Password
+export const updatePassword = async (req, res) => {
+  const { id } = req.params
+  const { currentPassword, newPassword } = req.body
+
+  // Validate input
+  if (!currentPassword || !newPassword) {
+    return res
+      .status(400)
+      .json({ msg: "Current password and new password are required" })
+  }
+
+  try {
+    // Find the user
+    const user = await User.findById(id)
+    if (!user) return res.status(404).json({ msg: "User not found" })
+
+    // Verify current password
+    const isMatch = await bcrypt.compare(currentPassword, user.password)
+    if (!isMatch)
+      return res.status(400).json({ msg: "Current password is incorrect" })
+
+    // Hash the new password
+    const hashedPassword = await bcrypt.hash(newPassword, 10)
+
+    // Update the password
+    user.password = hashedPassword
+    await user.save()
+
+    res.json({ msg: "Password updated successfully!" })
+  } catch (err) {
+    console.error("Error in updatePassword:", err.message)
+    res.status(500).json({ msg: "Server error" })
+  }
+}

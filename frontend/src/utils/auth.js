@@ -1,4 +1,3 @@
-import axios from "axios"
 import axiosInstance from "./axiosInstance"
 
 export const getUsers = async (setUsers, setLoading, setError) => {
@@ -33,31 +32,43 @@ export const deleteUser = async (id, setError, setLoading) => {
 }
 
 // Handle user login
-export const handleLogin = async (email, password, setError, navigate, lang) => {
+export const handleLogin = async (
+  email,
+  password,
+  setError,
+  setMessage,
+  navigate,
+  lang
+) => {
   try {
-    // ✅ Clear old session data before new login
-    localStorage.removeItem("token");
-    localStorage.removeItem("isAdmin");
+    // Clear old session data before new login
+    localStorage.removeItem("token")
+    localStorage.removeItem("isAdmin")
 
     const res = await axiosInstance.post("/users/login", {
       email,
       password,
-    });
+    })
 
-    alert(res.data.msg);
-    localStorage.setItem("token", res.data.token);
-    localStorage.setItem("isAdmin", JSON.stringify(res.data.isAdmin));
+    setMessage({ type: "success", text: res.data.msg })
 
-    if (res.data.isAdmin) {
-      navigate(`/${lang}/admin`);
-    } else {
-      navigate(`/${lang}/dashboard`);
-    }
+    localStorage.setItem("token", res.data.token)
+    localStorage.setItem("isAdmin", JSON.stringify(res.data.isAdmin))
+
+    setTimeout(() => {
+      if (res.data.isAdmin) {
+        navigate(`/${lang}/admin`)
+      } else {
+        navigate(`/${lang}/dashboard`)
+      }
+    }, 2000) // Delay for user to see the message
   } catch (err) {
-    setError(err.response?.data?.msg || "Something went wrong " + err);
+    setError({
+      type: "danger",
+      text: err.response?.data?.msg || "Something went wrong " + err,
+    })
   }
-};
-
+}
 
 // Function to handle user registration
 export const handleRegister = async (
@@ -69,11 +80,12 @@ export const handleRegister = async (
   address,
   phone,
   setError,
+  setMessage,
   navigate,
   lang
 ) => {
   if (password !== confirmPassword) {
-    setError("Passwords do not match")
+    setError({ type: "danger", text: "Passwords do not match" })
     return
   }
   try {
@@ -86,9 +98,16 @@ export const handleRegister = async (
       phone,
       isAdmin: false, // Set isAdmin to false by default
     })
-    alert(res.data.msg) // Show success message
-    navigate(`/${lang}/login`) // Redirect to login page
+
+    setMessage({ type: "success", text: res.data.msg })
+
+    setTimeout(() => {
+      navigate(`/${lang}/login`)
+    }, 2000)
   } catch (err) {
-    setError(err.response?.data?.msg || "Something went wrong")
+    setError({
+      type: "danger",
+      text: err.response?.data?.msg || "Something went wrong",
+    })
   }
 }

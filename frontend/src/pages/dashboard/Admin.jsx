@@ -1,23 +1,34 @@
 import { useState } from "react"
-import { Container, Row, Col, Card, Modal, Button } from "react-bootstrap"
+import {
+  Container,
+  Row,
+  Col,
+  Card,
+  Modal,
+  Button,
+  Alert,
+} from "react-bootstrap"
+import { useNavigate, useParams } from "react-router-dom"
 import {
   FaUserEdit,
   FaBoxOpen,
   FaHandshake,
   FaImages,
   FaUsers,
-  FaPlus,
 } from "react-icons/fa"
 import EditUser from "./EditUser"
 import EditCarousel from "./admin/Carousel"
 import ManagePartners from "./admin/Partners"
 import ManageUsers from "./admin/Users"
 import EditProducts from "./admin/Products"
-import "@/styles/admin.css"
 
 const AdminDashboard = ({ adminName }) => {
+  const { lang } = useParams()
+  const navigate = useNavigate()
   const [showModal, setShowModal] = useState(false)
   const [modalContent, setModalContent] = useState(null)
+  const [logoutMessage, setLogoutMessage] = useState(null)
+  const [token, setToken] = useState(localStorage.getItem("token"))
 
   const handleShowModal = (content) => {
     setModalContent(content)
@@ -26,6 +37,18 @@ const AdminDashboard = ({ adminName }) => {
 
   const handleCloseModal = () => {
     setShowModal(false)
+  }
+
+  // Handle Logout
+  const handleLogout = () => {
+    localStorage.removeItem("token") // Remove token
+    localStorage.removeItem("isAdmin") // Remove admin flag
+    setLogoutMessage({ type: "success", text: "Logged out successfully" }) // Show message
+
+    setTimeout(() => {
+      setToken(null) // Update token state after delay
+      navigate(`/${lang}/login`) // Redirect to login page
+    }, 2000)
   }
 
   return (
@@ -37,10 +60,11 @@ const AdminDashboard = ({ adminName }) => {
           </h2>
         </Col>
       </Row>
+
       <Row className="justify-content-center mt-4">
-        <Col md={6} lg={5}>
+        <Col md={6} lg={5} className="mb-4">
           <Card
-            className="bg-white mx-auto mb-4 hover-card"
+            className="bg-white mx-auto hover-card"
             style={{ borderRadius: "1rem" }}
             onClick={() => handleShowModal("editUserInfo")}
           >
@@ -53,9 +77,9 @@ const AdminDashboard = ({ adminName }) => {
             </Card.Body>
           </Card>
         </Col>
-        <Col md={6} lg={5}>
+        <Col md={6} lg={5} className="mb-4">
           <Card
-            className="bg-white mx-auto mb-4 hover-card"
+            className="bg-white mx-auto hover-card"
             style={{ borderRadius: "1rem" }}
             onClick={() => handleShowModal("editProducts")}
           >
@@ -68,11 +92,9 @@ const AdminDashboard = ({ adminName }) => {
             </Card.Body>
           </Card>
         </Col>
-      </Row>
-      <Row className="justify-content-center mt-4">
-        <Col md={6} lg={5}>
+        <Col md={6} lg={5} className="mb-4">
           <Card
-            className="bg-white mx-auto mb-4 hover-card"
+            className="bg-white mx-auto hover-card"
             style={{ borderRadius: "1rem" }}
             onClick={() => handleShowModal("managePartners")}
           >
@@ -83,9 +105,9 @@ const AdminDashboard = ({ adminName }) => {
             </Card.Body>
           </Card>
         </Col>
-        <Col md={6} lg={5}>
+        <Col md={6} lg={5} className="mb-4">
           <Card
-            className="bg-white mx-auto mb-4 hover-card"
+            className="bg-white mx-auto hover-card"
             style={{ borderRadius: "1rem" }}
             onClick={() => handleShowModal("editCarousel")}
           >
@@ -98,11 +120,9 @@ const AdminDashboard = ({ adminName }) => {
             </Card.Body>
           </Card>
         </Col>
-      </Row>
-      <Row className="justify-content-center mt-4">
-        <Col md={6} lg={5}>
+        <Col md={6} lg={5} className="mb-4">
           <Card
-            className="bg-white mx-auto mb-4 hover-card"
+            className="bg-white mx-auto hover-card"
             style={{ borderRadius: "1rem" }}
             onClick={() => handleShowModal("registeredUsers")}
           >
@@ -114,8 +134,9 @@ const AdminDashboard = ({ adminName }) => {
           </Card>
         </Col>
       </Row>
+
+      {/* Modal for Editing Admin Features */}
       <Modal show={showModal} onHide={handleCloseModal} size="lg" centered>
-        {/* ✅ Wider Modal with size="lg" */}
         <Modal.Header closeButton>
           <Modal.Title>
             {modalContent === "editUserInfo" && "Edit Admin Information"}
@@ -138,6 +159,28 @@ const AdminDashboard = ({ adminName }) => {
           </Button>
         </Modal.Footer>
       </Modal>
+
+      {/* Logout Message (Appears Above Logout Button) */}
+      {logoutMessage && (
+        <Row className="justify-content-center">
+          <Col md={6} lg={5}>
+            <Alert variant={logoutMessage.type} className="text-center">
+              {logoutMessage.text}
+            </Alert>
+          </Col>
+        </Row>
+      )}
+
+      {/* Logout Button (Only Shown If Logged In) */}
+      {token && (
+        <Row className="justify-content-center mt-4">
+          <Col md={6} lg={5} className="text-center">
+            <Button variant="danger" size="lg" onClick={handleLogout}>
+              Logout
+            </Button>
+          </Col>
+        </Row>
+      )}
     </Container>
   )
 }

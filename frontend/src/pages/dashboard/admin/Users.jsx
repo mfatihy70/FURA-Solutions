@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import { getUsers, editUser, deleteUser } from "@/utils/users"
+import { getUsers, editUser, deleteUser } from "@/utils/auth"
 import {
   ListGroup,
   Form,

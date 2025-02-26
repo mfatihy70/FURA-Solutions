@@ -189,7 +189,69 @@
 
   "checkout": {
     "title": ["Ödeme", "Checkout", "Kasse"],
-    "backToCart": ["Sepete geri dön", "Back to Cart", "Zurück zum Warenkorb"]
+    "backToCart": ["Sepete geri dön", "Back to Cart", "Zurück zum Warenkorb"],
+    "items": ["Ürünler", "Items", "Artikel"],
+    "customerDetails": ["Müşteri Bilgileri", "Customer Details", "Kundendaten"],
+    "firstName": ["Ad", "First Name", "Vorname"],
+    "firstNamePlaceholder": [
+      "Adınızı girin",
+      "Enter your first name",
+      "Geben Sie Ihren Vornamen ein"
+    ],
+    "lastName": ["Soyad", "Last Name", "Nachname"],
+    "lastNamePlaceholder": [
+      "Soyadınızı girin",
+      "Enter your last name",
+      "Geben Sie Ihren Nachnamen ein"
+    ],
+    "email": ["E-posta", "Email", "E-Mail"],
+    "emailPlaceholder": [
+      "E-posta adresinizi girin",
+      "Enter your email address",
+      "Geben Sie Ihre E-Mail-Adresse ein"
+    ],
+    "phone": ["Telefon", "Phone", "Telefon"],
+    "phonePlaceholder": [
+      "Telefon numaranızı girin",
+      "Enter your phone number",
+      "Geben Sie Ihre Telefonnummer ein"
+    ],
+    "address": ["Adres", "Address", "Adresse"],
+    "addressPlaceholder": [
+      "Adresinizi girin",
+      "Enter your address",
+      "Geben Sie Ihre Adresse ein"
+    ],
+    "city": ["Şehir", "City", "Stadt"],
+    "cityPlaceholder": [
+      "Şehrinizi girin",
+      "Enter your city",
+      "Geben Sie Ihre Stadt ein"
+    ],
+    "postalCode": ["Posta Kodu", "Postal Code", "Postleitzahl"],
+    "postalCodePlaceholder": [
+      "Posta kodunuzu girin",
+      "Enter your postal code",
+      "Geben Sie Ihre Postleitzahl ein"
+    ],
+    "country": ["Ülke", "Country", "Land"],
+    "selectCountry": ["Ülke seçin", "Select country", "Land auswählen"],
+    "messageToSeller": [
+      "Satıcıya Mesaj",
+      "Message to Seller",
+      "Nachricht an den Verkäufer"
+    ],
+    "messageToSellerPlaceholder": [
+      "Satıcıya mesajınızı girin",
+      "Enter your message to the seller",
+      "Geben Sie Ihre Nachricht an den Verkäufer ein"
+    ],
+    "messageToSellerHelp": [
+      "Satıcıya özel bir mesajınız varsa buraya yazabilirsiniz.",
+      "If you have any special message for the seller, you can write it here.",
+      "Wenn Sie eine spezielle Nachricht für den Verkäufer haben, können Sie diese hier schreiben."
+    ],
+    "placeOrder": ["Siparişi Ver", "Place Order", "Bestellung aufgeben"]
   },
 
   "currency": ["₺", "$", "€"]

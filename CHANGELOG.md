@@ -1,18 +1,43 @@
 # Changelog
 
+## [v0.2.2] - 2025-02-25
+
+### Added
+
+- `User.jsx` shows no token found and login button if no token is found
+- Logout button on user and admin dashboards
+- Change password functionality
+- Content to `Checkout.jsx` (email func missing)
+- Change password route and controller
+
+### Changed
+
+- Replaced login/register alerts with alert component
+- Renamed `utils/users.js` to `auth.js`
+- Combined the Rows in `dashboard/Admin.jsx` so that they don't group in two.
+- Updated `TODO.md`
+- Moved `Checkout.jsx` under cart
+
+### Removed
+- `admin.css` it works without too
+
 ## [v0.2.1] - 2025-02-16
 
 ### Added
+
 - Deployment of backend on the cloud and integration with the github page
 
 ### Fixed
+
 - Error when trying to add products to cart
 - Login error due to localhost address when deployed
 
 ### Changed
+
 - All page headers have same margins
 
 ### Removed
+
 - Unnecessary logs
 - Flag icons package using pngs instead
 
@@ -26,9 +51,11 @@
 - Added missing deleteUser function to `user.controller.js`
 
 ### Fixed
+
 - Login error after editing user caused by password rehashing
 
 ### Removed
+
 - Delete all functions from backend
 - Edit password text field until functionality is implemented
 
@@ -46,6 +73,7 @@
 - `ProductCatalog.jsx` spinner shows at the top
 
 ### Deleted
+
 - Translation entries for products and carousel items from `translations.json`
 
 ## [v0.1.8] - 2025-01-29
