@@ -1,0 +1,258 @@
+{
+  "about": ["Hakkımızda", "About Us", "Über Uns"],
+  "partners": ["Partnerlerimiz", "Our Partners", "Unsere Partner"],
+  "products": ["Ürünlerimiz", "Our Products", "Unsere Produkte"],
+  "copy": [
+    "Tüm hakları saklıdır.",
+    "All rights reserved.",
+    "Alle Rechte vorbehalten."
+  ],
+  "close": ["Kapat", "Close", "Schließen"],
+
+  "navbar": {
+    "home": ["ANA SAYFA", "HOME", "STARTSEITE"],
+    "about": ["HAKKIMIZDA", "ABOUT US", "ÜBER UNS"],
+    "contact": ["İLETİŞİM", "CONTACT", "KONTAKT"],
+    "partners": ["PARTNERLER", "PARTNERS", "PARTNER"],
+    "products": ["ÜRÜNLER", "PRODUCTS", "PRODUKTE"],
+    "login": ["GİRİŞ YAP", "LOGIN", "ANMELDEN"]
+  },
+
+  "contact": {
+    "title": ["İletişim", "Contact", "Kontakt"],
+    "office": ["Ofisimiz", "Our Office", "Unser Büro"],
+    "location": ["Konumumuz", "Location", "Unser Standort"],
+    "mobile": ["Mobil", "Mobile", "Mobil"],
+    "phone": ["Telefon", "Phone", "Telefon"],
+    "email": ["E-posta", "Email", "E-Mail"]
+  },
+
+  "login": {
+    "login": ["Giriş Yap", "Login", "Anmelden"],
+    "register": ["Kayıt Ol", "Register", "Registrieren"],
+    "email": ["E-posta", "Email", "E-Mail"],
+    "password": ["Şifre", "Password", "Passwort"],
+    "remember_pw": ["Şifreyi hatırla", "Remember password", "Passwort merken"],
+    "placeholder": {
+      "email": ["E-posta adresiniz", "Email address", "E-Mail-Adresse"],
+      "password": ["Şifreniz", "Password", "Passwort"],
+      "passwordConfirm": [
+        "Şifrenizi tekrar girin",
+        "Confirm your password",
+        "Bestätigen Sie Ihr Passwort"
+      ],
+      "name": ["Adınız", "Name", "Name"],
+      "surname": ["Soyadınız", "Surname", "Nachname"],
+      "address": ["Adresiniz", "Address", "Adresse"],
+      "phone": ["Telefon numaranız", "Phone number", "Telefonnummer"]
+    },
+    "error": [
+      "Kullanıcı adı veya şifre hatalı. Lütfen tekrar deneyin.",
+      "Incorrect username or password. Please try again.",
+      "Falscher Benutzername oder falsches Passwort. Bitte versuchen Sie es erneut."
+    ],
+    "or": ["veya", "or", "oder"]
+  },
+
+  "form": {
+    "title": ["İletişim Formu", "Contact Form", "Kontaktformular"],
+    "name": ["Ad", "Name", "Name"],
+    "email": ["E-posta", "Email", "E-Mail"],
+    "message": ["Mesajınız", "Your Message", "Ihre Nachricht"],
+    "send": ["Gönder", "Send", "Senden"],
+    "receiver": ["Alıcı", "Receiver", "Empfänger"],
+    "placeholder": {
+      "name": ["Adınızı girin", "Enter your name", "Geben Sie Ihren Namen ein"],
+      "email": [
+        "E-posta adresinizi girin",
+        "Enter your email address",
+        "Geben Sie Ihre E-Mail-Adresse ein"
+      ],
+      "message": [
+        "Mesajınızı girin",
+        "Enter your message",
+        "Geben Sie Ihre Nachricht ein"
+      ],
+      "receiver": [
+        "Alıcıyı seçin",
+        "Select the receiver",
+        "Wählen Sie den Empfänger"
+      ]
+    },
+    "emailSuccess": {
+      "title": [
+        "Mesajınız başarıyla gönderildi.",
+        "Your message has been sent successfully.",
+        "Ihre Nachricht wurde erfolgreich gesendet."
+      ],
+      "content": [
+        "En kısa sürede size geri dönüş yapacağız.",
+        "We will get back to you as soon as possible.",
+        "Wir melden uns so schnell wie möglich bei Ihnen."
+      ]
+    },
+
+    "emailFailure": {
+      "title": [
+        "Mesajınız gönderilemedi.",
+        "Your message could not be sent.",
+        "Ihre Nachricht konnte nicht gesendet werden."
+      ],
+      "content": [
+        "Lütfen daha sonra tekrar deneyin.",
+        "Please try again later.",
+        "Bitte versuchen Sie es später erneut."
+      ],
+      "error": ["Hata: ", "Error: ", "Fehler: "]
+    },
+    "nameTooShort": [
+      "Adınız en az 3 karakter olmalıdır.",
+      "Your name must be at least 3 characters long.",
+      "Ihr Name muss mindestens 3 Zeichen lang sein."
+    ],
+    "messageTooShort": [
+      "Mesajınız en az 10 karakter olmalıdır.",
+      "Your message must be at least 10 characters long.",
+      "Ihre Nachricht muss mindestens 10 Zeichen lang sein."
+    ],
+    "invalidEmail": [
+      "Geçerli bir e-posta adresi girin.",
+      "Enter a valid email address.",
+      "Geben Sie eine gültige E-Mail-Adresse ein."
+    ]
+  },
+
+  "aboutText": {
+    "first": [
+      "FURA Makine Endüstriyel Çözümler Ltd. Şti., 15 yıllık sektör tecrübesinin birikimiyle raylı sistem teknolojileri alanında öncü bir firma olarak öne çıkmaktadır. Uluslararası iş ortaklarımızla birlikte, yüksek kaliteli ve güvenilir ürünler sunarak uzun vadeli müşteri memnuniyeti sağlamayı hedeflemekteyiz.",
+      "FURA Machine Industrial Solutions Ltd. stands out as a leading company in the field of rail systems technology, backed by 15 years of industry experience. Together with our international partners, we aim to provide high-quality and reliable products to ensure long-term customer satisfaction.",
+      "FURA Maschinen Industrielösungen GmbH hebt sich durch 15 Jahre Branchenerfahrung als führendes Unternehmen im Bereich der Bahnsystemtechnologie hervor. Gemeinsam mit unseren internationalen Partnern streben wir an, hochwertige und zuverlässige Produkte anzubieten, um eine langfristige Kundenzufriedenheit sicherzustellen."
+    ],
+    "second": [
+      "Firmamız, raylı sistemler için geniş bir ürün yelpazesi ve sistem çözümleri sunmaktadır. Mühendislik titizliğiyle geliştirilen her bir ürünümüz, sektördeki en son teknolojik yeniliklerle donatılmıştır. Müşterilerimize özelleştirilmiş çözümler sunarak onların ihtiyaçlarını karşılamayı ve projelerini başarıyla tamamlamalarına destek olmayı amaçlıyoruz.",
+      "Our company offers a broad range of products and system solutions for rail systems. Each product, developed with engineering precision, incorporates the latest technological innovations in the industry. We strive to meet our customers' needs and help them successfully complete their projects by offering customized solutions.",
+      "Unser Unternehmen bietet ein breites Produktspektrum und Systemlösungen für Bahnsysteme an. Jedes unserer Produkte wird mit technischer Präzision entwickelt und ist mit den neuesten technologischen Innovationen der Branche ausgestattet. Durch maßgeschneiderte Lösungen unterstützen wir unsere Kunden dabei, ihre Bedürfnisse zu erfüllen und ihre Projekte erfolgreich abzuschließen."
+    ]
+  },
+
+  "notFound": {
+    "message": ["Sayfa Bulunamadı", "Page Not Found", "Seite nicht gefunden"],
+    "goHome": ["Ana sayfaya dön", "Go to homepage", "Zur Startseite gehen"]
+  },
+
+  "cart": {
+    "title": ["Sepet", "Cart", "Warenkorb"],
+    "empty": [
+      "Sepetiniz boş.",
+      "Your cart is empty.",
+      "Ihr Warenkorb ist leer."
+    ],
+    "total": ["Toplam", "Total", "Gesamt"],
+    "checkout": ["Ödeme Yap", "Checkout", "Zur Kasse"],
+    "showCart": ["Sepeti Göster", "Show Cart", "Warenkorb anzeigen"],
+    "add": {
+      "title": [
+        "Ürün sepete eklendi.",
+        "Product added to cart.",
+        "Produkt wurde dem Warenkorb hinzugefügt."
+      ],
+      "toCart": ["Sepete ekle", "Add to Cart", "In den Warenkorb legen"],
+      "ed": [
+        "sepete eklendi.",
+        "added to cart.",
+        "wurde dem Warenkorb hinzugefügt."
+      ]
+    },
+    "remove": {
+      "title": [
+        "Ürün sepetten kaldırıldı.",
+        "Product removed from cart.",
+        "Produkt wurde aus dem Warenkorb entfernt."
+      ],
+      "button": ["Kaldır", "Remove", "Entfernen"],
+      "fromCart": [
+        "Sepetten kaldır",
+        "Remove from Cart",
+        "Aus dem Warenkorb entfernen"
+      ],
+      "ed": [
+        "sepetten kaldırıldı.",
+        "removed from cart.",
+        "wurde aus dem Warenkorb entfernt."
+      ]
+    },
+    "overview": ["Özet", "Overview", "Übersicht"],
+    "subtotal": ["Ara Toplam", "Subtotal", "Zwischensumme"],
+    "itemCount": ["Ürün Adedi", "Item Count", "Artikelanzahl"],
+    "shipping": ["Kargo", "Shipping", "Versand"]
+  },
+
+  "checkout": {
+    "title": ["Ödeme", "Checkout", "Kasse"],
+    "backToCart": ["Sepete geri dön", "Back to Cart", "Zurück zum Warenkorb"],
+    "items": ["Ürünler", "Items", "Artikel"],
+    "customerDetails": ["Müşteri Bilgileri", "Customer Details", "Kundendaten"],
+    "firstName": ["Ad", "First Name", "Vorname"],
+    "firstNamePlaceholder": [
+      "Adınızı girin",
+      "Enter your first name",
+      "Geben Sie Ihren Vornamen ein"
+    ],
+    "lastName": ["Soyad", "Last Name", "Nachname"],
+    "lastNamePlaceholder": [
+      "Soyadınızı girin",
+      "Enter your last name",
+      "Geben Sie Ihren Nachnamen ein"
+    ],
+    "email": ["E-posta", "Email", "E-Mail"],
+    "emailPlaceholder": [
+      "E-posta adresinizi girin",
+      "Enter your email address",
+      "Geben Sie Ihre E-Mail-Adresse ein"
+    ],
+    "phone": ["Telefon", "Phone", "Telefon"],
+    "phonePlaceholder": [
+      "Telefon numaranızı girin",
+      "Enter your phone number",
+      "Geben Sie Ihre Telefonnummer ein"
+    ],
+    "address": ["Adres", "Address", "Adresse"],
+    "addressPlaceholder": [
+      "Adresinizi girin",
+      "Enter your address",
+      "Geben Sie Ihre Adresse ein"
+    ],
+    "city": ["Şehir", "City", "Stadt"],
+    "cityPlaceholder": [
+      "Şehrinizi girin",
+      "Enter your city",
+      "Geben Sie Ihre Stadt ein"
+    ],
+    "postalCode": ["Posta Kodu", "Postal Code", "Postleitzahl"],
+    "postalCodePlaceholder": [
+      "Posta kodunuzu girin",
+      "Enter your postal code",
+      "Geben Sie Ihre Postleitzahl ein"
+    ],
+    "country": ["Ülke", "Country", "Land"],
+    "selectCountry": ["Ülke seçin", "Select country", "Land auswählen"],
+    "messageToSeller": [
+      "Satıcıya Mesaj",
+      "Message to Seller",
+      "Nachricht an den Verkäufer"
+    ],
+    "messageToSellerPlaceholder": [
+      "Satıcıya mesajınızı girin",
+      "Enter your message to the seller",
+      "Geben Sie Ihre Nachricht an den Verkäufer ein"
+    ],
+    "messageToSellerHelp": [
+      "Satıcıya özel bir mesajınız varsa buraya yazabilirsiniz.",
+      "If you have any special message for the seller, you can write it here.",
+      "Wenn Sie eine spezielle Nachricht für den Verkäufer haben, können Sie diese hier schreiben."
+    ],
+    "placeOrder": ["Siparişi Ver", "Place Order", "Bestellung aufgeben"]
+  },
+
+  "currency": ["₺", "$", "€"]
+}

@@ -1,0 +1,8 @@
+.footer-link {
+  color: #ffffff; /* Default link color */
+  transition: color 0.3s ease; /* Smooth transition for color change */
+}
+
+.footer-link:hover {
+  color: #007bff; /* Blue color on hover */
+}
